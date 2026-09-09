@@ -6,6 +6,8 @@ A curated research map of recursive self-improvement: agents that revise their o
 
 **31 first-party blog posts · 29 research papers · 12 active GitHub projects**
 
+Last verified: **2026-09-09**
+
 ## Start Here
 
 | Reading path | What to look for |

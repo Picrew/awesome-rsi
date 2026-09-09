@@ -175,6 +175,8 @@ def render_readmes(catalog: dict[str, Any]) -> tuple[str, str]:
                  "[English](./README.md) | [中文](./README_zh.md)", "",
                  label(f"**{len(blogs)} first-party blog posts · {len(papers)} research papers · {len(projects)} active GitHub projects**",
                        f"**{len(blogs)} 篇一手博客 · {len(papers)} 篇研究论文 · {len(projects)} 个活跃 GitHub 项目**"), "",
+                 label(f"Last verified: **{meta['last_verified']}**",
+                       f"最后核验：**{meta['last_verified']}**"), "",
                  "## Start Here", "",
                  label("| Reading path | What to look for |", "| 阅读路线 | 关注的问题 |"),
                  "| --- | --- |",
