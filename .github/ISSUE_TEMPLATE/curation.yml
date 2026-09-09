@@ -1,0 +1,41 @@
+name: Curation proposal
+description: Suggest a relevant RSI paper, company research post, or implementation.
+title: "[Curation] "
+labels:
+  - curation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please read docs/curation_policy.md before submitting. Relevance and evidence matter more than stars.
+  - type: input
+    id: url
+    attributes:
+      label: Canonical URL
+      description: Link to the original blog, paper, or GitHub repository.
+      placeholder: https://...
+    validations:
+      required: true
+  - type: textarea
+    id: mechanism
+    attributes:
+      label: Improvement mechanism
+      description: What changes, what feedback is used, what is updated, and what persists?
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: Limitations and evidence
+      description: Include a primary-source excerpt and the strongest caveat.
+    validations:
+      required: true
+  - type: checkboxes
+    id: policy
+    attributes:
+      label: Checklist
+      options:
+        - label: I checked that this is not generic agent infrastructure or a normal tool-use loop.
+          required: true
+        - label: I included a primary source rather than relying on a search snippet.
+          required: true

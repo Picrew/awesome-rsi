@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Python cache / virtual env
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Local temp files
+*.log
+*.tmp
+*.swp
+
+# Optional local verification drafts
+reports/verification/*.local.md
+reports/xhs/
+
+# Markdown-first repo:
+# ignore accidental source files outside controlled script/data folders.
+*.js
+*.ts
+*.tsx
+*.go
+*.rs
+*.java
+*.c
+*.cpp
+*.ipynb
+*.sh
+*.py
+!scripts/*.py
+!tests/*.py

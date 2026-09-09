@@ -1,0 +1,244 @@
+reviewed_at: '2026-09-08'
+method: Original publisher pages and blog indices retrieved through read-only HTTP; dates are visible article dates unless date_evidence_url is specified.
+entries:
+- name: Introducing Sakana AI's Recursive Self-Improvement (RSI) Lab
+  repo_url: https://sakana.ai/rsi-lab/
+  publisher: Sakana AI
+  published_at: '2026-06-05'
+  date_evidence_url: https://sakana.ai/blog/
+  scope: research-agenda
+  improvement_target: Harness
+  blog_section: agenda
+  priority: 1
+  summary_en: Maps a proposed loop from agent-native models to AI scientists that build better models, grounded in DGM, LLM-Squared, ShinkaEvolve and adversarial co-evolution.
+  summary_zh: 以 DGM、LLM-Squared、ShinkaEvolve 和对抗共进化为基础，提出从代理原生模型到 AI 科学家、再到更好模型的闭环研究路线。
+  limitation_en: A research agenda and lineage map, not evidence that the complete autonomous model-improvement cycle has already been achieved.
+  limitation_zh: 这是研究路线与工作谱系，不代表完整自主模型改进闭环已经实现。
+  rsi_mechanism:
+    target: Proposed AI model-development process
+    feedback: Proposed benchmarked and verified agent/model improvements
+    update: AI scientists would improve agent-native models and their architectures
+    persistence: Improved models would power subsequent AI scientists; full loop remains a stated goal
+  evidence_excerpt: the AI Scientist, in turn, builds better Agent-Native Models
+  tags: [rsi-agenda, ai-for-ai, self-modification]
+- name: Can LLMs invent better ways to train LLMs?
+  repo_url: https://sakana.ai/llm-squared/
+  publisher: Sakana AI
+  published_at: '2024-06-13'
+  scope: bounded-optimization
+  improvement_target: Models
+  blog_section: mechanisms
+  priority: 3
+  summary_en: LLM-Squared proposes preference-loss code, trains models with each candidate, and feeds downstream scores into the next proposal; the loop discovered DiscoPOP.
+  summary_zh: LLM-Squared 提出偏好损失代码、用候选损失训练模型，再将下游分数反馈给下一轮提案；该闭环发现了 DiscoPOP。
+  limitation_en: The proposer is fixed; feeding an improved model back into its own research process is discussed as future work, not a demonstrated result.
+  limitation_zh: 提案模型保持固定；将改进后的模型用于自身研究过程仍是未来方向，而非已证明结果。
+  rsi_mechanism:
+    target: LLM preference-optimization loss functions
+    feedback: Downstream performance after inner-loop training
+    update: Propose and execute new loss code informed by earlier scores
+    persistence: Evaluated loss functions and results are appended to later proposal context
+  evidence_excerpt: Finally, we update the context of the LLM with the results from the newly evaluated performance.
+  tags: [ai-for-ai, loss-discovery, discopop]
+- name: 'Digital Red Queen: Adversarial Program Evolution in Core War with LLMs'
+  repo_url: https://sakana.ai/drq/
+  publisher: Sakana AI
+  published_at: '2026-01-08'
+  scope: bounded-optimization
+  improvement_target: Artifacts
+  blog_section: mechanisms
+  priority: 5
+  summary_en: Evolves Core War programs against a growing history of predecessors; changing opponents supply selection pressure and retained programs shape subsequent evolution.
+  summary_zh: 让 Core War 程序针对不断增长的历史对手进化；变化的对手提供选择压力，保留程序继续影响后续进化。
+  limitation_en: Program co-evolution in a controlled virtual machine does not demonstrate autonomous improvement of the underlying LLM or real-world security capability.
+  limitation_zh: 受控虚拟机中的程序共进化不代表底层 LLM 自主改进，也不证明现实网络安全能力。
+  rsi_mechanism:
+    target: Redcode warrior programs
+    feedback: Competitive outcomes against predecessor programs
+    update: LLM-guided evolution searches for a successor against accumulated opponents
+    persistence: Each selected warrior joins the opponent lineage for future rounds
+  evidence_excerpt: This process produces a lineage of warriors, each adapted to a changing environment defined by all of its predecessors.
+  tags: [coevolution, adversarial, program-evolution]
+- name: 'Population-based Model Merging via Quality Diversity'
+  repo_url: https://sakana.ai/cycleqd/
+  publisher: Sakana AI
+  published_at: '2024-12-03'
+  scope: bounded-optimization
+  improvement_target: Models
+  blog_section: mechanisms
+  priority: 8
+  summary_en: CycleQD cycles which task defines quality, crosses and mutates expert models, and retains diverse high-performing models in skill archives for further evolution.
+  summary_zh: CycleQD 轮换用于定义质量的任务，对专家模型进行交叉与变异，并在技能档案中保留多样的高性能模型供后续进化。
+  limitation_en: The tasks, starting experts and quality-diversity algorithm are human-specified; model merging is not gradient self-training or self-rewriting optimization.
+  limitation_zh: 任务、初始专家和质量多样性算法由人设定；模型合并不等于梯度自训练或优化器自改写。
+  rsi_mechanism:
+    target: Expert-model weights and a diverse model population
+    feedback: Task performance alternates as quality and behavior characteristics
+    update: Model crossover and mutation generate candidate experts
+    persistence: High-quality candidates replace archive cells and become later parents
+  evidence_excerpt: by repeatedly applying crossover and mutation based on these models, we add high-quality models to the collection box.
+  tags: [model-merging, quality-diversity, population]
+- name: 'Evolving New Foundation Models: Unleashing the Power of Automating Model Development'
+  repo_url: https://sakana.ai/evolutionary-model-merge/
+  publisher: Sakana AI
+  published_at: '2024-03-21'
+  scope: bounded-optimization
+  improvement_target: Models
+  blog_section: mechanisms
+  priority: 9
+  summary_en: Evolves layer-selection and weight-mixing recipes over successive generations, selecting merged models by task fitness and assessing the selected model on a separate test set.
+  summary_zh: 跨多代进化层选择与权重混合配方，按任务适应度选择合并模型，再在独立测试集评估最终模型。
+  limitation_en: Evolution searches a human-defined merge space of pretrained models; it does not establish an LLM autonomously rewriting its training algorithm.
+  limitation_zh: 进化搜索的是人工定义的预训练模型合并空间，并未证明 LLM 能自主改写自身训练算法。
+  rsi_mechanism:
+    target: Model merge recipes in parameter and data-flow spaces
+    feedback: Training-domain task fitness with separate final test evaluation
+    update: Evolutionary selection searches layer combinations and weight ratios
+    persistence: Winning recipes and models seed subsequent generations
+  evidence_excerpt: only the fittest (the models who score highest in the population on the Japanese math training set) will survive, to repopulate the next generation
+  tags: [model-merging, neuroevolution, ai-for-ai]
+- name: 'The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery'
+  repo_url: https://sakana.ai/ai-scientist/
+  publisher: Sakana AI
+  published_at: '2024-08-13'
+  scope: bounded-optimization
+  improvement_target: Artifacts
+  blog_section: mechanisms
+  priority: 7
+  summary_en: Describes idea generation, code experiments, paper writing and automated reviewing; saved reviews and experiments inform revisions and future research ideas.
+  summary_zh: 描述想法生成、代码实验、论文写作与自动审稿；保留的评审和实验结果用于修订及后续研究想法。
+  limitation_en: Flawed comparisons and self-review remain risks; accidental execution-script modification is a safety failure, not evidence of beneficial RSI.
+  limitation_zh: 不公平比较和自评仍是风险；意外修改执行脚本属于安全失败，不能当作有益 RSI 的证据。
+  rsi_mechanism:
+    target: Research ideas, experiment code and manuscripts
+    feedback: Experiment results and automated peer reviews
+    update: Revise research artifacts and generate subsequent ideas from feedback
+    persistence: Prior ideas, results and reviews inform future generations
+  evidence_excerpt: The generated reviews can be used to either improve the project or as feedback to future generations for open-ended ideation.
+  tags: [ai-scientist, research-loop, evaluation]
+- name: 'AI CUDA Engineer update: robust benchmarking and interim results'
+  original_title: 'AI CUDA Engineer続報：堅牢なベンチマークの構築と中間報告'
+  repo_url: https://sakana.ai/ai-cuda-engineer-update/
+  publisher: Sakana AI
+  published_at: '2025-09-17'
+  scope: safety-evaluation
+  improvement_target: Artifacts
+  blog_section: safety
+  priority: 1
+  summary_en: Corrects kernel-optimization claims after benchmark bypasses; robust-kbench reduces reported mean speedup from 3.13x to 1.49x under stricter measurement.
+  summary_zh: 在发现绕过基准的问题后修正内核优化结论；更严格的 robust-kbench 将报告的平均加速从 3.13 倍降为 1.49 倍。
+  limitation_en: A negative-results and measurement lesson for improvement loops, not a new self-improving agent; the original update is in Japanese.
+  limitation_zh: 这是改进闭环的负面结果与测量教训，不是新的自改进代理；原文为日语。
+  rsi_mechanism:
+    target: Validity of evolved CUDA-kernel artifacts
+    feedback: Robust correctness and speed measurements reveal benchmark shortcuts
+    update: Researchers harden the evaluator and re-evaluate previously generated kernels
+    persistence: Corrected benchmark constrains future optimization claims, not a demonstrated autonomous update
+  evidence_excerpt: 平均値は、当初発表した3.13倍から1.49倍へと減少しました
+  tags: [reward-hacking, evaluation, negative-results]
+- name: 'SIMA 2: An Agent that Plays, Reasons, and Learns With You in Virtual 3D Worlds'
+  repo_url: https://deepmind.google/blog/sima-2-an-agent-that-plays-reasons-and-learns-with-you-in-virtual-3d-worlds/
+  publisher: Google DeepMind
+  published_at: '2025-11-13'
+  scope: self-training
+  improvement_target: Models
+  blog_section: mechanisms
+  priority: 2
+  summary_en: Gemini supplies tasks and estimated rewards; SIMA 2 accumulates self-generated experience and trains subsequent agent generations, including in new game and Genie environments.
+  summary_zh: Gemini 提供任务与估计奖励；SIMA 2 积累自产经验并训练后续代理代，覆盖新游戏与 Genie 生成环境。
+  limitation_en: Initial training uses human demonstrations and later rewards rely on Gemini; the research preview is not unconstrained self-improvement of Gemini itself.
+  limitation_zh: 初始训练使用人工示范，后续奖励依赖 Gemini；研究预览并不是 Gemini 自身的无约束自改进。
+  rsi_mechanism:
+    target: Embodied agent model behavior and weights
+    feedback: Gemini-generated tasks and estimated rewards from gameplay
+    update: Train subsequent SIMA generations on self-directed experience
+    persistence: A bank of self-generated experience feeds future training generations
+  evidence_excerpt: This information is then added to a bank of self-generated experience, which the agent uses for further training in subsequent generations.
+  tags: [self-training, embodied-agents, generated-experience]
+- name: 'RoboCat: A self-improving robotic agent'
+  repo_url: https://deepmind.google/blog/robocat-a-self-improving-robotic-agent/
+  publisher: Google DeepMind
+  published_at: '2023-06-20'
+  scope: self-training
+  improvement_target: Models
+  blog_section: mechanisms
+  priority: 7
+  summary_en: Fine-tunes a task-specific spin-off, collects its practice trajectories, merges them with demonstrations and retrains a generalist RoboCat version for later tasks.
+  summary_zh: 微调任务专用分支、收集其练习轨迹，再与示范合并以重训通用 RoboCat，使其学习后续任务。
+  limitation_en: Each new task begins with 100–1000 human demonstrations; the training procedure and robot interfaces remain human-designed.
+  limitation_zh: 每个新任务仍以 100–1000 条人工示范开始，训练过程与机器人接口由人设计。
+  rsi_mechanism:
+    target: Generalist robot-policy weights
+    feedback: Task practice trajectories and demonstration supervision
+    update: Train specialized spin-offs, gather their data, then train a new generalist
+    persistence: Self-generated data expands the dataset used by later RoboCat versions
+  evidence_excerpt: Incorporate the demonstration data and self-generated data into RoboCat’s existing training dataset.
+  tags: [self-training, robotics, data-loop]
+- name: 'AlphaEvolve: How our Gemini-powered coding agent is scaling impact across fields'
+  repo_url: https://deepmind.google/blog/alphaevolve-impact/
+  publisher: Google DeepMind
+  published_at: '2026-05-07'
+  scope: bounded-optimization
+  improvement_target: Artifacts
+  blog_section: mechanisms
+  priority: 3
+  summary_en: Reports follow-up applications of evaluated code evolution to model components, training efficiency, cache policies and TPU circuits, with concrete AI-development feedback paths.
+  summary_zh: 报告评测驱动代码进化在模型组件、训练效率、缓存策略和 TPU 电路中的后续应用，展示具体 AI 开发反馈路径。
+  limitation_en: Deployment case studies and publisher-reported gains do not demonstrate a fully closed cycle that retrains and improves the Gemini proposer itself.
+  limitation_zh: 部署案例与发布方报告的收益不代表已经闭合了重训并改进 Gemini 提案模型自身的循环。
+  rsi_mechanism:
+    target: Algorithms and AI-infrastructure components
+    feedback: Application-specific correctness, efficiency and quality metrics
+    update: AlphaEvolve searches program variants from earlier successful candidates
+    persistence: Selected artifacts are deployed or reused as the basis for later search
+  evidence_excerpt: AlphaEvolve has been used as a regular tool to optimize the design of the next generation of TPUs
+  tags: [ai-for-ai, algorithm-discovery, deployment]
+- name: 'FunSearch: Making new discoveries in mathematical sciences using Large Language Models'
+  repo_url: https://deepmind.google/blog/funsearch-making-new-discoveries-in-mathematical-sciences-using-large-language-models/
+  publisher: Google DeepMind
+  published_at: '2023-12-14'
+  scope: bounded-optimization
+  improvement_target: Artifacts
+  blog_section: mechanisms
+  priority: 8
+  summary_en: Samples earlier high-scoring programs, asks a fixed LLM for improvements, executes candidates, and returns the best programs to a population for future search.
+  summary_zh: 采样已有高分程序，要求固定 LLM 生成改进，执行候选并将最佳程序放回种群用于后续搜索。
+  limitation_en: The evaluator and seed program are user-supplied; the model weights and improvement algorithm are not recursively rewritten.
+  limitation_zh: 评测器和种子程序由用户提供，模型权重与改进算法并不会被递归改写。
+  rsi_mechanism:
+    target: Executable mathematical and optimization programs
+    feedback: Program execution against a user-defined evaluator
+    update: LLM mutations and fitness-based selection
+    persistence: Best programs re-enter the database and condition later generations
+  evidence_excerpt: The best ones are added back to the pool of existing programs, creating a self-improving loop.
+  tags: [program-evolution, population, verified-feedback]
+- name: Accelerating scientific breakthroughs with an AI co-scientist
+  repo_url: https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/
+  publisher: Google Research
+  published_at: '2025-02-19'
+  scope: bounded-optimization
+  improvement_target: Artifacts
+  blog_section: mechanisms
+  priority: 9
+  summary_en: Generation, reflection, ranking, evolution and meta-review agents iteratively revise scientific hypotheses using tournament feedback and researcher input.
+  summary_zh: 生成、反思、排名、进化和元评审代理利用锦标赛反馈与研究者输入，迭代修订科学假设。
+  limitation_en: Elo is a self-evaluation signal rather than independent ground truth; laboratory validation uses expert guidance, and model weights remain fixed.
+  limitation_zh: Elo 是自评信号而非独立真值；实验室验证仍有人类专家指导，模型权重保持固定。
+  rsi_mechanism:
+    target: Scientific hypotheses and experimental proposals
+    feedback: Ranking tournaments, meta-reviews and scientist input
+    update: Evolution agents revise and combine hypotheses
+    persistence: Retained hypotheses and reviews inform subsequent generations within a research objective
+  evidence_excerpt: The Elo is an auto-evaluation and is not based on an independent ground truth.
+  tags: [scientific-discovery, hypothesis-evolution, self-evaluation]
+excluded:
+- url: https://sakana.ai/learning-to-orchestrate/
+  reason: Conductor RL learns orchestration, but recursive test-time self-calls do not by themselves retain improvements across runs; insufficient additional RSI specificity for the main blog selection.
+- url: https://sakana.ai/transformer-squared/
+  reason: Adaptive composition of pretrained SVF experts is valuable but not an established repeated self-improvement loop; future living-intelligence language must not be treated as a demonstrated result.
+- url: https://sakana.ai/coffee-bench/
+  reason: Long-horizon multi-agent behavior benchmark without a specific retained RSI mechanism; not added just for benchmark coverage.
+- url: https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/
+  reason: Later broad application update overlaps original co-scientist mechanism article; original technical explanation selected instead.
+- url: https://sakana.ai/ai-cuda-engineer-post-mortem/
+  reason: Reprints a newspaper interview; selected the later first-party technical benchmark correction instead.

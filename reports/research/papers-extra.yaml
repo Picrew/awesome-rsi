@@ -1,0 +1,384 @@
+research:
+  title: Additional RSI Paper Research
+  reviewed_at: '2026-09-08'
+  record_count: 10
+  purpose: Ten additional papers, separate from the 27-paper initial inventory and from active GitHub entries.
+  evidence_policy: First-version dates and exact titles were read from canonical arXiv abstracts. Venues are populated only when an author-linked README explicitly states them. Null venue does not mean rejected or unpublished.
+  code_policy: Official code linkage is supported by paper/project/author README; no recent push requirement. Partial or associated releases do not certify replication of every experiment.
+  publication_status_policy: published denotes explicitly verified conference/workshop status; preprint denotes an available arXiv paper whose formal venue was not independently verified here, not a claim of no later publication.
+  retrieval: web_fetch DNS failure followed by successful read-only urllib retrieval of arXiv abstracts/HTML and raw GitHub author READMEs. No delegates, catalog or script edits.
+papers:
+- id: ace
+  kind: paper
+  name: 'Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models'
+  alias: ACE
+  repo_url: https://arxiv.org/abs/2510.04618
+  arxiv_id: '2510.04618'
+  category: Papers / Artifacts
+  improvement_target: Artifacts
+  scope: experience-learning
+  published_at: '2025-10-06'
+  date_evidence_url: https://arxiv.org/abs/2510.04618
+  venue: null
+  publication_status: preprint
+  venue_evidence_url: null
+  code_url: https://github.com/ace-agent/ace
+  code_status: official
+  code_evidence_url: https://github.com/ace-agent/ace/blob/main/README.md
+  code_evidence_excerpt: If you use ACE in your research, please cite our paper
+  code_note_en: The author-linked repository documents Generator, Reflector and Curator roles, incremental delta updates, saved playbooks and evaluation modes; no weight training is implied.
+  code_note_zh: 作者关联仓库记录生成者、反思者与整理者角色、增量更新、保存的 playbook 和评测模式；不涉及权重训练的暗示。
+  summary_en: Treats context as a persistent evolving playbook; execution feedback is reflected into structured incremental updates that retain, refine and organize strategies across later tasks.
+  summary_zh: 将上下文视为持久进化的 playbook，把执行反馈反思为结构化增量更新，以在后续任务中保留、修订和组织策略。
+  limitation_en: Context adaptation is not model-weight learning; reported gains depend on task feedback and a fixed generation/reflection/curation architecture, with offline and online evaluation distinguished.
+  limitation_zh: 上下文适配不等于模型权重学习；收益依赖任务反馈和固定的生成、反思、整理架构，离线与在线评测应区分。
+  tags: [context-evolution, playbook, experience-learning]
+  reviewed_at: '2026-09-08'
+  evidence_url: https://arxiv.org/abs/2510.04618
+  evidence_excerpt: contexts as evolving playbooks that accumulate, refine, and organize strategies through a modular process of generation, reflection, and curation
+  why_included: Explicit retained context-update loop rather than generic memory storage; official implementation saves intermediate and best playbooks with helpful/harmful counters.
+  rsi_mechanism:
+    target: Structured context/playbook artifacts
+    feedback: Execution results and reflected helpful/harmful evidence
+    update: Generator trajectories produce reflections that the Curator merges as incremental deltas
+    persistence: Saved playbooks and counters condition subsequent tasks and adaptation rounds
+- id: seal
+  kind: paper
+  name: Self-Adapting Language Models
+  alias: SEAL
+  repo_url: https://arxiv.org/abs/2506.10943
+  arxiv_id: '2506.10943'
+  category: Papers / Models
+  improvement_target: Models
+  scope: self-training
+  published_at: '2025-06-12'
+  date_evidence_url: https://arxiv.org/abs/2506.10943
+  venue: null
+  publication_status: preprint
+  venue_evidence_url: null
+  code_url: https://github.com/Continual-Intelligence/SEAL
+  code_status: official
+  code_evidence_url: https://github.com/Continual-Intelligence/SEAL/blob/main/README.md
+  code_evidence_excerpt: https://arxiv.org/abs/2506.10943
+  code_note_en: The paper links its author project page, and the matching official repository links the same paper and page. The canonical repository is Continual-Intelligence/SEAL.
+  code_note_zh: 论文链接作者项目页，匹配的官方仓库链接同一论文与项目页；规范仓库为 Continual-Intelligence/SEAL。
+  summary_en: The model generates self-edits containing finetuning data or update directives; SFT makes persistent weight changes, and downstream performance trains better self-edit generation through an outer RL loop.
+  summary_zh: 模型生成包含微调数据或更新指令的自编辑内容；SFT 产生持久权重变化，下游性能通过外层 RL 循环训练更好的自编辑生成能力。
+  limitation_en: Self-edits control adaptation within a researcher-designed SFT/RL framework; experiments on knowledge incorporation and few-shot generalization do not prove unrestricted self-redesign.
+  limitation_zh: 自编辑在研究者设计的 SFT/RL 框架内控制适配；知识吸收与少样本泛化实验不能证明无约束的自主重设计。
+  tags: [self-adaptation, weight-updates, meta-learning]
+  reviewed_at: '2026-09-08'
+  evidence_url: https://arxiv.org/abs/2506.10943
+  evidence_excerpt: these self-edits result in persistent weight updates, enabling lasting adaptation
+  why_included: Strong model-level feedback loop in which the model's own generated adaptation instructions cause weight updates and are optimized using the adapted model's performance.
+  rsi_mechanism:
+    target: Model parameters and self-edit generation behavior
+    feedback: Downstream performance of the model after applying its generated edit
+    update: Generate adaptation data/directives, apply SFT, and reinforce edits with favorable downstream effects
+    persistence: Adapted weights persist; the outer RL loop improves subsequent edit generation
+- id: sica
+  kind: paper
+  name: A Self-Improving Coding Agent
+  alias: SICA
+  repo_url: https://arxiv.org/abs/2504.15228
+  arxiv_id: '2504.15228'
+  category: Papers / Harness
+  improvement_target: Harness
+  scope: self-modification
+  published_at: '2025-04-21'
+  date_evidence_url: https://arxiv.org/abs/2504.15228
+  venue: ICLR 2025 Workshop on Scaling Self-Improving Foundation Models
+  publication_status: published
+  venue_type: workshop
+  venue_evidence_url: https://github.com/MaximeRobeyns/self_improving_coding_agent/blob/master/README.md
+  venue_evidence_excerpt: booktitle={ICLR 2025 Workshop on Scaling Self-Improving Foundation Models}
+  official_venue_link: https://openreview.net/forum?id=rShJCyLsOr
+  code_url: https://github.com/MaximeRobeyns/self_improving_coding_agent
+  code_status: official
+  code_evidence_url: https://arxiv.org/html/2504.15228v1
+  code_evidence_excerpt: We make our code available at https://github.com/MaximeRobeyns/self_improving_coding_agent.
+  code_note_en: The official repository uses the master branch; a main-branch README request returns 404. Its citation explicitly identifies a workshop, not the ICLR main conference track.
+  code_note_zh: 官方仓库使用 master 分支，main 分支 README 请求返回 404；引用明确指向 workshop，而不是 ICLR 主会。
+  summary_en: Evaluates the current coding agent, archives results, runs that same agent on its own codebase to implement an improvement, and evaluates the updated implementation again.
+  summary_zh: 评测当前编码代理并归档结果，再让该代理修改自身代码实现改进，随后重新评测更新后的实现。
+  limitation_en: Non-gradient scaffold learning uses fixed LLM weights; gains on a sampled SWE-bench Verified subset and other benchmarks do not establish unlimited progress or whole-benchmark state of the art.
+  limitation_zh: 非梯度脚手架学习使用固定 LLM 权重；在抽样 SWE-bench Verified 子集等基准上的提升不代表无限进步或整个基准的最优表现。
+  tags: [self-modification, coding-agent, workshop]
+  reviewed_at: '2026-09-08'
+  evidence_url: https://arxiv.org/abs/2504.15228
+  evidence_excerpt: an agent system, equipped with basic coding tools, can autonomously edit itself, and thereby improve its performance on benchmark tasks
+  why_included: The same agent solves coding tasks and edits its own full codebase; this is direct self-modification rather than a fixed external meta-agent only optimizing a target agent.
+  rsi_mechanism:
+    target: Coding-agent source implementation
+    feedback: Benchmark results for each current agent version
+    update: Run the agent against its own codebase and retain an updated version for evaluation
+    persistence: Versioned agent code, archive results and improvement traces feed the next loop
+- id: godel-agent
+  kind: paper
+  name: 'Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement'
+  canonical_title_note: The arXiv citation meta tag spells the diacritic as TeX G\"odel; this record renders it as Gödel.
+  alias: Gödel Agent
+  repo_url: https://arxiv.org/abs/2410.04444
+  arxiv_id: '2410.04444'
+  category: Papers / Harness
+  improvement_target: Harness
+  scope: self-modification
+  published_at: '2024-10-06'
+  date_evidence_url: https://arxiv.org/abs/2410.04444
+  venue: null
+  publication_status: preprint
+  venue_evidence_url: null
+  code_url: https://github.com/Arvid-pku/Godel_Agent
+  code_status: official
+  code_evidence_url: https://arxiv.org/abs/2410.04444
+  code_evidence_excerpt: https://github.com/Arvid-pku/Godel_Agent
+  code_note_en: The canonical abstract links the repository, whose README links the same paper. No verified formal-proof implementation or conference venue is inferred from the name.
+  code_note_zh: 规范摘要链接该仓库，仓库 README 回链同一论文；不依据名称推断形式证明实现或会议归属。
+  summary_en: Uses LLM-generated changes to recursively revise the agent's own logic and behavior under high-level objectives rather than limiting changes to a predefined task-agent pipeline.
+  summary_zh: 根据高层目标利用 LLM 生成修改，递归修订代理自身逻辑与行为，而非仅在预定义任务代理流水线中调整。
+  limitation_en: Inspired by the Gödel machine but supported by empirical task evaluations, not proofs that all rewrites are beneficial or that the whole agent-design space is optimally searched.
+  limitation_zh: 受 Gödel machine 启发，但依据的是实证任务评测，不是所有改写有益或整个代理设计空间得到最优搜索的证明。
+  tags: [self-reference, self-modification, agent-design]
+  reviewed_at: '2026-09-08'
+  evidence_url: https://arxiv.org/abs/2410.04444
+  evidence_excerpt: dynamically modify its own logic and behavior, guided solely by high-level objectives through prompting
+  why_included: Explicitly targets editable agent logic and recursive self-revision; limitations prevent conflating the empirical framework with a provably optimal Gödel machine.
+  rsi_mechanism:
+    target: Agent logic and behavioral implementation
+    feedback: Performance against high-level objectives on reasoning and agent tasks
+    update: LLM-driven revisions of the agent's own logic and behavior
+    persistence: Revised implementations participate in subsequent self-improvement attempts
+- id: rest-mcts
+  kind: paper
+  name: 'ReST-MCTS*: LLM Self-Training via Process Reward Guided Tree Search'
+  alias: ReST-MCTS*
+  repo_url: https://arxiv.org/abs/2406.03816
+  arxiv_id: '2406.03816'
+  category: Papers / Models
+  improvement_target: Models
+  scope: self-training
+  published_at: '2024-06-06'
+  date_evidence_url: https://arxiv.org/abs/2406.03816
+  venue: null
+  publication_status: preprint
+  venue_evidence_url: null
+  code_url: https://github.com/THUDM/ReST-MCTS
+  code_status: official
+  code_evidence_url: https://arxiv.org/abs/2406.03816
+  code_evidence_excerpt: We release all code at https://github.com/THUDM/ReST-MCTS.
+  code_note_en: Official README documents policy/value-model synthetic-data generation and iterative training. Presence of code is not independent replication of every reported result.
+  code_note_zh: 官方 README 记录策略和价值模型的合成数据生成与迭代训练；有代码不代表独立复现所有报告结果。
+  summary_en: Uses process-reward-guided tree search to infer step values from correct final answers, then trains both the policy and process reward model on selected traces across multiple iterations.
+  summary_zh: 用过程奖励引导的树搜索根据正确终局答案推断步骤价值，再在多轮迭代中利用所选轨迹训练策略模型和过程奖励模型。
+  limitation_en: Removes per-step manual annotation, not oracle final-answer supervision; externally designed search and reward-learning rules remain fixed.
+  limitation_zh: 消除的是逐步人工标注，而不是正确终局答案监督；搜索与奖励学习规则仍由外部固定设计。
+  tags: [self-training, process-reward, tree-search]
+  reviewed_at: '2026-09-08'
+  evidence_url: https://arxiv.org/abs/2406.03816
+  evidence_excerpt: they act as value targets for further refining the process reward model and also facilitate the selection of high-quality traces for policy model self-training
+  why_included: Unlike generic tree-search inference, this method explicitly feeds searched traces and step values back into both model-training pathways repeatedly.
+  rsi_mechanism:
+    target: Policy model and process reward model parameters
+    feedback: Tree-search estimates of reaching an oracle correct final answer
+    update: Train process rewards on inferred step values and policies on selected reasoning traces
+    persistence: Updated policy/reward models guide the next search and self-training iteration
+- id: sppo
+  kind: paper
+  name: Self-Play Preference Optimization for Language Model Alignment
+  alias: SPPO
+  repo_url: https://arxiv.org/abs/2405.00675
+  arxiv_id: '2405.00675'
+  category: Papers / Models
+  improvement_target: Models
+  scope: self-training
+  published_at: '2024-05-01'
+  date_evidence_url: https://arxiv.org/abs/2405.00675
+  venue: ICLR 2025
+  publication_status: published
+  venue_evidence_url: https://github.com/uclaml/SPPO/blob/main/README.md
+  venue_evidence_excerpt: SPPO has been accepted by ICLR2025!
+  code_url: https://github.com/uclaml/SPPO
+  code_status: official
+  code_evidence_url: https://arxiv.org/abs/2405.00675
+  code_evidence_excerpt: Codes are available at https://github.com/uclaml/SPPO.
+  code_note_en: The official repository explicitly provides code and released models; PairRM is an external pretrained preference model, not the policy learning to judge itself.
+  code_note_zh: 官方仓库明确提供代码与模型；PairRM 是外部预训练偏好模型，而非策略学习自我评判。
+  summary_en: Treats alignment as a constant-sum two-player game and repeatedly updates the policy against its own generated responses using preference probabilities to approach a Nash equilibrium.
+  summary_zh: 将对齐视为常和双人博弈，依据偏好概率针对自身生成回答反复更新策略，以逼近 Nash 均衡。
+  limitation_en: Experiments use prompts and a pretrained PairRM judge; the equilibrium guarantee concerns the specified preference game, not unbounded capability growth or self-improving evaluation.
+  limitation_zh: 实验使用提示数据与预训练 PairRM 评判者；均衡保证针对指定偏好博弈，不代表无限能力增长或评测机制自改进。
+  tags: [self-play, preference-optimization, alignment]
+  reviewed_at: '2026-09-08'
+  evidence_url: https://arxiv.org/abs/2405.00675
+  evidence_excerpt: Self-Play Preference Optimization (SPPO), utilizes iterative policy updates to provably approximate the Nash equilibrium
+  why_included: Direct repeated policy updates from self-play-generated comparisons, distinguished from self-rewarding methods because the preference judge is externally pretrained.
+  rsi_mechanism:
+    target: Aligned language-model policy weights
+    feedback: Preference probabilities from a pretrained comparison model
+    update: Optimize the SPPO objective against current-policy self-play samples
+    persistence: Updated policy generates responses and defines the next iterative opponent
+- id: opro
+  kind: paper
+  name: Large Language Models as Optimizers
+  alias: OPRO
+  repo_url: https://arxiv.org/abs/2309.03409
+  arxiv_id: '2309.03409'
+  category: Papers / Harness
+  improvement_target: Harness
+  scope: bounded-optimization
+  published_at: '2023-09-07'
+  date_evidence_url: https://arxiv.org/abs/2309.03409
+  venue: null
+  publication_status: preprint
+  venue_evidence_url: null
+  code_url: https://github.com/google-deepmind/opro
+  code_status: official
+  code_evidence_url: https://arxiv.org/abs/2309.03409
+  code_evidence_excerpt: Code at https://github.com/google-deepmind/opro.
+  code_note_en: Official research code, not a supported Google product; no conference venue was verified from its README.
+  code_note_zh: 属于官方研究代码，而非 Google 支持的产品；README 未提供本次可核实的会议归属。
+  summary_en: Prompts an LLM with previously proposed solutions and their objective values, evaluates new candidates and feeds the scored history back into later optimization, especially for instructions.
+  summary_zh: 把先前候选解及其目标值放入提示，评测 LLM 提出的新候选，再把带分数的历史反馈到后续优化，主要应用于指令优化。
+  limitation_en: The optimizer model and scoring task remain fixed; iterative prompt search does not itself improve the LLM's weights or rewrite the optimizer.
+  limitation_zh: 优化器模型与评分任务保持固定；迭代提示搜索本身不改进 LLM 权重或改写优化器。
+  tags: [prompt-optimization, black-box-search, feedback]
+  reviewed_at: '2026-09-08'
+  evidence_url: https://arxiv.org/abs/2309.03409
+  evidence_excerpt: the new solutions are evaluated and added to the prompt for the next optimization step
+  why_included: A foundational bounded feedback-to-prompt optimization loop that makes persistence through scored history explicit, not generic one-shot prompting.
+  rsi_mechanism:
+    target: Instructions/prompts or other candidate solutions
+    feedback: Objective values such as downstream task accuracy
+    update: LLM proposes new candidates conditioned on scored prior solutions
+    persistence: Evaluated solution history is retained in the next optimization prompt
+- id: evoagentx-paper
+  kind: paper
+  name: 'EvoAgentX: An Automated Framework for Evolving Agentic Workflows'
+  alias: EvoAgentX
+  repo_url: https://arxiv.org/abs/2507.03616
+  arxiv_id: '2507.03616'
+  category: Papers / Harness
+  improvement_target: Harness
+  scope: bounded-optimization
+  published_at: '2025-07-04'
+  date_evidence_url: https://arxiv.org/abs/2507.03616
+  venue: null
+  publication_status: preprint
+  venue_evidence_url: null
+  code_url: https://github.com/ANative-Lab/EvoAgentX
+  code_status: official
+  code_evidence_url: https://arxiv.org/abs/2507.03616
+  code_evidence_excerpt: 'The source code is available at: https://github.com/EvoAgentX/EvoAgentX'
+  code_note_en: The paper's EvoAgentX/EvoAgentX URL redirects to ANative-Lab/EvoAgentX; the current README retains the exact paper citation. This is a framework integration paper, not a new independent optimizer for every component.
+  code_note_zh: 论文中的 EvoAgentX/EvoAgentX 重定向到 ANative-Lab/EvoAgentX，当前 README 保留准确论文引用；这是框架集成论文，不代表每个组件都是独立新优化器。
+  summary_en: Integrates TextGrad, AFlow and MIPRO into a modular workflow-generation, execution and evaluation platform that repeatedly refines prompts, tool configurations and workflow topology.
+  summary_zh: 将 TextGrad、AFlow 与 MIPRO 整合进模块化工作流生成、执行与评测平台，反复修订提示、工具配置和工作流拓扑。
+  limitation_en: Included for the explicit evolving layer, not generic multi-agent orchestration; fixed integrated optimizers and benchmarks do not establish self-rewriting improvement machinery.
+  limitation_zh: 因明确的进化层收录，而非一般多代理编排；固定的集成优化器与基准不能证明改进机制会改写自身。
+  tags: [workflow-evolution, optimizer-integration, evaluation]
+  reviewed_at: '2026-09-08'
+  evidence_url: https://arxiv.org/abs/2507.03616
+  evidence_excerpt: iteratively refine agent prompts, tool configurations, and workflow topologies
+  why_included: Documents a concrete evaluated implementation of repeated workflow updates, with careful distinction from the underlying optimization papers already listed separately.
+  rsi_mechanism:
+    target: Agent prompts, tool configurations and workflow topology
+    feedback: Validation/task scores from HotPotQA, MBPP, MATH and GAIA experiments
+    update: Integrated TextGrad, AFlow and MIPRO optimization steps
+    persistence: Retained workflow candidates/configurations supply later execution and optimization rounds
+- id: prime-agent-paper
+  kind: paper
+  name: 'Prime Agent: A Self-Improving RLM Harness'
+  alias: Prime Agent
+  repo_url: https://arxiv.org/abs/2608.23552
+  arxiv_id: '2608.23552'
+  category: Papers / Harness
+  improvement_target: Harness
+  scope: experience-learning
+  published_at: '2026-08-24'
+  date_evidence_url: https://arxiv.org/abs/2608.23552
+  venue: null
+  publication_status: preprint
+  venue_evidence_url: null
+  code_url: https://github.com/PrimeIntellect-ai/prime-agent
+  code_status: official
+  code_evidence_url: https://arxiv.org/abs/2608.23552
+  code_evidence_excerpt: Code is available at https://github.com/PrimeIntellect-ai/prime-agent.
+  code_note_en: The author repository directly cites this paper and separately cites Continual Harness (2605.09998); neither citation should overwrite the other's title or first-paper date.
+  code_note_zh: 作者仓库直接引用本文，并另引 Continual Harness（2605.09998）；两者标题与首版日期不应互相覆盖。
+  summary_en: Combines a persistent REPL and recursive subagents with retained histories, memories, skills, prompts and subagent specifications that can be refined across long-horizon trajectories.
+  summary_zh: 将持久 REPL 与递归子代理结合，并保留历史、记忆、技能、提示和子代理规格，以在长时轨迹间进行修订。
+  limitation_en: Recursive subagent calls alone are not RSI; the relevant mechanism is retained refinement of harness state. Benchmark gains also include execution/recovery improvements and do not isolate self-improvement as the sole cause.
+  limitation_zh: 递归调用子代理本身不是 RSI，相关机制是对持久 Harness 状态的修订；基准收益也包含执行和恢复改进，不能全部归因为自改进。
+  tags: [continual-harness, persistent-state, long-horizon]
+  reviewed_at: '2026-09-08'
+  evidence_url: https://arxiv.org/abs/2608.23552
+  evidence_excerpt: Continual Harness preserves histories, memories, skills, prompts, and subagent specifications across trajectories
+  why_included: Primary paper for the active Prime Agent implementation, retained specifically for durable adaptation rather than equating RLM context recursion with recursive self-improvement.
+  rsi_mechanism:
+    target: Persistent harness prompts, memories, skills and subagent specifications
+    feedback: Execution trajectories and verification outcomes
+    update: Evidence-backed refinement of retained harness state between acting phases
+    persistence: Durable state survives trajectories and conditions later actions and subagents
+- id: continual-harness-paper
+  kind: paper
+  name: 'Continual Harness: Online Adaptation for Self-Improving Foundation Agents'
+  alias: Continual Harness
+  repo_url: https://arxiv.org/abs/2605.09998
+  arxiv_id: '2605.09998'
+  category: Papers / Harness
+  improvement_target: Harness
+  secondary_improvement_target: Models
+  scope: experience-learning
+  secondary_scope: self-training
+  published_at: '2026-05-11'
+  date_evidence_url: https://arxiv.org/abs/2605.09998
+  venue: null
+  publication_status: preprint
+  venue_evidence_url: null
+  code_url: https://github.com/PrimeIntellect-ai/prime-agent
+  code_status: official
+  code_evidence_url: https://github.com/PrimeIntellect-ai/prime-agent/blob/main/README.md
+  code_evidence_excerpt: The Continual Harness stores supplemental prompts, memories, skill descriptions, and reusable subagent specifications as durable state that Prime Agent can refine through small, evidence-backed updates
+  code_note_en: Official associated implementation of the harness component via an explicit README link to this paper. The inspected paper v1 does not establish release of all Pokemon experiments or the teacher-relabeled weight co-learning pipeline; this is not certified full reproduction code.
+  code_note_zh: README 明确链接本文，因此属于 Harness 组件的官方关联实现；所读论文 v1 未证明全部 Pokemon 实验或教师重标注权重共学习流水线已发布，不可称为完整复现代码。
+  summary_en: Alternates action and refinement of prompts, subagents, skills and memory within a reset-free run. A separate co-learning experiment relabels rollouts with a frontier teacher and updates an open model without resetting the game.
+  summary_zh: 在不重置的运行中交替行动与修订提示、子代理、技能和记忆；另一个共学习实验由前沿教师重标注轨迹，并在不重置游戏的情况下更新开放模型。
+  limitation_en: Earlier Gemini Plays Pokemon results used human-in-the-loop harness refinement; later automated adaptation and teacher-assisted weight co-learning are distinct settings. Teacher supervision and game-specific evaluation limit autonomy claims.
+  limitation_zh: 早期 Gemini Plays Pokemon 结果使用人在环 Harness 修订，后续自动适配与教师辅助权重共学习是不同设置；教师监督与游戏专用评测限制其自主性主张。
+  tags: [online-adaptation, reset-free, co-learning]
+  reviewed_at: '2026-09-08'
+  evidence_url: https://arxiv.org/abs/2605.09998
+  evidence_excerpt: the agent alternates between acting and refining its own prompt, sub-agents, skills, and memory, drawing on any past trajectory data
+  why_included: Distinct from Prime Agent's system paper, this work explicitly formalizes online within-run refinement and separately tests harness/model co-learning; both mechanisms and their boundaries are documented.
+  rsi_mechanism:
+    target: Persistent harness artifacts; model weights in a separate co-learning experiment
+    feedback: Past game trajectories and progress; frontier-teacher process labels in co-learning
+    update: Alternate acting/refining; optionally train the open model on relabeled rollouts
+    persistence: Game state is not reset; refined harness artifacts and updated model checkpoints carry forward
+rejected_or_unverified:
+- item: Self-Rewarding Language Models official code
+  decision: no-official-code-link-established
+  evidence_url: https://github.com/facebookresearch/RAM/blob/main/projects/README.md
+  evidence_excerpt: '**Self-Rewarding LLMs** [[paper]](https://arxiv.org/abs/2401.10020)'
+  reason_en: Followed the root RAM README to its current project inventory. Both Self-Rewarding entries link only the paper, unlike other projects with explicit project/code links. Earlier candidate self_rewarding paths returned 404. Preserve not-found; do not substitute lucidrains or another third-party implementation.
+  reason_zh: 从 RAM 根 README 跟进当前项目索引，两处 Self-Rewarding 条目都只有论文链接，区别于有明确项目或代码链接的其他条目；此前 self_rewarding 候选路径返回 404。应保留 not-found，不以 lucidrains 等第三方实现替代。
+- item: SICA arXiv 2502.13216
+  decision: rejected-wrong-identifier
+  evidence_url: https://arxiv.org/abs/2502.13216
+  reason_en: The ID is an astronomy paper about inferring ex-situ stellar fraction, not SICA. The verified SICA paper is 2504.15228, first posted 2025-04-21.
+  reason_zh: 该编号是关于推断外生恒星占比的天文学论文，而非 SICA；核实的 SICA 编号为 2504.15228，首发于 2025-04-21。
+- item: SICA ICLR main-conference label
+  decision: workshop-only
+  evidence_url: https://github.com/MaximeRobeyns/self_improving_coding_agent/blob/master/README.md
+  reason_en: The official citation explicitly names the ICLR 2025 Workshop on Scaling Self-Improving Foundation Models. Do not promote it to main-track acceptance.
+  reason_zh: 官方引用明确为 ICLR 2025 Workshop on Scaling Self-Improving Foundation Models，不得提升为主会录用。
+- item: ACE and SEAL guessed repository owners
+  decision: corrected
+  evidence_url: https://github.com/ace-agent/ace/blob/main/README.md
+  reason_en: ACE is ace-agent/ace, not stanfordnlp/ace. SEAL is Continual-Intelligence/SEAL, not an owner guessed from its first author's name. Matching paper links and authorship citations were read from official READMEs.
+  reason_zh: ACE 为 ace-agent/ace，而非 stanfordnlp/ace；SEAL 为 Continual-Intelligence/SEAL，而非根据第一作者姓名猜测的仓库。已读取官方 README 中的匹配论文链接与作者引用。
+- item: Prime Agent and Continual Harness conflation
+  decision: separate-papers
+  evidence_url: https://github.com/PrimeIntellect-ai/prime-agent/blob/main/README.md
+  reason_en: Prime Agent is 2608.23552 (2026-08-24); Continual Harness is 2605.09998 (2026-05-11). The repository cites both. Preserve first arXiv dates rather than substituting an earlier product/blog launch date. The latter paper includes a distinct teacher-relabeled weight co-learning experiment, which must not be silently generalized to every Prime Agent deployment.
+  reason_zh: Prime Agent 为 2608.23552（2026-08-24），Continual Harness 为 2605.09998（2026-05-11），仓库同时引用两篇。应保留 arXiv 首版日期，而非替换为更早产品或博客发布日期；后者包含独立的教师重标注权重共学习实验，不得泛化到每个 Prime Agent 部署。
