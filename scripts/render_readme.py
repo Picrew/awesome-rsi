@@ -99,7 +99,7 @@ def cell_list(items):
 
 
 def disclosure(title, content):
-    return f"<details><summary>{title}</summary>{content}</details>"
+    return f"<details open><summary>{title}</summary>{content}</details>"
 
 
 def paper_code_cell(entry, zh=False):
@@ -213,7 +213,7 @@ def render_readmes(catalog: dict[str, Any]) -> tuple[str, str]:
             lines += [f"### {titles[0]}", ""]
             folded = key != "mechanisms"
             if folded:
-                lines += [f"<details><summary>{label(f'Browse {len(selected)} articles', f'展开 {len(selected)} 篇文章')}</summary>", ""]
+                lines += [f"<details open><summary>{label(f'Browse {len(selected)} articles', f'浏览 {len(selected)} 篇文章')}</summary>", ""]
             for e in selected:
                 date = f" · {e['published_at']}" if e.get("published_at") else ""
                 status = label(" · archived tutorial", " · 已归档教程") if e.get("content_status") == "archived" else ""

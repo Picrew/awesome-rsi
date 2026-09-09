@@ -17,7 +17,7 @@ No label proves indefinite capability growth. Do not silently promote fixed-mode
 ## Presentation Priority
 
 1. A short reading guide and generated category overview.
-2. First-party company research blogs: direct mechanisms/results first; supporting AI research, evaluation, agendas and historical tutorials in expandable subsections.
+2. First-party company research blogs: direct mechanisms/results first; supporting AI research, evaluation, agendas and historical tutorials in collapsible subsections that are open by default.
 3. Papers: `Papers / Harness`, `Papers / Models`, and `Papers / Theory and Evaluation`, with author-linked code beside the mechanism. Short display names retain canonical full titles in the catalog.
 4. Active GitHub implementations under consistently prefixed `GitHub / Models`, `GitHub / Harness`, and `GitHub / Artifacts` headings, subject to the repository activity gate. Bounded optimizers and learned skills remain labeled supporting tools, not standalone RSI demonstrations.
 
@@ -43,7 +43,7 @@ Read the canonical arXiv abstract/full text, proceedings/publisher article, and 
 
 Use the first arXiv version date, or first publisher online date when no arXiv source is used. Do not substitute blog publication dates or journal issue dates. State conference/journal/workshop identity only when an author-linked source or publisher explicitly establishes it, and preserve that evidence URL and excerpt. A workshop is not the conference main track. A missing venue means not established in this review, not rejected or definitely unpublished.
 
-Search the original paper, author project site and linked repository before recording `code_status: not-found`. This does not mean no code exists. Render it as an em dash with a shared legend, keeping search details in the data. Official means author-linked, not necessarily complete. Flag associated/partial releases and artifact-only releases. Do not label OpenEvolve as official AlphaEvolve code, or substitute an unofficial self-rewarding reproduction for Meta's unreleased implementation. Inactive and archived public code can remain beside historical papers; preserve archive status and put push dates/release notes in expandable details.
+Search the original paper, author project site and linked repository before recording `code_status: not-found`. This does not mean no code exists. Render it as an em dash with a shared legend, keeping search details in the data. Official means author-linked, not necessarily complete. Flag associated/partial releases and artifact-only releases. Do not label OpenEvolve as official AlphaEvolve code, or substitute an unofficial self-rewarding reproduction for Meta's unreleased implementation. Inactive and archived public code can remain beside historical papers; preserve archive status and put push dates/release notes in collapsible details that are open by default.
 
 ## Active Project Gate
 
