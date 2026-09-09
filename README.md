@@ -4,7 +4,7 @@ A curated research map of recursive self-improvement: agents that revise their o
 
 [English](./README.md) | [中文](./README_zh.md)
 
-**31 first-party blog posts · 29 research papers · 11 active GitHub projects**
+**31 first-party blog posts · 29 research papers · 12 active GitHub projects**
 
 ## Start Here
 
@@ -51,10 +51,10 @@ A curated research map of recursive self-improvement: agents that revise their o
 | [GitHub / Models / Training Research](#github--models--training-research) | GitHub project | 1 |
 | [GitHub / Models / Recursive Self-Training](#github--models--recursive-self-training) | GitHub project | 1 |
 | [GitHub / Harness / Self-Modification](#github--harness--self-modification) | GitHub project | 3 |
-| [GitHub / Harness / Prompt and Workflow Optimization](#github--harness--prompt-and-workflow-optimization) | GitHub project | 3 |
+| [GitHub / Harness / Prompt and Workflow Optimization](#github--harness--prompt-and-workflow-optimization) | GitHub project | 4 |
 | [GitHub / Artifacts / Program Evolution](#github--artifacts--program-evolution) | GitHub project | 2 |
 | [GitHub / Artifacts / Learned Skills](#github--artifacts--learned-skills) | GitHub project | 1 |
-| **Total** |  | **71** |
+| **Total** |  | **72** |
 
 ## Company Research Blogs
 
@@ -314,6 +314,7 @@ Feedback updates retained prompts or workflow graphs. These bounded optimizers d
 | DSPy / GEPA and MIPROv2 | [GitHub](https://github.com/stanfordnlp/dspy) | [![star: 37,865](https://img.shields.io/badge/star-37865-f4b400?style=flat-square)](https://github.com/stanfordnlp/dspy) | `prompt-optimization`<br>`demonstrations`<br>`metrics` | **Bounded optimization**<br>Compiles LM programs by optimizing instructions and demonstrations against task metrics; compiled programs retain the selected configuration for later use.<br><details open><summary>Boundary</summary>Included for its optimizers, not all DSPy functionality; prompt compilation does not by itself modify the optimizer or model weights.</details><br>• [Evidence](https://github.com/stanfordnlp/dspy/blob/main/dspy/teleprompt/gepa/gepa.py) |
 | GEPA | [GitHub](https://github.com/gepa-ai/gepa) | [![star: 6,485](https://img.shields.io/badge/star-6485-f4b400?style=flat-square)](https://github.com/gepa-ai/gepa) | `reflection`<br>`pareto-selection`<br>`prompt-optimization` | **Bounded optimization**<br>Reflects on execution traces and evaluator feedback to propose prompt revisions, retaining complementary candidates through Pareto-based selection.<br><details open><summary>Boundary</summary>The original method optimizes prompts with fixed model weights; its general optimize_anything API is not evidence that GEPA rewrites itself.</details><br>• [Evidence](https://github.com/gepa-ai/gepa) |
 | EvoAgentX / Evolution Algorithms | [GitHub](https://github.com/ANative-Lab/EvoAgentX) | [![star: 3,315](https://img.shields.io/badge/star-3315-f4b400?style=flat-square)](https://github.com/ANative-Lab/EvoAgentX) | `workflow-optimization`<br>`aflow`<br>`validation` | **Bounded optimization**<br>Runs AFlow, TextGrad, MIPRO and EvoPrompt over agent workflows; validation scores drive prompt or graph revisions, with separate test evaluation.<br><details open><summary>Boundary</summary>Included for executable evolution algorithms, not tool integrations or workflow generation alone; objectives and search algorithms are human-specified.</details><br>• [Evidence](https://github.com/ANative-Lab/EvoAgentX#evolution-algorithms) |
+| Reef / Harness Evolution | [GitHub](https://github.com/Human-Agent-Society/reef) | [![star: 819](https://img.shields.io/badge/star-819-f4b400?style=flat-square)](https://github.com/Human-Agent-Society/reef) | `harness-evolution`<br>`evaluation-gate`<br>`versioned-artifacts` | **Bounded optimization**<br>Serves agent traffic behind an OpenAI- and Anthropic-compatible endpoint and returns a record receipt per request; scores and feedback reported against failing receipts drive one proposed mutation of the harness tree of skills, prompts, rules and configuration, published as a versioned artifact only when it beats the current tree on the deployment's configured tasks.<br><details open><summary>Boundary</summary>The proposer, the feedback-to-record matching and the evaluation gate are operator-defined and fixed across rounds, so the improvement procedure does not itself change; the repository publishes no benchmark results and no reproducible evaluation of its own improvement claims, and the tutorial gate grades a small fixed task set by exact final answer.</details><br>• [Evidence](https://github.com/Human-Agent-Society/reef/blob/main/tutorials/evolve-your-harness/README.md) |
 
 ### GitHub / Artifacts
 
