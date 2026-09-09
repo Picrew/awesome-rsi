@@ -107,7 +107,7 @@ class CatalogTests(unittest.TestCase):
         for text in (en, zh):
             self.assertNotIn('<a id=', text)
             self.assertNotIn("```bibtex", text)
-            headings = re.findall(r"^#{2,3} (.+)$", text, re.M)
+            headings = re.findall(r"^#{2,4} (.+)$", text, re.M)
             slugs = {re.sub(r"[^\w\- ]", "", h.lower()).replace(" ", "-") for h in headings}
             for target in re.findall(r"\]\(#([^)]*)\)", text):
                 self.assertIn(target, slugs)
@@ -117,7 +117,8 @@ class CatalogTests(unittest.TestCase):
         for text in render_readmes(self.data):
             self.assertLess(text.index("## Company Research Blogs"), text.index("## Papers and Official Code"))
             self.assertLess(text.index("## Papers and Official Code"), text.index("## Active GitHub Projects"))
-            self.assertNotIn("| Blog |", text)
+            blog_section = text.split("## Company Research Blogs", 1)[1].split("## Papers and Official Code", 1)[0]
+            self.assertNotIn("| Blog |", blog_section)
             for entry in self.data["entries"]:
                 self.assertIn(entry["repo_url"], text)
 
@@ -132,7 +133,10 @@ class CatalogTests(unittest.TestCase):
         paper = next(e for e in self.data["entries"] if e.get("code_metadata"))
         paper["code_metadata"].update(archived=True, pushed_at="2020-01-01T00:00:00Z", updated_at="2020-01-01")
         self.assertEqual(self.errors(), "")
-        self.assertIn("archived; push 2020-01-01", render_readmes(self.data)[0])
+        en = render_readmes(self.data)[0]
+        row = next(line for line in en.splitlines() if f"]({paper['repo_url']})" in line)
+        self.assertIn("**Archived**", row)
+        self.assertIn("**Last push:** 2020-01-01", row)
 
     def test_official_code_needs_linkage(self):
         paper = next(e for e in self.data["entries"] if e.get("code_url"))

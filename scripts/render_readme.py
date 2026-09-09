@@ -86,6 +86,16 @@ def heading_slug(text):
     return re.sub(r"[^\w\- ]", "", text.lower()).replace(" ", "-")
 
 
+def star_badge(url, stars):
+    """Use the same snapshot badge style as awesome-agent-harness."""
+    return f"[![star: {stars:,}](https://img.shields.io/badge/star-{stars}-f4b400?style=flat-square)]({url})"
+
+
+def cell_list(items):
+    """Keep list items on separate lines inside GitHub Markdown tables."""
+    return "<br>".join(f"• {item}" for item in items if item)
+
+
 def paper_code_cell(entry, zh=False):
     label = lambda en, cn: cn if zh else en
     url = entry.get("code_url")
@@ -95,15 +105,37 @@ def paper_code_cell(entry, zh=False):
     title = label("Official code", "官方代码") if status == "official" else label("Third-party reproduction", "第三方复现")
     if entry.get("code_release") == "artifacts-only":
         title = label("Official artifacts only", "仅官方产物")
-    result = f"[{title}]({entry.get('code_subdirectory_url') or url})"
+    items = [f"[{title}]({entry.get('code_subdirectory_url') or url})"]
     metadata = entry.get("code_metadata")
     if metadata:
-        flag = label("archived", "已归档") if metadata["archived"] else label("not archived", "未归档")
-        result += f"; {metadata['stars_snapshot']:,} stars; {flag}; push {metadata['updated_at']}"
+        items.append(star_badge(url, metadata["stars_snapshot"]))
+        items.append(f"**{label('Last push', '最近推送')}:** {metadata['updated_at']}")
+        if metadata["archived"]:
+            items.append(f"**{label('Archived', '已归档')}**")
     note = entry.get("code_note_zh" if zh else "code_note_en")
     if note:
-        result += ". " + note
-    return result
+        items.append(f"**{label('Release notes', '发布说明')}:** {note}")
+    return cell_list(items)
+
+
+def category_overview(entries, categories, zh=False):
+    label = lambda en, cn: cn if zh else en
+    lines = ["## Category Overview", "",
+             label("| Category | Resource | Entries |", "| 分类 | 资源类型 | 数量 |"),
+             "| --- | --- | ---: |"]
+    for key, titles in BLOG_SECTIONS.items():
+        count = sum(e["kind"] == "reading" and e.get("blog_section") == key for e in entries)
+        if count:
+            lines.append(table_row([f"[{titles[int(zh)]}](#{heading_slug(titles[0])})",
+                                    label("Blog", "博客"), count]))
+    for kind, resource in (("paper", label("Paper", "论文")), ("project", label("GitHub project", "GitHub 项目"))):
+        for category in categories:
+            count = sum(e["kind"] == kind and e["category"] == category["name_en"] for e in entries)
+            if count:
+                title = category["name_zh" if zh else "name_en"]
+                lines.append(table_row([f"[{title}](#{heading_slug(category['name_en'])})", resource, count]))
+    lines += [table_row([label("**Total**", "**合计**"), "", f"**{len(entries)}**"]), ""]
+    return lines
 
 
 def render_readmes(catalog: dict[str, Any]) -> tuple[str, str]:
@@ -119,12 +151,15 @@ def render_readmes(catalog: dict[str, Any]) -> tuple[str, str]:
         label = lambda en, cn: cn if zh else en
         def explanation(entry):
             scope = SCOPE_LABELS[entry["scope"]][int(zh)]
-            return f"**{scope}**. {entry['summary_' + language]} {entry['limitation_' + language]}"
+            return cell_list([f"**{scope}**",
+                              f"**{label('Loop', '闭环')}:** {entry['summary_' + language]}",
+                              f"**{label('Boundary', '边界')}:** {entry['limitation_' + language]}"])
         lines = [f"# {meta['title_' + language]}", "", meta["description_" + language], "",
                  "[English](./README.md) | [中文](./README_zh.md)", "",
                  label(f"**{len(blogs)} first-party blog posts · {len(papers)} research papers · {len(projects)} active GitHub projects**",
                        f"**{len(blogs)} 篇一手博客 · {len(papers)} 篇研究论文 · {len(projects)} 个活跃 GitHub 项目**"), "",
                  label("## Contents", "## 目录"), "",
+                 label("- [Category Overview](#category-overview)", "- [分类概览](#category-overview)"),
                  label("- [Company Research Blogs](#company-research-blogs)", "- [模型公司研究博客（优先阅读）](#company-research-blogs)")]
         for key, titles in BLOG_SECTIONS.items():
             if any(e.get("blog_section") == key for e in blogs):
@@ -137,8 +172,9 @@ def render_readmes(catalog: dict[str, Any]) -> tuple[str, str]:
         for group in ("Models", "Harness", "Artifacts"):
             lines.append(f"  - [{group}](#{group.lower()})")
         lines += [label("- [Scope and Curation](#scope-and-curation)", "- [边界与收录原则](#scope-and-curation)"),
-                  label("- [Maintenance](#maintenance)", "- [维护](#maintenance)"), "",
-                  "## Company Research Blogs", "",
+                  label("- [Maintenance](#maintenance)", "- [维护](#maintenance)"), ""]
+        lines += category_overview(entries, categories, zh)
+        lines += ["## Company Research Blogs", "",
                   label("Start here: first-party technical accounts from model builders and specialist AI research labs. Mechanisms, failures, agendas and historical foundations are separated; publisher claims are not independent replications.",
                         "建议从这里开始：模型开发公司与专项 AI 研究机构的一手技术材料。机制、失败、路线与历史基础分开呈现；发布方结论不等于独立复现。"), ""]
         for key, titles in BLOG_SECTIONS.items():
@@ -152,11 +188,19 @@ def render_readmes(catalog: dict[str, Any]) -> tuple[str, str]:
                 status = label(" · archived tutorial", " · 已归档教程") if e.get("content_status") == "archived" else ""
                 title = f"[{e['name']}]({e['repo_url']})"
                 lines.append(f"- **{title}** — {escape_md(e['publisher'])} · {date}{status}")
-                lines.append(f"  - {label('Target', '改进对象')}: `{e['improvement_target']}`. {explanation(e)}")
+                scope = SCOPE_LABELS[e["scope"]][int(zh)]
+                lines.append(f"  - **{label('Target', '改进对象')}:** `{e['improvement_target']}` · {scope}")
+                lines.append(f"  - **{label('Loop', '闭环')}:** {escape_md(e['summary_' + language])}")
+                lines.append(f"  - **{label('Boundary', '边界')}:** {escape_md(e['limitation_' + language])}")
+                lines.append("")
             lines.append("")
         lines += ["## Papers and Official Code", "",
-                  label("Papers are separate from repositories. Dates are first publication dates; venue claims link to their evidence. An arXiv preprint is not labeled peer reviewed. Official code means author-linked, not necessarily complete or recently maintained; artifact-only releases are marked. Older code does not disqualify a useful paper.",
-                        "论文与仓库分开展示。日期为首次发表日期；会议/期刊归属附核对来源。arXiv 预印本不冒充同行评审。官方代码指作者关联，不保证完整或近期维护；仅发布产物的情况单独注明。旧代码不会使有价值的论文被排除。"), ""]
+                  label("- Dates refer to first publication. Only source-verified venues are shown; a date alone makes no peer-review claim.",
+                        "- 日期为首次发表日期。仅显示经来源核实的会议或期刊；只有日期不代表已通过同行评审。"),
+                  label("- Official code is author-linked; artifact-only and archived releases are marked. Older code does not disqualify a useful paper.",
+                        "- 官方代码指作者关联；仅发布产物和已归档的情况单独标注。旧代码不会使有价值的论文被排除。"),
+                  label(f"- Star badges and push dates use the **{meta['last_verified']}** metadata snapshot.",
+                        f"- Star 徽章与推送日期来自 **{meta['last_verified']}** 的元数据快照。"), ""]
         for group in ("Models", "Harness", "Artifacts"):
             selected = sorted([e for e in papers if e["improvement_target"] == group],
                               key=lambda e: (e["published_at"], e["name"]), reverse=True)
@@ -165,10 +209,10 @@ def render_readmes(catalog: dict[str, Any]) -> tuple[str, str]:
             lines += [f"### Papers / {group}", "", label("| Paper | Date / Publication | Code | Contribution and Boundary |",
                          "| 论文 | 日期 / 发表状态 | 代码 | 贡献与边界 |"), "| --- | --- | --- | --- |"]
             for e in selected:
-                venue = e.get("venue") or label("Preprint / venue not verified", "预印本 / 会议归属未核实")
-                if e.get("venue_evidence_url"):
-                    venue = f"[{venue}]({e['venue_evidence_url']})"
-                lines.append(table_row([f"[{e['name']}]({e['repo_url']})", f"{e['published_at']} · {venue}",
+                publication = e["published_at"]
+                if e.get("venue") and e.get("venue_evidence_url"):
+                    publication += f"<br>[{e['venue']}]({e['venue_evidence_url']})"
+                lines.append(table_row([f"[{e['name']}]({e['repo_url']})", publication,
                                         paper_code_cell(e, zh), explanation(e)]))
             lines.append("")
         lines += ["## Active GitHub Projects", "",
@@ -183,8 +227,9 @@ def render_readmes(catalog: dict[str, Any]) -> tuple[str, str]:
                           label("| Project | Link | Stars | Tags | Improvement Loop and Boundary |",
                                 "| 项目 | 链接 | Stars | 标签 | 改进闭环与边界 |"), "| --- | --- | ---: | --- | --- |"]
                 for e in grouped[c["name_en"]]:
-                    lines.append(table_row([e["name"], f"[GitHub]({e['repo_url']})", f"{e['stars_snapshot']:,}",
-                        ", ".join(e["tags"]), explanation(e) + f" [{label('Evidence', '证据')}]({e['evidence_url']})"]))
+                    lines.append(table_row([e["name"], f"[GitHub]({e['repo_url']})", star_badge(e["repo_url"], e["stars_snapshot"]),
+                        "<br>".join(f"`{tag}`" for tag in e["tags"]),
+                        explanation(e) + f"<br>• [{label('Evidence', '证据')}]({e['evidence_url']})"]))
                 lines.append("")
         lines += ["## Scope and Curation", "", meta["scope_" + language], "",
                   label("No entry establishes unbounded autonomous RSI. Within-task refinement, safety evaluation and research agendas are relevant context, not demonstrations of persistent self-improvement. Counts refer to resources: a blog, paper and repository may document the same research, not three independent breakthroughs.",
