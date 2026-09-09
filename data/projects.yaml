@@ -262,10 +262,11 @@ entries:
     rules and configuration, published as a versioned artifact only when it beats the current tree on the deployment's configured
     tasks.
   summary_zh: 通过兼容 OpenAI 与 Anthropic 的端点服务代理流量，并为每个请求返回一条记录回执；针对失败回执上报的分数与反馈驱动一次候选修改，作用于由技能、提示、规则与配置组成的 harness 树，只有在部署配置的任务上胜过当前树，才会作为带版本的产物发布。
-  limitation_en: The proposer, the feedback-to-record matching and the evaluation gate are operator-defined and fixed across
-    rounds, so the improvement procedure does not itself change; the repository publishes no benchmark results and no reproducible
-    evaluation of its own improvement claims, and the tutorial gate grades a small fixed task set by exact final answer.
-  limitation_zh: 提案器、反馈与记录的匹配逻辑以及评测门控均由运维者定义，并在各轮之间保持固定，改进过程本身不会被改进；仓库未发布任何基准结果，也未发布对其自身改进主张的可复现评测，教程中的门控只按最终答案精确匹配来评判一个很小的固定任务集。
+  limitation_en: The proposer implementation, feedback-to-record matching and evaluation gate are operator-defined and fixed
+    across rounds, with fixed model weights. Published tutorial runs grade three fixed tasks by exact final answer, reuse
+    those tasks for proposal feedback and gating, and report single-run samples without repeated trials or uncertainty estimates;
+    these demonstrations do not establish held-out generalization or sustained capability growth.
+  limitation_zh: 提案器实现、反馈与记录的匹配逻辑以及评测门控均由运维者定义，并在各轮之间保持固定，模型权重也不变。已公开的教程运行按最终答案精确匹配评判三个固定任务，并将这些任务同时用于提案反馈和评测门控；结果是单次运行样本，没有重复试验或不确定性估计，不能据此证明在独立测试集上的泛化或持续能力增长。
   tags:
   - harness-evolution
   - evaluation-gate
