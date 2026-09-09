@@ -156,7 +156,7 @@ def validate_catalog(catalog, today=None):
                 errors.append(f"{name}: missing improvement target")
             if not paper and not e.get("publisher"):
                 errors.append(f"{name}: missing publisher")
-            if not paper and e.get("blog_section") not in {"mechanisms", "safety", "agenda", "foundations"}:
+            if not paper and e.get("blog_section") not in {"mechanisms", "methods", "safety", "agenda", "foundations"}:
                 errors.append(f"{name}: missing blog section")
             try:
                 if e.get("published_at") is None and not paper and e.get("date_note"):
@@ -166,6 +166,13 @@ def validate_catalog(catalog, today=None):
             except (ValueError, TypeError):
                 errors.append(f"{name}: missing publication date")
             if paper:
+                paper_scopes = {
+                    "Papers / Harness": {"self-modification", "experience-learning"},
+                    "Papers / Models": {"self-training"},
+                    "Papers / Theory and Evaluation": {"research-agenda", "safety-evaluation"},
+                }
+                if e.get("scope") not in paper_scopes.get(e.get("category"), set()):
+                    errors.append(f"{name}: paper scope does not meet the main-paper category gate")
                 if e.get("publication_status") not in {"published", "preprint"}:
                     errors.append(f"{name}: invalid publication status")
                 if e.get("venue") and (not e.get("venue_evidence_url") or not e.get("venue_evidence_excerpt")):
@@ -241,7 +248,7 @@ def check_url(url, timeout=20):
 
 
 def gather_links(catalog):
-    fields = ("repo_url", "evidence_url", "code_url", "code_evidence_url", "venue_evidence_url", "date_evidence_url")
+    fields = ("repo_url", "evidence_url", "code_url", "code_subdirectory_url", "code_evidence_url", "venue_evidence_url", "date_evidence_url")
     return sorted({e[k] for e in catalog["entries"] for k in fields if e.get(k)})
 
 

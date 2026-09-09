@@ -66,3 +66,13 @@ The full link check found Absolute Zero's evidence README used `main` even thoug
 The configured web search lacked its API credential. The web-fetch helper rejected several public hostnames after DNS resolution; direct read-only HTTP retrieval of public GitHub REST/raw endpoints and original publisher HTML succeeded. GitHub REST later hit an unauthenticated research-read rate limit; the final nine-project metadata sync had already succeeded. Research used primary README/source/article content, not search snippets. No API credential was exposed or changed.
 
 Link reachability, metadata freshness and hand-reviewed evidence are different checks. Catalog verification reports only the checks it actually performs. Benchmark claims were not independently reproduced.
+
+## Focused paper audit: 2026-09-09
+
+The main-paper gate is now narrower. All 37 existing paper records were reviewed; 19 remain in the main list and 18 move to [related methods](related_methods.md). These are relevance decisions, not claims that the neighboring work is low quality. Ten additions bring the main list to **29 papers**: HGM, MetaSkill-Evolve, Meta^n, J-Zero, Socratic-SWE, SiriuS, Gödel Machines, Socratic Learning, SGM, and Guided Self-Improvement. Formal proposals and measurement studies have a separate section.
+
+The [dated audit](../reports/research/2026-09-09-paper-audit.yaml) records every retained, moved and added paper, search axes, and six additional candidates not promoted. In particular, HELIX's one-round harness experiment does not establish its proposed repeated model–harness co-evolution; an RSI title alone does not pass the gate.
+
+The catalog now contains **31 blogs, 29 papers and 11 active repositories**. Meta^n and J-Zero have author-linked implementations within the activity window; HGM and SiriuS remain beside their papers despite older pushes. Supporting program/prompt optimizers remain clearly scoped in the implementation section. Fifteen external-model research and bounded-optimization blogs move into an expandable supporting-methods subsection.
+
+Kimi K2's original date is **2025-07-11**, established by the [official publisher index](https://platform.kimi.ai/blog/tags/agent). This supersedes the earlier unknown-date record. Anthropic's undated RSI article retains its null date and audit note, while the README omits the placeholder. Paper tables use short labels, inline publication dates and expandable boundaries/release details. GitHub headings and navigation consistently use the `GitHub /` prefix.

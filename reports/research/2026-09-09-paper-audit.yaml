@@ -1,0 +1,315 @@
+reviewed_at: '2026-09-09'
+scope: Main paper list prioritizes self-reference, iterative model learning, and explicitly separated theory/evaluation.
+previous_papers: 37
+retained_papers: 19
+added_papers: 10
+current_papers: 29
+moved_to_related:
+- name: 'GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning'
+  url: https://arxiv.org/abs/2507.19457
+  decision: related-method
+  reason_en: Fixed prompt optimizer; evolving prompts does not demonstrate evolution of the optimizer itself.
+  reason_zh: 固定提示优化器；提示进化不等于优化器自身进化。
+  reviewed_at: '2026-09-09'
+- name: 'TextGrad: Automatic "Differentiation" via Text'
+  url: https://arxiv.org/abs/2406.07496
+  decision: related-method
+  reason_en: Optimizes text variables and external artifacts with a fixed textual-gradient procedure.
+  reason_zh: 以固定文本梯度过程优化文本变量或外部产物。
+  reviewed_at: '2026-09-09'
+- name: 'AFlow: Automating Agentic Workflow Generation'
+  url: https://arxiv.org/abs/2410.10762
+  decision: related-method
+  reason_en: Fixed Monte Carlo tree search over task workflows; the search procedure is not self-modified.
+  reason_zh: 对任务工作流执行固定蒙特卡洛树搜索，搜索过程自身未被修改。
+  reviewed_at: '2026-09-09'
+- name: Automated Design of Agentic Systems
+  url: https://arxiv.org/abs/2408.08435
+  decision: related-method
+  reason_en: An external meta-agent searches task-agent designs; its own improvement machinery stays fixed.
+  reason_zh: 外部元代理搜索任务代理设计，其自身改进机制保持固定。
+  reviewed_at: '2026-09-09'
+- name: 'Agent-Pro: Learning to Evolve via Policy-Level Reflection and Optimization'
+  url: https://arxiv.org/abs/2402.17574
+  decision: related-method
+  reason_en: Game-policy belief refinement under fixed reflection/search machinery.
+  reason_zh: 在固定反思与搜索机制下修订博弈策略信念。
+  reviewed_at: '2026-09-09'
+- name: 'Reflexion: Language Agents with Verbal Reinforcement Learning'
+  url: https://arxiv.org/abs/2303.11366
+  decision: related-method
+  reason_en: Episodic verbal memory improves later trials, without modifying the reflection procedure or training weights.
+  reason_zh: 言语记忆改善后续尝试，但未改写反思过程或训练模型权重。
+  reviewed_at: '2026-09-09'
+- name: 'Self-Refine: Iterative Refinement with Self-Feedback'
+  url: https://arxiv.org/abs/2303.17651
+  decision: related-method
+  reason_en: Within-task output refinement without persistent system learning.
+  reason_zh: 只修订当前任务输出，没有持久的系统学习。
+  reviewed_at: '2026-09-09'
+- name: 'Voyager: An Open-Ended Embodied Agent with Large Language Models'
+  url: https://arxiv.org/abs/2305.16291
+  decision: related-method
+  reason_en: A reusable Minecraft skill library; the curriculum and improvement procedure remain externally designed.
+  reason_zh: 可复用的 Minecraft 技能库；课程与改进过程仍由外部设计。
+  reviewed_at: '2026-09-09'
+- name: Mathematical discoveries from program search with large language models
+  url: https://www.nature.com/articles/s41586-023-06924-6
+  decision: related-method
+  reason_en: Search evolves external functions while the LLM and evolutionary machinery remain fixed.
+  reason_zh: 搜索进化外部函数，LLM 与进化机制保持固定。
+  reviewed_at: '2026-09-09'
+- name: 'AlphaEvolve: A coding agent for scientific and algorithmic discovery'
+  url: https://arxiv.org/abs/2506.13131
+  decision: related-method
+  reason_en: Important AI-research infrastructure, but no measured repeated retraining of the proposer closes the advertised
+    loop.
+  reason_zh: 重要的 AI 科研基础设施，但没有通过实测的反复提案模型再训练闭合该回路。
+  reviewed_at: '2026-09-09'
+- name: 'ShinkaEvolve: Towards Open-Ended And Sample-Efficient Program Evolution'
+  url: https://arxiv.org/abs/2509.19349
+  decision: related-method
+  reason_en: An efficient external program optimizer; adaptive sampling alone is not recursive modification of its learner.
+  reason_zh: 高效的外部程序优化器；自适应采样本身不等于递归修改学习器。
+  reviewed_at: '2026-09-09'
+- name: Discovering Preference Optimization Algorithms with and for Large Language Models
+  url: https://arxiv.org/abs/2406.08414
+  decision: related-method
+  reason_en: Discovers training losses for other models; the proposer is not recursively retrained with those losses.
+  reason_zh: 为其他模型发现训练损失，提案模型未用这些损失递归再训练。
+  reviewed_at: '2026-09-09'
+- name: Agent Skill Acquisition for Large Language Models via CycleQD
+  url: https://arxiv.org/abs/2410.14735
+  decision: related-method
+  reason_en: Model merging and mutation under a fixed quality-diversity algorithm.
+  reason_zh: 在固定质量多样性算法下执行模型合并与突变。
+  reviewed_at: '2026-09-09'
+- name: 'Digital Red Queen: Adversarial Program Evolution in Core War with LLMs'
+  url: https://arxiv.org/abs/2601.03335
+  decision: related-method
+  reason_en: Adversarial evolution of Core War programs, not of the LLM or its improvement machinery.
+  reason_zh: 进化的是 Core War 对抗程序，而非 LLM 或其改进机制。
+  reviewed_at: '2026-09-09'
+- name: 'Agentic Context Engineering: Evolving Contexts for Self-Improving Language Models'
+  url: https://arxiv.org/abs/2510.04618
+  decision: related-method
+  reason_en: Persistent playbooks with a fixed generator/reflector/curator, useful context-adaptation background.
+  reason_zh: 由固定生成器、反思器和整理器维护持久剧本，属于上下文适应背景。
+  reviewed_at: '2026-09-09'
+- name: Large Language Models as Optimizers
+  url: https://arxiv.org/abs/2309.03409
+  decision: related-method
+  reason_en: An LLM optimizes prompts or external solutions through a fixed scored-history loop.
+  reason_zh: LLM 通过固定的评分历史循环优化提示或外部解。
+  reviewed_at: '2026-09-09'
+- name: 'EvoAgentX: An Automated Framework for Evolving Agentic Workflows'
+  url: https://arxiv.org/abs/2507.03616
+  decision: related-method
+  reason_en: Integrates fixed optimizers in a workflow platform; integration is not independent evidence of RSI.
+  reason_zh: 在工作流平台集成固定优化器，集成本身不是独立 RSI 证据。
+  reviewed_at: '2026-09-09'
+- name: 'Prime Agent: A Self-Improving RLM Harness'
+  url: https://arxiv.org/abs/2608.23552
+  decision: related-method
+  reason_en: Harness engineering and retained refinement overlap Continual Harness; the paper does not isolate recursive improvement
+    as the cause of its benchmark gains.
+  reason_zh: 与 Continual Harness 重叠的框架工程和持久修订；论文未将递归改进单独确认为基准收益来源。
+  reviewed_at: '2026-09-09'
+additions:
+- name: 'Huxley-Gödel Machine: Human-Level Coding Agent Development by an Approximation of the Optimal Self-Improving Machine'
+  url: https://arxiv.org/abs/2510.21614
+  evidence_url: https://arxiv.org/html/2510.21614v3
+  decision: Papers / Harness
+  reason: Reviewed canonical paper and mechanism; Uses descendant performance to estimate which self-modifying coding-agent
+    lineages will produce better future agents, guiding the next code rewrites.
+- name: 'MetaSkill-Evolve: Recursive Self-Improvement of LLM Agents via Two-Timescale Meta-Skill Evolution'
+  url: https://arxiv.org/abs/2607.05297
+  evidence_url: https://arxiv.org/html/2607.05297v1
+  decision: Papers / Harness
+  reason: Reviewed canonical paper and mechanism; Evolves task skills frequently and the five agents’ meta-skill files more
+    slowly; the same pipeline edits the instructions that govern its own improvement.
+- name: 'Meta^n: Recursive Self-Improvement through Emergent Depth'
+  url: https://arxiv.org/abs/2608.24735
+  evidence_url: https://arxiv.org/html/2608.24735v1
+  decision: Papers / Harness
+  reason: Reviewed canonical paper and mechanism; Repeatedly applies a fixed meta-operation to the evolving solver stack,
+    generating preprocessing code and reusable helpers; an archive retains evaluated layer chains.
+- name: 'J-Zero: Unified Challenger–Solver–Judge Co-Evolution from Zero Data'
+  url: https://arxiv.org/abs/2608.26582
+  evidence_url: https://github.com/GyoukChu/J-Zero
+  decision: Papers / Models
+  reason: Reviewed canonical paper and mechanism; Co-trains a task Challenger, Solver and Judge across rounds; structurally
+    constructed preference pairs update the Judge that rewards later policy training.
+- name: 'Socratic-SWE: Self-Evolving Coding Agents via Trace-Derived Agent Skills'
+  url: https://arxiv.org/abs/2606.07412
+  evidence_url: https://arxiv.org/html/2606.07412v1
+  decision: Papers / Models
+  reason: Reviewed canonical paper and mechanism; Distills solving traces into skills, generates targeted repair tasks, and
+    jointly trains generator/solver roles; updated solvers produce the next curriculum’s traces.
+- name: 'SiriuS: Self-improving Multi-agent Systems via Bootstrapped Reasoning'
+  url: https://arxiv.org/abs/2502.04780
+  evidence_url: https://arxiv.org/html/2502.04780v1
+  decision: Papers / Models
+  reason: Reviewed canonical paper and mechanism; Collects successful multi-agent trajectories, repairs failed ones, and fine-tunes
+    the participating agents; improved agents generate later training experience.
+- name: 'Goedel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements'
+  url: https://arxiv.org/abs/cs/0309048
+  evidence_url: https://arxiv.org/abs/cs/0309048
+  decision: Papers / Theory and Evaluation
+  reason: Reviewed canonical paper and mechanism; Formalizes a self-referential solver that can rewrite its proof-search code
+    once the expected usefulness of that rewrite is provable.
+- name: Boundless Socratic Learning with Language Games
+  url: https://arxiv.org/abs/2411.16905
+  evidence_url: https://arxiv.org/html/2411.16905v1
+  decision: Papers / Theory and Evaluation
+  reason: Reviewed canonical paper and mechanism; Develops a position on closed-system recursive learning through language
+    games, separating feedback quality, experience coverage and resource requirements.
+- name: 'SGM: A Statistical Godel Machine for Risk-Controlled Recursive Self-Modification'
+  url: https://arxiv.org/abs/2510.10232
+  evidence_url: https://arxiv.org/html/2510.10232v1
+  decision: Papers / Theory and Evaluation
+  reason: Reviewed canonical paper and mechanism; Tests candidate edits before adoption and budgets cumulative false-acceptance
+    risk across rounds, providing a statistical gate for self-modification.
+- name: Mitigating Tail Narrowing in LLM Self-Improvement via Socratic-Guided Sampling
+  url: https://arxiv.org/abs/2411.00750
+  evidence_url: https://arxiv.org/html/2411.00750v1
+  decision: Papers / Theory and Evaluation
+  reason: Reviewed canonical paper and mechanism; Studies loss of difficult examples during repeated self-training and uses
+    Socratic hints to recover sampling coverage for later training rounds.
+retained:
+- name: 'Darwin Godel Machine: Open-Ended Evolution of Self-Improving Agents'
+  url: https://arxiv.org/abs/2505.22954
+  category: Papers / Harness
+  reason: A coding agent modifies its own implementation, evaluates descendants on coding benchmarks, and branches from a
+    growing archive of agents to produce further improvements.
+- name: Hyperagents
+  url: https://arxiv.org/abs/2603.19461
+  category: Papers / Harness
+  reason: Integrates a task agent and a meta agent into one editable program so that evaluated changes can improve both task
+    behavior and the machinery producing future changes.
+- name: 'Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation'
+  url: https://arxiv.org/abs/2310.02304
+  category: Papers / Harness
+  reason: A seed LM-calling program optimizer is applied to its own code, discovering improved search scaffolds that then
+    optimize downstream programs.
+- name: 'STaR: Bootstrapping Reasoning With Reasoning'
+  url: https://arxiv.org/abs/2203.14465
+  category: Papers / Models
+  reason: Generates reasoning traces, filters them by answer correctness, rationalizes failed examples using known answers,
+    and repeatedly fine-tunes on successful traces.
+- name: Reinforced Self-Training (ReST) for Language Modeling
+  url: https://arxiv.org/abs/2308.08998
+  category: Papers / Models
+  reason: Alternates policy-generated data collection with reward-guided offline learning, reusing samples to improve a language-model
+    policy, demonstrated on machine translation.
+- name: 'Beyond Human Data: Scaling Self-Training for Problem-Solving with Language Models'
+  url: https://arxiv.org/abs/2312.06585
+  category: Papers / Models
+  reason: Repeatedly samples solutions, filters by binary correctness feedback and fine-tunes on accepted samples, studying
+    scaling on MATH and APPS with PaLM-2.
+- name: Self-Rewarding Language Models
+  url: https://arxiv.org/abs/2401.10020
+  category: Papers / Models
+  reason: Uses the language model as its own prompted reward judge during iterative DPO, jointly improving response generation
+    and the rewards it gives subsequent training examples.
+- name: Self-Taught Evaluators
+  url: https://arxiv.org/abs/2408.02666
+  category: Papers / Models
+  reason: Generates contrasting responses and synthetic reasoning/judgments to repeatedly train an LLM evaluator, using improved
+    evaluator predictions to construct later training rounds.
+- name: Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models
+  url: https://arxiv.org/abs/2401.01335
+  category: Papers / Models
+  reason: Trains a policy to distinguish human demonstration responses from responses generated by its previous iteration,
+    repeatedly strengthening a supervised fine-tuned model through self-play.
+- name: 'Absolute Zero: Reinforced Self-play Reasoning with Zero Data'
+  url: https://arxiv.org/abs/2505.03335
+  category: Papers / Models
+  reason: A model co-evolves its task proposals and solving ability, using a code executor for task validity and answer rewards
+    instead of an externally curated post-training dataset.
+- name: 'R-Zero: Self-Evolving Reasoning LLM from Zero Data'
+  url: https://arxiv.org/abs/2508.05004
+  category: Papers / Models
+  reason: Co-evolves Challenger and Solver models so that frontier-difficulty generated tasks train the Solver, while the
+    Solver's changing capability alters the Challenger's rewards.
+- name: 'Agent0: Unleashing Self-Evolving Agents from Zero Data via Tool-Integrated Reasoning'
+  url: https://arxiv.org/abs/2511.16043
+  category: Papers / Models
+  reason: Couples a curriculum model with a tool-using executor model; stronger execution drives harder generated curricula,
+    which in turn provide reinforcement-learning data.
+- name: 'RoboCat: A Self-Improving Generalist Agent for Robotic Manipulation'
+  url: https://arxiv.org/abs/2306.11706
+  category: Papers / Models
+  reason: Adapts a generalist robotic policy to tasks and embodiments, uses trained policies to gather further robot experience,
+    and retrains subsequent generalist models on the expanded data.
+- name: Self-Adapting Language Models
+  url: https://arxiv.org/abs/2506.10943
+  category: Papers / Models
+  reason: Strong model-level feedback loop in which the model's own generated adaptation instructions cause weight updates
+    and are optimized using the adapted model's performance.
+- name: A Self-Improving Coding Agent
+  url: https://arxiv.org/abs/2504.15228
+  category: Papers / Harness
+  reason: The same agent solves coding tasks and edits its own full codebase; this is direct self-modification rather than
+    a fixed external meta-agent only optimizing a target agent.
+- name: 'Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement'
+  url: https://arxiv.org/abs/2410.04444
+  category: Papers / Harness
+  reason: Explicitly targets editable agent logic and recursive self-revision; limitations prevent conflating the empirical
+    framework with a provably optimal Gödel machine.
+- name: 'ReST-MCTS*: LLM Self-Training via Process Reward Guided Tree Search'
+  url: https://arxiv.org/abs/2406.03816
+  category: Papers / Models
+  reason: Unlike generic tree-search inference, this method explicitly feeds searched traces and step values back into both
+    model-training pathways repeatedly.
+- name: Self-Play Preference Optimization for Language Model Alignment
+  url: https://arxiv.org/abs/2405.00675
+  category: Papers / Models
+  reason: Direct repeated policy updates from self-play-generated comparisons, distinguished from self-rewarding methods because
+    the preference judge is externally pretrained.
+- name: 'Continual Harness: Online Adaptation for Self-Improving Foundation Agents'
+  url: https://arxiv.org/abs/2605.09998
+  category: Papers / Harness
+  reason: Retained for explicit act/refine self-adaptation and the separate teacher-assisted model co-learning loop; persistent
+    memory alone would not meet the narrowed paper gate.
+search_axes:
+- Recursive self-modification and meta-level skill evolution
+- Model / curriculum / judge co-evolution, including June–August 2026 preprints
+- Gödel-machine foundations and closed-system learning positions
+- Failures of iterative self-training and statistical edit acceptance
+- Citation chasing from HGM, MetaSkill-Evolve and J-Zero; exact-title official-code searches
+additional_candidates_not_promoted:
+- name: HELIX
+  url: https://arxiv.org/abs/2608.13951
+  reason: Abstract reports one fixed-model harness evolution round and generated training records; repeated model/harness
+    co-evolution is motivation rather than demonstrated closure.
+- name: Recursive Harness Self-Improvement
+  url: https://arxiv.org/abs/2607.15524
+  reason: Task-specific prompt-harness optimization; abstract does not establish recursive redesign of the improvement procedure
+    or a completed model-training cycle.
+- name: SBCO
+  url: https://arxiv.org/abs/2608.10157
+  reason: Explicitly describes a fixed meta-agent and a self-supervised rather than self-referential optimizer.
+- name: DARWIN
+  url: https://arxiv.org/abs/2602.05848
+  reason: Demonstration uses an external OpenAI API proposer to edit nanoGPT training; training successor proposers is not
+    established.
+- name: Socratic Self-Refine
+  url: https://arxiv.org/abs/2511.10621
+  reason: Test-time step verification and refinement; no durable training or self-modifying improvement procedure.
+- name: RSI survey of 1,250 papers
+  url: https://arxiv.org/abs/2607.07663
+  reason: Useful discovery taxonomy; not promoted as an additional independent implementation result.
+retrieval_notes:
+- Canonical abstracts for all 37 existing papers retrieved; the Nature paper was reviewed via its retained publisher evidence.
+  New methods reviewed against arXiv HTML method/limitations sections and official READMEs where linked.
+- HGM venue established by author README (ICLR 2026); SiriuS venue by author README (NeurIPS 2025). OpenReview forum returned
+  a browser challenge and was not treated as independent verification.
+- 'MetaSkill-Evolve and Socratic-SWE: canonical abstract/full text and exact-title code searches did not establish author-linked
+  code. The discovered MetaSkill-Evolve third-party toy reproduction is not presented as official.'
+- 'Kimi K2 original date established from official Moonshot blog tag index: 2025-07-11. Anthropic RSI article original date
+  remains null and omitted from reader-facing output.'
+- SGM linked repository now describes a later anonymous submission; summary and limitations here refer to arXiv v1. Meta^n
+  official README explicitly describes exploratory prototype results.
+- GitHub metadata was refreshed atomically for all live repository references on 2026-09-09. Third-party code was read but
+  not executed; benchmark claims were not independently reproduced.

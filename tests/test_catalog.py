@@ -28,6 +28,33 @@ class CatalogTests(unittest.TestCase):
     def test_current_catalog(self):
         self.assertEqual(validate_catalog(self.data, self.today), [])
 
+    def test_main_paper_gate_rejects_external_optimization(self):
+        paper = next(e for e in self.data["entries"] if e["kind"] == "paper")
+        paper["scope"] = "bounded-optimization"
+        self.assertIn("main-paper category gate", self.errors())
+
+    def test_unknown_blog_dates_do_not_render_placeholders(self):
+        blog = next(e for e in self.data["entries"] if e["kind"] == "reading")
+        blog["published_at"] = None
+        blog["date_note"] = "Original publication date not established in reviewed sources."
+        for text in render_readmes(self.data):
+            row = next(line for line in text.splitlines() if f"]({blog['repo_url']})" in line)
+            self.assertTrue(row.endswith(blog["publisher"]))
+            self.assertNotIn("date not verified", text)
+            self.assertNotIn("日期未核实", text)
+
+    def test_project_headings_identify_github(self):
+        for text in render_readmes(self.data):
+            for group in ("Models", "Harness", "Artifacts"):
+                self.assertIn(f"### GitHub / {group}\n", text)
+                self.assertNotIn(f"### {group}\n", text)
+
+    def test_overview_counts_every_resource_once(self):
+        for text in render_readmes(self.data):
+            overview = text.split("## Category Overview\n", 1)[1].split("## Company Research Blogs", 1)[0]
+            counts = [int(n) for n in re.findall(r"\| (\d+) \|$", overview, re.M)]
+            self.assertEqual(sum(counts), len(self.data["entries"]))
+
     def test_missing_mechanism(self):
         del self.entry["rsi_mechanism"]["persistence"]
         self.assertIn("mechanism needs", self.errors())

@@ -2,7 +2,7 @@
 
 ## Scope
 
-Recursive Self-Improvement (RSI) requires improved systems to participate in subsequent improvement. This catalog covers demonstrated loops, bounded components, and clearly labeled evaluation/agendas. Repeated tool calls alone do not qualify.
+Recursive Self-Improvement (RSI) requires improved systems to participate in subsequent improvement. This catalog distinguishes self-referential improvement, iterative self-training, supporting implementations, and explicitly labeled theory/evaluation. Repeated tool calls alone do not qualify.
 
 - `self-modification`: agent code or mutable harness state changes and influences subsequent improvement.
 - `self-training`: internally generated tasks, trajectories or supervision update retained model weights across iterations.
@@ -16,9 +16,10 @@ No label proves indefinite capability growth. Do not silently promote fixed-mode
 
 ## Presentation Priority
 
-1. First-party company research blogs: mechanisms/results, evaluation/failure modes, research agendas, historical foundations/tutorials.
-2. Papers, grouped by Models / Harness / Artifacts, with author-linked code in an adjacent column.
-3. Active GitHub implementations, subject to the stricter repository activity gate.
+1. A short reading guide and generated category overview.
+2. First-party company research blogs: direct mechanisms/results first; supporting AI research, evaluation, agendas and historical tutorials in expandable subsections.
+3. Papers: `Papers / Harness`, `Papers / Models`, and `Papers / Theory and Evaluation`, with author-linked code beside the mechanism. Short display names retain canonical full titles in the catalog.
+4. Active GitHub implementations under consistently prefixed `GitHub / Models`, `GitHub / Harness`, and `GitHub / Artifacts` headings, subject to the repository activity gate. Bounded optimizers and learned skills remain labeled supporting tools, not standalone RSI demonstrations.
 
 Counts refer to resources, not independent breakthroughs: a blog, paper and repository may describe the same work. Prefer original technical accounts to syndicated duplicates. Related follow-ups need substantial new mechanisms, empirical applications or corrections.
 
@@ -26,15 +27,23 @@ Counts refer to resources, not independent breakthroughs: a blog, paper and repo
 
 Use first-party technical material from model builders and specialist AI research labs; identify the publisher accurately. Do not pretend every specialist lab is a frontier-scale model company. A product announcement only qualifies when a specific section describes a concrete retained loop. General agent engineering, press coverage and tool-use demos do not qualify by publisher prestige alone.
 
-Preserve original publication dates separately from evidence review and API sync dates. Unknown dates may be null with a documented search note. Archived tutorials can appear only in the historical subsection with an explicit archive warning and limitations. Research agendas and failure reports have their own sections and labels. Publisher claims are not independent replications.
+Preserve original publication dates separately from evidence review and API sync dates. Unknown dates remain null with a documented search note; omit the date in the README rather than inserting an audit placeholder. An official publisher index can establish the original date when the article itself does not show it. Archived tutorials can appear only in the historical subsection with an explicit archive warning and limitations. Research agendas and failure reports have their own sections and labels. Publisher claims are not independent replications.
 
 ## Paper Gate
+
+The main list has three explicit routes:
+
+- **Harness:** the agent changes its own implementation or control procedure and uses that changed system in later improvement. Retained memory alone does not suffice; Continual Harness is retained for its explicit act/refine loop and separately described model co-learning experiment.
+- **Models:** updated weights participate in producing later training data, curricula, solutions or evaluation signals. This includes bounded self-training foundations; do not claim that a fixed learning rule rewrites itself.
+- **Theory and Evaluation:** a direct formalization, position paper or failure/measurement study of these loops. Label theoretical and empirical roles separately from agent implementations.
+
+Move fixed external prompt/workflow/program optimization, one-task refinement, generic framework integration and skill-memory-only work to [related methods](related_methods.md). Quality, relevance and maturity are separate judgments: an excellent neighboring paper may be outside this narrower list, and a new relevant preprint is not automatically an established result. Prefer demonstrated loop closure, inspectable methods, meaningful baselines, held-out evaluation and clear failure analysis; neither stars nor recency alone establishes quality.
 
 Read the canonical arXiv abstract/full text, proceedings/publisher article, and author-linked implementation documentation where available. Record a short exact excerpt and target/feedback/update/persistence mechanism, with specific bilingual contributions and limitations.
 
 Use the first arXiv version date, or first publisher online date when no arXiv source is used. Do not substitute blog publication dates or journal issue dates. State conference/journal/workshop identity only when an author-linked source or publisher explicitly establishes it, and preserve that evidence URL and excerpt. A workshop is not the conference main track. A missing venue means not established in this review, not rejected or definitely unpublished.
 
-Search the original paper, author project site and linked repository before recording `code_status: not-found`. This does not mean no code exists. Official means author-linked, not necessarily complete. Flag associated/partial releases and artifact-only releases. Do not label OpenEvolve as official AlphaEvolve code, or substitute an unofficial self-rewarding reproduction for Meta's unreleased implementation. Inactive and archived public code can remain next to useful historical papers; show archive status and last push instead of applying the active-project gate.
+Search the original paper, author project site and linked repository before recording `code_status: not-found`. This does not mean no code exists. Render it as an em dash with a shared legend, keeping search details in the data. Official means author-linked, not necessarily complete. Flag associated/partial releases and artifact-only releases. Do not label OpenEvolve as official AlphaEvolve code, or substitute an unofficial self-rewarding reproduction for Meta's unreleased implementation. Inactive and archived public code can remain beside historical papers; preserve archive status and put push dates/release notes in expandable details.
 
 ## Active Project Gate
 

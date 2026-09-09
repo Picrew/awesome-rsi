@@ -32,10 +32,12 @@ SCOPE_LABELS = {
 }
 BLOG_SECTIONS = OrderedDict([
     ("mechanisms", ("Mechanisms and Results", "机制与实证结果")),
+    ("methods", ("AI Research and Supporting Methods", "AI 科研与支撑方法")),
     ("safety", ("Evaluation and Failure Modes", "评测与失败模式")),
     ("agenda", ("Research Agendas", "研究路线")),
     ("foundations", ("Foundations and Historical Tutorials", "奠基研究与历史教程")),
 ])
+PAPER_GROUPS = ("Harness", "Models", "Theory and Evaluation")
 
 
 def is_github(url: str) -> bool:
@@ -96,26 +98,36 @@ def cell_list(items):
     return "<br>".join(f"• {item}" for item in items if item)
 
 
+def disclosure(title, content):
+    return f"<details><summary>{title}</summary>{content}</details>"
+
+
 def paper_code_cell(entry, zh=False):
     label = lambda en, cn: cn if zh else en
     url = entry.get("code_url")
     status = entry.get("code_status")
     if not url:
-        return label("Not found in reviewed sources", "已审查来源未找到")
+        return "—"
     title = label("Official code", "官方代码") if status == "official" else label("Third-party reproduction", "第三方复现")
     if entry.get("code_release") == "artifacts-only":
         title = label("Official artifacts only", "仅官方产物")
+    # Word joiners keep short CJK labels intact in GitHub's auto-sized tables.
+    title = "&#8288;".join(title) if zh else title.replace(" ", "&nbsp;")
     items = [f"[{title}]({entry.get('code_subdirectory_url') or url})"]
+    notes = []
     metadata = entry.get("code_metadata")
     if metadata:
         items.append(star_badge(url, metadata["stars_snapshot"]))
-        items.append(f"**{label('Last push', '最近推送')}:** {metadata['updated_at']}")
+        notes.append(f"**{label('Last push', '最近推送')}:** {metadata['updated_at']}")
         if metadata["archived"]:
             items.append(f"**{label('Archived', '已归档')}**")
     note = entry.get("code_note_zh" if zh else "code_note_en")
     if note:
-        items.append(f"**{label('Release notes', '发布说明')}:** {note}")
-    return cell_list(items)
+        notes.append(note)
+    if notes:
+        details_title = "详情" if zh else "Details"
+        items.append(disclosure(details_title, cell_list(notes)))
+    return "<br>".join(items)
 
 
 def category_overview(entries, categories, zh=False):
@@ -128,12 +140,18 @@ def category_overview(entries, categories, zh=False):
         if count:
             lines.append(table_row([f"[{titles[int(zh)]}](#{heading_slug(titles[0])})",
                                     label("Blog", "博客"), count]))
+    ordered = sorted(categories, key=lambda c: PAPER_GROUPS.index(c["name_en"].removeprefix("Papers / "))
+                     if c["group"] == "Papers" else len(PAPER_GROUPS))
     for kind, resource in (("paper", label("Paper", "论文")), ("project", label("GitHub project", "GitHub 项目"))):
-        for category in categories:
+        for category in ordered:
             count = sum(e["kind"] == kind and e["category"] == category["name_en"] for e in entries)
             if count:
                 title = category["name_zh" if zh else "name_en"]
-                lines.append(table_row([f"[{title}](#{heading_slug(category['name_en'])})", resource, count]))
+                heading = category['name_en']
+                if kind == "project":
+                    title = "GitHub / " + title
+                    heading = "GitHub / " + heading
+                lines.append(table_row([f"[{title}](#{heading_slug(heading)})", resource, count]))
     lines += [table_row([label("**Total**", "**合计**"), "", f"**{len(entries)}**"]), ""]
     return lines
 
@@ -151,13 +169,23 @@ def render_readmes(catalog: dict[str, Any]) -> tuple[str, str]:
         label = lambda en, cn: cn if zh else en
         def explanation(entry):
             scope = SCOPE_LABELS[entry["scope"]][int(zh)]
-            return cell_list([f"**{scope}**",
-                              f"**{label('Loop', '闭环')}:** {entry['summary_' + language]}",
-                              f"**{label('Boundary', '边界')}:** {entry['limitation_' + language]}"])
+            return f"**{scope}**<br>{entry['summary_' + language]}<br>" + disclosure(
+                label("Boundary", "边界"), entry['limitation_' + language])
         lines = [f"# {meta['title_' + language]}", "", meta["description_" + language], "",
                  "[English](./README.md) | [中文](./README_zh.md)", "",
                  label(f"**{len(blogs)} first-party blog posts · {len(papers)} research papers · {len(projects)} active GitHub projects**",
                        f"**{len(blogs)} 篇一手博客 · {len(papers)} 篇研究论文 · {len(projects)} 个活跃 GitHub 项目**"), "",
+                 "## Start Here", "",
+                 label("| Reading path | What to look for |", "| 阅读路线 | 关注的问题 |"),
+                 "| --- | --- |",
+                 label("| [Self-modifying agents](#papers--harness) | Does the revised agent participate in its next improvement? |",
+                       "| [自修改代理](#papers--harness) | 修改后的代理是否参与下一轮自身改进？ |"),
+                 label("| [Iterative self-training](#papers--models) | Do updated models generate the next training data, curriculum or rewards? |",
+                       "| [迭代自训练](#papers--models) | 更新后的模型是否产生下一轮数据、课程或奖励？ |"),
+                 label("| [Theory and evaluation](#papers--theory-and-evaluation) | Which assumptions and measurements support the loop? |",
+                       "| [理论与评测](#papers--theory-and-evaluation) | 回路依赖哪些假设，改进如何被测量？ |"), "",
+                 label("**Reading the evidence:** self-modification, bounded self-training and theoretical proposals are different claims. [Related methods and selection decisions](docs/related_methods.md) explain what stays outside the main paper list.",
+                       "**如何读这些证据：** 自修改、有界自训练和理论设想是不同层次的结论。[相关方法与筛选说明](docs/related_methods.md)解释了哪些研究不进入主论文列表。"), "",
                  label("## Contents", "## 目录"), "",
                  label("- [Category Overview](#category-overview)", "- [分类概览](#category-overview)"),
                  label("- [Company Research Blogs](#company-research-blogs)", "- [模型公司研究博客（优先阅读）](#company-research-blogs)")]
@@ -165,12 +193,12 @@ def render_readmes(catalog: dict[str, Any]) -> tuple[str, str]:
             if any(e.get("blog_section") == key for e in blogs):
                 lines.append(f"  - [{titles[int(zh)]}](#{heading_slug(titles[0])})")
         lines.append(label("- [Papers and Official Code](#papers-and-official-code)", "- [论文与官方代码](#papers-and-official-code)"))
-        for group in ("Models", "Harness", "Artifacts"):
-            if any(e["improvement_target"] == group for e in papers):
-                lines.append(f"  - [{group}](#papers--{group.lower()})")
+        for group in PAPER_GROUPS:
+            if any(e["category"] == "Papers / " + group for e in papers):
+                lines.append(f"  - [Papers / {group}](#{heading_slug('Papers / ' + group)})")
         lines.append(label("- [Active GitHub Projects](#active-github-projects)", "- [活跃 GitHub 项目](#active-github-projects)"))
         for group in ("Models", "Harness", "Artifacts"):
-            lines.append(f"  - [{group}](#{group.lower()})")
+            lines.append(f"  - [GitHub / {group}](#{heading_slug('GitHub / ' + group)})")
         lines += [label("- [Scope and Curation](#scope-and-curation)", "- [边界与收录原则](#scope-and-curation)"),
                   label("- [Maintenance](#maintenance)", "- [维护](#maintenance)"), ""]
         lines += category_overview(entries, categories, zh)
@@ -183,47 +211,52 @@ def render_readmes(catalog: dict[str, Any]) -> tuple[str, str]:
                 continue
             selected.sort(key=lambda e: (e.get("priority", 99), e["published_at"] or "", e["name"]))
             lines += [f"### {titles[0]}", ""]
+            folded = key != "mechanisms"
+            if folded:
+                lines += [f"<details><summary>{label(f'Browse {len(selected)} articles', f'展开 {len(selected)} 篇文章')}</summary>", ""]
             for e in selected:
-                date = e["published_at"] or label("date not verified", "日期未核实")
+                date = f" · {e['published_at']}" if e.get("published_at") else ""
                 status = label(" · archived tutorial", " · 已归档教程") if e.get("content_status") == "archived" else ""
                 title = f"[{e['name']}]({e['repo_url']})"
-                lines.append(f"- **{title}** — {escape_md(e['publisher'])} · {date}{status}")
+                lines.append(f"- **{title}** — {escape_md(e['publisher'])}{date}{status}")
                 scope = SCOPE_LABELS[e["scope"]][int(zh)]
-                lines.append(f"  - **{label('Target', '改进对象')}:** `{e['improvement_target']}` · {scope}")
-                lines.append(f"  - **{label('Loop', '闭环')}:** {escape_md(e['summary_' + language])}")
+                lines.append(f"  - `{e['improvement_target']}` · **{scope}** — {escape_md(e['summary_' + language])}")
                 lines.append(f"  - **{label('Boundary', '边界')}:** {escape_md(e['limitation_' + language])}")
                 lines.append("")
+            if folded:
+                lines += ["</details>", ""]
             lines.append("")
         lines += ["## Papers and Official Code", "",
                   label("- Dates refer to first publication. Only source-verified venues are shown; a date alone makes no peer-review claim.",
                         "- 日期为首次发表日期。仅显示经来源核实的会议或期刊；只有日期不代表已通过同行评审。"),
-                  label("- Official code is author-linked; artifact-only and archived releases are marked. Older code does not disqualify a useful paper.",
-                        "- 官方代码指作者关联；仅发布产物和已归档的情况单独标注。旧代码不会使有价值的论文被排除。"),
+                  label("- Code links are author-linked releases. **—** means no author-linked implementation was established in this review; it does not assert that none exists. Release details preserve metadata and partial-release notes.",
+                        "- 代码链接指作者关联的发布。**—** 表示本轮未确认作者关联的实现，不代表代码一定不存在；发布详情保留元数据与不完整发布说明。"),
                   label(f"- Star badges and push dates use the **{meta['last_verified']}** metadata snapshot.",
                         f"- Star 徽章与推送日期来自 **{meta['last_verified']}** 的元数据快照。"), ""]
-        for group in ("Models", "Harness", "Artifacts"):
-            selected = sorted([e for e in papers if e["improvement_target"] == group],
+        for group in PAPER_GROUPS:
+            selected = sorted([e for e in papers if e["category"] == "Papers / " + group],
                               key=lambda e: (e["published_at"], e["name"]), reverse=True)
             if not selected:
                 continue
-            lines += [f"### Papers / {group}", "", label("| Paper | Date / Publication | Code | Contribution and Boundary |",
-                         "| 论文 | 日期 / 发表状态 | 代码 | 贡献与边界 |"), "| --- | --- | --- | --- |"]
+            category = next(c for c in categories if c["name_en"] == "Papers / " + group)
+            lines += [f"### Papers / {group}", "", category['description_' + language], "",
+                      label("| Paper | Improvement Mechanism | Code |", "| 论文 | 改进机制 | 代码 |"), "| --- | --- | --- |"]
             for e in selected:
                 publication = e["published_at"]
                 if e.get("venue") and e.get("venue_evidence_url"):
                     publication += f"<br>[{e['venue']}]({e['venue_evidence_url']})"
-                lines.append(table_row([f"[{e['name']}]({e['repo_url']})", publication,
-                                        paper_code_cell(e, zh), explanation(e)]))
+                lines.append(table_row([f"**[{e.get('short_name', e['name'])}]({e['repo_url']})**<br>{publication}",
+                                        explanation(e), paper_code_cell(e, zh)]))
             lines.append("")
         lines += ["## Active GitHub Projects", "",
                   label(f"Repository metadata snapshot: **{meta['last_verified']}**. Only public, non-archived projects pushed in the last **60 days** appear here; stars are snapshots, not evidence of RSI. Paper-associated code above has no activity gate.",
                         f"仓库元数据快照：**{meta['last_verified']}**。本节只列公开、未归档、最近 **60 天**有 push 的项目；star 是快照，不是 RSI 证据。上方论文配套代码不受活跃窗口限制。"), ""]
         for group in ("Models", "Harness", "Artifacts"):
-            lines += [f"### {group}", ""]
+            lines += [f"### GitHub / {group}", ""]
             for c in categories:
                 if c["group"] != group or not grouped[c["name_en"]]:
                     continue
-                lines += [f"#### {c['name_en']}", "", c["description_" + language], "",
+                lines += [f"#### GitHub / {c['name_en']}", "", c["description_" + language], "",
                           label("| Project | Link | Stars | Tags | Improvement Loop and Boundary |",
                                 "| 项目 | 链接 | Stars | 标签 | 改进闭环与边界 |"), "| --- | --- | ---: | --- | --- |"]
                 for e in grouped[c["name_en"]]:
@@ -241,6 +274,7 @@ def render_readmes(catalog: dict[str, Any]) -> tuple[str, str]:
                   "python3 scripts/verify_catalog.py", "python3 -m unittest discover -s tests -v", "```", "",
                   "- [Curation policy](docs/curation_policy.md)", "- [Sources and verification](docs/sources_and_verification.md)",
                   "- [Research coverage and decisions](docs/research_decisions.md)",
+                  "- [Related methods and paper selection](docs/related_methods.md)",
                   "- [Taxonomy](docs/taxonomy_iterations.md)", "- [Contributing](CONTRIBUTING.md)", ""]
         outputs.append("\n".join(lines))
     return tuple(outputs)
