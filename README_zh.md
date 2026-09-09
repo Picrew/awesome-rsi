@@ -4,7 +4,7 @@
 
 [English](./README.md) | [中文](./README_zh.md)
 
-**31 篇一手博客 · 29 篇研究论文 · 11 个活跃 GitHub 项目**
+**31 篇一手博客 · 29 篇研究论文 · 12 个活跃 GitHub 项目**
 
 ## Start Here
 
@@ -51,10 +51,10 @@
 | [GitHub / Models / 训练研究](#github--models--training-research) | GitHub 项目 | 1 |
 | [GitHub / Models / 递归自训练](#github--models--recursive-self-training) | GitHub 项目 | 1 |
 | [GitHub / Harness / 自修改](#github--harness--self-modification) | GitHub 项目 | 3 |
-| [GitHub / Harness / 提示与工作流优化](#github--harness--prompt-and-workflow-optimization) | GitHub 项目 | 3 |
+| [GitHub / Harness / 提示与工作流优化](#github--harness--prompt-and-workflow-optimization) | GitHub 项目 | 4 |
 | [GitHub / Artifacts / 程序进化](#github--artifacts--program-evolution) | GitHub 项目 | 2 |
 | [GitHub / Artifacts / 学习所得技能](#github--artifacts--learned-skills) | GitHub 项目 | 1 |
-| **合计** |  | **71** |
+| **合计** |  | **72** |
 
 ## Company Research Blogs
 
@@ -314,6 +314,7 @@
 | DSPy / GEPA and MIPROv2 | [GitHub](https://github.com/stanfordnlp/dspy) | [![star: 37,865](https://img.shields.io/badge/star-37865-f4b400?style=flat-square)](https://github.com/stanfordnlp/dspy) | `prompt-optimization`<br>`demonstrations`<br>`metrics` | **有界优化**<br>针对任务指标优化指令和示例来编译 LM 程序，编译结果保留所选配置供后续使用。<br><details open><summary>边界</summary>仅因其优化器收录，而非 DSPy 的所有功能；提示编译本身不修改优化器或模型权重。</details><br>• [证据](https://github.com/stanfordnlp/dspy/blob/main/dspy/teleprompt/gepa/gepa.py) |
 | GEPA | [GitHub](https://github.com/gepa-ai/gepa) | [![star: 6,485](https://img.shields.io/badge/star-6485-f4b400?style=flat-square)](https://github.com/gepa-ai/gepa) | `reflection`<br>`pareto-selection`<br>`prompt-optimization` | **有界优化**<br>反思执行轨迹和评测反馈来提出提示修订，并通过 Pareto 选择保留互补候选。<br><details open><summary>边界</summary>原始方法在固定模型权重下优化提示；通用 optimize_anything API 不代表 GEPA 会改写自身。</details><br>• [证据](https://github.com/gepa-ai/gepa) |
 | EvoAgentX / Evolution Algorithms | [GitHub](https://github.com/ANative-Lab/EvoAgentX) | [![star: 3,315](https://img.shields.io/badge/star-3315-f4b400?style=flat-square)](https://github.com/ANative-Lab/EvoAgentX) | `workflow-optimization`<br>`aflow`<br>`validation` | **有界优化**<br>对代理工作流运行 AFlow、TextGrad、MIPRO 和 EvoPrompt；验证分数驱动提示或图结构修订，并进行独立测试评测。<br><details open><summary>边界</summary>因可执行进化算法收录，而非工具集成或单次工作流生成；目标与搜索算法由人设定。</details><br>• [证据](https://github.com/ANative-Lab/EvoAgentX#evolution-algorithms) |
+| Reef / Harness Evolution | [GitHub](https://github.com/Human-Agent-Society/reef) | [![star: 819](https://img.shields.io/badge/star-819-f4b400?style=flat-square)](https://github.com/Human-Agent-Society/reef) | `harness-evolution`<br>`evaluation-gate`<br>`versioned-artifacts` | **有界优化**<br>通过兼容 OpenAI 与 Anthropic 的端点服务代理流量，并为每个请求返回一条记录回执；针对失败回执上报的分数与反馈驱动一次候选修改，作用于由技能、提示、规则与配置组成的 harness 树，只有在部署配置的任务上胜过当前树，才会作为带版本的产物发布。<br><details open><summary>边界</summary>提案器实现、反馈与记录的匹配逻辑以及评测门控均由运维者定义，并在各轮之间保持固定，模型权重也不变。已公开的教程运行按最终答案精确匹配评判三个固定任务，并将这些任务同时用于提案反馈和评测门控；结果是单次运行样本，没有重复试验或不确定性估计，不能据此证明在独立测试集上的泛化或持续能力增长。</details><br>• [证据](https://github.com/Human-Agent-Society/reef/blob/main/tutorials/evolve-your-harness/README.md) |
 
 ### GitHub / Artifacts
 

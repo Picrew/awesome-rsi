@@ -252,6 +252,45 @@ entries:
   license: NOASSERTION
   metadata_checked_at: '2026-09-09'
   metadata_source: https://api.github.com/repos/ANative-Lab/EvoAgentX
+- name: Reef / Harness Evolution
+  repo_url: https://github.com/Human-Agent-Society/reef
+  category: Harness / Prompt and Workflow Optimization
+  kind: project
+  scope: bounded-optimization
+  summary_en: Serves agent traffic behind an OpenAI- and Anthropic-compatible endpoint and returns a record receipt per request;
+    scores and feedback reported against failing receipts drive one proposed mutation of the harness tree of skills, prompts,
+    rules and configuration, published as a versioned artifact only when it beats the current tree on the deployment's configured
+    tasks.
+  summary_zh: 通过兼容 OpenAI 与 Anthropic 的端点服务代理流量，并为每个请求返回一条记录回执；针对失败回执上报的分数与反馈驱动一次候选修改，作用于由技能、提示、规则与配置组成的 harness 树，只有在部署配置的任务上胜过当前树，才会作为带版本的产物发布。
+  limitation_en: The proposer implementation, feedback-to-record matching and evaluation gate are operator-defined and fixed
+    across rounds, with fixed model weights. Published tutorial runs grade three fixed tasks by exact final answer, reuse
+    those tasks for proposal feedback and gating, and report single-run samples without repeated trials or uncertainty estimates;
+    these demonstrations do not establish held-out generalization or sustained capability growth.
+  limitation_zh: 提案器实现、反馈与记录的匹配逻辑以及评测门控均由运维者定义，并在各轮之间保持固定，模型权重也不变。已公开的教程运行按最终答案精确匹配评判三个固定任务，并将这些任务同时用于提案反馈和评测门控；结果是单次运行样本，没有重复试验或不确定性估计，不能据此证明在独立测试集上的泛化或持续能力增长。
+  tags:
+  - harness-evolution
+  - evaluation-gate
+  - versioned-artifacts
+  stars_snapshot: 819
+  updated_at: '2026-09-09'
+  reviewed_at: '2026-09-09'
+  rsi_mechanism:
+    target: The served harness tree of skills, prompts, rules, configuration and extensions
+    feedback: Scores and text or structured feedback reported against the x-reef-agent-record-id receipt of a recorded request
+    update: The configured recipe proposes one gated mutation of the tree from eligible failing records and their reports
+    persistence: An accepted mutation publishes as a versioned, rollback-capable artifact that later traffic pulls and later
+      proposals start from
+  evidence_url: https://github.com/Human-Agent-Society/reef/blob/main/tutorials/evolve-your-harness/README.md
+  evidence_excerpt: a proposal is one gated tree mutation, and a winning mutation publishes as a versioned artifact any client
+    can pull
+  why_included: Included for the documented harness evolution path only, where receipt-linked reports produce one gated tree
+    mutation that must win an evaluation before publication; the repository's weight-training recipes are outside this entry.
+  pushed_at: '2026-09-09T08:19:08Z'
+  archived: false
+  private: false
+  license: Apache-2.0
+  metadata_checked_at: '2026-09-09'
+  metadata_source: https://api.github.com/repos/Human-Agent-Society/reef
 - name: OpenEvolve
   repo_url: https://github.com/algorithmicsuperintelligence/openevolve
   category: Artifacts / Program Evolution
