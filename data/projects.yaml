@@ -1,7 +1,7 @@
 catalog:
   title_en: Awesome RSI
   title_zh: Awesome RSI
-  last_verified: '2026-09-09'
+  last_verified: '2026-09-12'
   description_en: 'A curated research map of recursive self-improvement: agents that revise their own machinery, models that
     generate their next training signal, and the evidence that defines their limits.'
   description_zh: 递归自我改进研究地图：修改自身机制的代理、产生下一轮训练信号的模型，以及界定其能力边界的证据。
@@ -118,7 +118,7 @@ entries:
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/microsoft/RD-Agent
 - name: HyperAgents
   repo_url: https://github.com/facebookresearch/HyperAgents
@@ -149,7 +149,7 @@ entries:
   archived: false
   private: false
   license: NOASSERTION
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/facebookresearch/HyperAgents
 - name: DSPy / GEPA and MIPROv2
   repo_url: https://github.com/stanfordnlp/dspy
@@ -183,7 +183,7 @@ entries:
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/stanfordnlp/dspy
 - name: GEPA
   repo_url: https://github.com/gepa-ai/gepa
@@ -217,7 +217,7 @@ entries:
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/gepa-ai/gepa
 - name: EvoAgentX / Evolution Algorithms
   repo_url: https://github.com/ANative-Lab/EvoAgentX
@@ -250,7 +250,7 @@ entries:
   archived: false
   private: false
   license: NOASSERTION
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/ANative-Lab/EvoAgentX
 - name: Reef / Harness Evolution
   repo_url: https://github.com/Human-Agent-Society/reef
@@ -273,7 +273,7 @@ entries:
   - versioned-artifacts
   stars_snapshot: 819
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   rsi_mechanism:
     target: The served harness tree of skills, prompts, rules, configuration and extensions
     feedback: Scores and text or structured feedback reported against the x-reef-agent-record-id receipt of a recorded request
@@ -289,7 +289,7 @@ entries:
   archived: false
   private: false
   license: Apache-2.0
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/Human-Agent-Society/reef
 - name: OpenEvolve
   repo_url: https://github.com/algorithmicsuperintelligence/openevolve
@@ -322,7 +322,7 @@ entries:
   archived: false
   private: false
   license: Apache-2.0
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/algorithmicsuperintelligence/openevolve
 - name: ShinkaEvolve
   repo_url: https://github.com/SakanaAI/ShinkaEvolve
@@ -355,7 +355,7 @@ entries:
   archived: false
   private: false
   license: Apache-2.0
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/SakanaAI/ShinkaEvolve
 - name: Hermes Agent / Learned Skills
   repo_url: https://github.com/NousResearch/hermes-agent
@@ -388,7 +388,7 @@ entries:
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/NousResearch/hermes-agent
 - name: Prime Agent / Continual Harness
   repo_url: https://github.com/PrimeIntellect-ai/prime-agent
@@ -421,7 +421,7 @@ entries:
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/PrimeIntellect-ai/prime-agent
 - name: 'The Darwin Godel Machine: AI that improves itself by rewriting its own code'
   repo_url: https://sakana.ai/dgm/
@@ -1388,7 +1388,7 @@ entries:
   evidence_url: https://www.kimi.com/en/blog/kimi-k2
   evidence_excerpt: on-policy rollouts with verifiable rewards are used to continuously update the critic so that the critic
     keeps improving its evaluation accuracy on the latest policy
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   verified_at: '2026-09-08'
   tags:
   - kimi
@@ -1607,7 +1607,7 @@ entries:
   category: Papers / Harness
   stars_snapshot: 0
   updated_at: '2025-05-29'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: arxiv-available-venue-unverified
   tags:
   - self-modification
@@ -1623,7 +1623,7 @@ entries:
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/jennyzzt/dgm
   short_name: Darwin Gödel Machine (DGM)
 - id: hyperagents
@@ -1660,7 +1660,7 @@ entries:
   category: Papers / Harness
   stars_snapshot: 0
   updated_at: '2026-03-19'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: arxiv-available-venue-unverified
   tags:
   - self-modification
@@ -1676,7 +1676,7 @@ entries:
     archived: false
     private: false
     license: NOASSERTION
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/facebookresearch/HyperAgents
   short_name: Hyperagents
 - id: stop
@@ -1715,7 +1715,7 @@ entries:
   category: Papers / Harness
   stars_snapshot: 0
   updated_at: '2023-10-03'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: arxiv-available-venue-unverified
   tags:
   - self-modification
@@ -1731,7 +1731,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/microsoft/stop
   short_name: Self-Taught Optimizer (STOP)
 - id: star
@@ -1768,7 +1768,7 @@ entries:
   category: Papers / Models
   stars_snapshot: 0
   updated_at: '2022-03-28'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: published-conference
   tags:
   - self-training
@@ -1784,7 +1784,7 @@ entries:
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/ezelikman/STaR
   short_name: STaR
 - id: rest
@@ -1824,7 +1824,7 @@ entries:
   category: Papers / Models
   stars_snapshot: 0
   updated_at: '2023-08-17'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: arxiv-available-venue-unverified
   tags:
   - self-training
@@ -1871,7 +1871,7 @@ entries:
   category: Papers / Models
   stars_snapshot: 0
   updated_at: '2023-12-11'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: arxiv-available-venue-unverified
   tags:
   - self-training
@@ -1918,7 +1918,7 @@ entries:
   category: Papers / Models
   stars_snapshot: 0
   updated_at: '2024-01-18'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: arxiv-available-venue-unverified
   tags:
   - self-training
@@ -1965,7 +1965,7 @@ entries:
   category: Papers / Models
   stars_snapshot: 0
   updated_at: '2024-08-05'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: arxiv-available-venue-unverified
   tags:
   - self-training
@@ -1985,7 +1985,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/facebookresearch/RAM
   short_name: Self-Taught Evaluators
 - id: spin
@@ -2022,7 +2022,7 @@ entries:
   category: Papers / Models
   stars_snapshot: 0
   updated_at: '2024-01-02'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: published-conference
   tags:
   - self-training
@@ -2038,7 +2038,7 @@ entries:
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/uclaml/SPIN
   short_name: Self-Play Fine-Tuning (SPIN)
 - id: absolute-zero
@@ -2076,7 +2076,7 @@ entries:
   category: Papers / Models
   stars_snapshot: 0
   updated_at: '2025-05-06'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: arxiv-available-venue-unverified
   tags:
   - self-training
@@ -2092,7 +2092,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/LeapLabTHU/Absolute-Zero-Reasoner
   short_name: Absolute Zero
 - id: r-zero
@@ -2129,7 +2129,7 @@ entries:
   category: Papers / Models
   stars_snapshot: 0
   updated_at: '2025-08-07'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: accepted-conference
   tags:
   - self-training
@@ -2145,7 +2145,7 @@ entries:
     archived: false
     private: false
     license: none
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/Chengsong-Huang/R-Zero
   short_name: R-Zero
 - id: agent0
@@ -2183,7 +2183,7 @@ entries:
   category: Papers / Models
   stars_snapshot: 0
   updated_at: '2025-11-20'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: arxiv-available-venue-unverified
   tags:
   - self-training
@@ -2199,7 +2199,7 @@ entries:
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/aiming-lab/Agent0
   short_name: Agent0
 - id: robocat
@@ -2238,7 +2238,7 @@ entries:
   category: Papers / Models
   stars_snapshot: 0
   updated_at: '2023-06-20'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   publication_status_detail: arxiv-available-venue-unverified
   tags:
   - self-training
@@ -2280,7 +2280,7 @@ entries:
   - self-adaptation
   - weight-updates
   - meta-learning
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   evidence_url: https://arxiv.org/abs/2506.10943
   evidence_excerpt: these self-edits result in persistent weight updates, enabling lasting adaptation
   why_included: Strong model-level feedback loop in which the model's own generated adaptation instructions cause weight updates
@@ -2302,7 +2302,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/Continual-Intelligence/SEAL
   short_name: Self-Adapting Language Models (SEAL)
 - id: sica
@@ -2338,7 +2338,7 @@ entries:
   - self-modification
   - coding-agent
   - workshop
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   evidence_url: https://arxiv.org/abs/2504.15228
   evidence_excerpt: an agent system, equipped with basic coding tools, can autonomously edit itself, and thereby improve its
     performance on benchmark tasks
@@ -2361,7 +2361,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/MaximeRobeyns/self_improving_coding_agent
   short_name: Self-Improving Coding Agent (SICA)
 - id: godel-agent
@@ -2396,7 +2396,7 @@ entries:
   - self-reference
   - self-modification
   - agent-design
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   evidence_url: https://arxiv.org/abs/2410.04444
   evidence_excerpt: dynamically modify its own logic and behavior, guided solely by high-level objectives through prompting
   why_included: Explicitly targets editable agent logic and recursive self-revision; limitations prevent conflating the empirical
@@ -2418,7 +2418,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/Arvid-pku/Godel_Agent
   short_name: Gödel Agent
 - id: rest-mcts
@@ -2452,7 +2452,7 @@ entries:
   - self-training
   - process-reward
   - tree-search
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   evidence_url: https://arxiv.org/abs/2406.03816
   evidence_excerpt: they act as value targets for further refining the process reward model and also facilitate the selection
     of high-quality traces for policy model self-training
@@ -2475,7 +2475,7 @@ entries:
     archived: false
     private: false
     license: none
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/THUDM/ReST-MCTS
   short_name: ReST-MCTS*
 - id: sppo
@@ -2510,7 +2510,7 @@ entries:
   - self-play
   - preference-optimization
   - alignment
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   evidence_url: https://arxiv.org/abs/2405.00675
   evidence_excerpt: Self-Play Preference Optimization (SPPO), utilizes iterative policy updates to provably approximate the
     Nash equilibrium
@@ -2533,7 +2533,7 @@ entries:
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/uclaml/SPPO
   short_name: Self-Play Preference Optimization (SPPO)
 - id: continual-harness-paper
@@ -2572,7 +2572,7 @@ entries:
   - online-adaptation
   - reset-free
   - co-learning
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   evidence_url: https://arxiv.org/abs/2605.09998
   evidence_excerpt: the agent alternates between acting and refining its own prompt, sub-agents, skills, and memory, drawing
     on any past trajectory data
@@ -2595,7 +2595,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/PrimeIntellect-ai/prime-agent
   short_name: Continual Harness
 - name: 'Huxley-Gödel Machine: Human-Level Coding Agent Development by an Approximation of the Optimal Self-Improving Machine'
@@ -2616,7 +2616,7 @@ entries:
   - meta-improvement
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2025-10-24'
   rsi_mechanism:
     target: Coding-agent implementation and selection of self-modifying lineages
@@ -2644,7 +2644,7 @@ entries:
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/metauto-ai/HGM
 - name: 'MetaSkill-Evolve: Recursive Self-Improvement of LLM Agents via Two-Timescale Meta-Skill Evolution'
   short_name: MetaSkill-Evolve
@@ -2664,7 +2664,7 @@ entries:
   - meta-improvement
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2026-07-06'
   rsi_mechanism:
     target: Task skills and branch-local meta-skill instructions
@@ -2701,7 +2701,7 @@ entries:
   - meta-improvement
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2026-08-25'
   rsi_mechanism:
     target: Executable layers surrounding the solver
@@ -2729,7 +2729,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/minnesotanlp/meta-n
   code_note_en: The authors label this a research prototype with exploratory results.
   code_note_zh: 作者将该实现标为研究原型，结果属探索性质。
@@ -2751,7 +2751,7 @@ entries:
   - recursive-learning
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2026-08-27'
   rsi_mechanism:
     target: Challenger, Solver and Judge weights
@@ -2779,7 +2779,7 @@ entries:
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/GyoukChu/J-Zero
 - name: 'Socratic-SWE: Self-Evolving Coding Agents via Trace-Derived Agent Skills'
   short_name: Socratic-SWE
@@ -2799,7 +2799,7 @@ entries:
   - recursive-learning
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2026-06-05'
   rsi_mechanism:
     target: Shared generator/solver model and skill-conditioned curriculum
@@ -2836,7 +2836,7 @@ entries:
   - recursive-learning
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2025-02-07'
   rsi_mechanism:
     target: Policy weights of collaborating agents
@@ -2864,7 +2864,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/zou-group/sirius
 - name: 'Goedel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements'
   short_name: Gödel Machines
@@ -2884,7 +2884,7 @@ entries:
   - meta-improvement
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2003-09-25'
   rsi_mechanism:
     target: Entire solver code, including its proof searcher
@@ -2921,7 +2921,7 @@ entries:
   - meta-improvement
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2024-11-25'
   rsi_mechanism:
     target: Capabilities of language agents in a proposed closed learning system
@@ -2958,7 +2958,7 @@ entries:
   - meta-improvement
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2025-10-11'
   rsi_mechanism:
     target: Admission of successive configuration/code edits
@@ -2986,7 +2986,7 @@ entries:
     archived: false
     private: false
     license: none
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/gravitywavelet/sgm-anon
   code_note_en: The linked repository now describes a later anonymous submission; the catalog summary refers to arXiv v1.
   code_note_zh: 所链接仓库现描述后续匿名投稿；本条概述以 arXiv v1 为准。
@@ -3008,7 +3008,7 @@ entries:
   - meta-improvement
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2024-11-01'
   rsi_mechanism:
     target: Sampling distribution in iterative self-training
@@ -3036,7 +3036,7 @@ entries:
     archived: false
     private: false
     license: none
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/Yiwen-Ding/Guided-Self-Improvement
 - name: Meta^n
   repo_url: https://github.com/minnesotanlp/meta-n
@@ -3055,7 +3055,7 @@ entries:
   - meta-improvement
   stars_snapshot: 28
   updated_at: '2026-08-26'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   rsi_mechanism:
     target: Executable layers surrounding the solver
     feedback: Execution traces and benchmark scores
@@ -3068,7 +3068,7 @@ entries:
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/minnesotanlp/meta-n
 - name: J-Zero
   repo_url: https://github.com/GyoukChu/J-Zero
@@ -3087,7 +3087,7 @@ entries:
   - recursive-learning
   stars_snapshot: 8
   updated_at: '2026-08-28'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   rsi_mechanism:
     target: Challenger, Solver and Judge weights
     feedback: Judge rewards and structurally constructed preference pairs
@@ -3100,7 +3100,7 @@ entries:
   archived: false
   private: false
   license: Apache-2.0
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/GyoukChu/J-Zero
 - name: autoresearch
   repo_url: https://github.com/karpathy/autoresearch
@@ -3121,7 +3121,7 @@ entries:
   - validation
   stars_snapshot: 95200
   updated_at: '2026-03-26'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   rsi_mechanism:
     target: LLM training code (train.py) including model architecture, optimizer, and training loop
     feedback: Validation bits-per-byte measured after each 5-minute training run
@@ -3137,7 +3137,7 @@ entries:
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/karpathy/autoresearch
 - name: GenericAgent
   repo_url: https://github.com/lsdefine/GenericAgent
@@ -3156,7 +3156,7 @@ entries:
   - tool-use
   stars_snapshot: 14200
   updated_at: '2026-09-01'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   rsi_mechanism:
     target: A growing skill tree of reusable task solutions
     feedback: Task execution success or failure and execution traces
@@ -3170,7 +3170,7 @@ entries:
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/lsdefine/GenericAgent
 - name: SIA
   repo_url: https://github.com/hexo-ai/sia
@@ -3191,7 +3191,7 @@ entries:
   - harness-evolution
   stars_snapshot: 2100
   updated_at: '2026-09-01'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   rsi_mechanism:
     target: Task-agent harness code and model weights
     feedback: Execution logs analyzed by a Feedback-Agent identifying weaknesses
@@ -3205,7 +3205,7 @@ entries:
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/hexo-ai/sia
 - name: OpenRSI / OpenMLE
   repo_url: https://github.com/FrontisAI/OpenRSI
@@ -3226,7 +3226,7 @@ entries:
   - program-evolution
   stars_snapshot: 657
   updated_at: '2026-08-25'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   rsi_mechanism:
     target: ML task solutions and the program-evolution operators that produce them
     feedback: Task evaluation scores from OpenMLE-Gym benchmarks
@@ -3240,7 +3240,7 @@ entries:
   archived: false
   private: false
   license: NOASSERTION
-  metadata_checked_at: '2026-09-09'
+  metadata_checked_at: '2026-09-12'
   metadata_source: https://api.github.com/repos/FrontisAI/OpenRSI
 - name: 'HELIX: Model-Harness Co-evolution for Recursive Self-Improvement'
   short_name: HELIX
@@ -3261,7 +3261,7 @@ entries:
   - harness-evolution
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2026-08-14'
   rsi_mechanism:
     target: Agent harness components and model weights
@@ -3289,7 +3289,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-09'
+    metadata_checked_at: '2026-09-12'
     metadata_source: https://api.github.com/repos/HKUDS/HELIX
 - name: 'RHI: Recursive Harness Self-Improvement'
   short_name: RHI
@@ -3310,7 +3310,7 @@ entries:
   - prompt-optimization
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2026-07-17'
   rsi_mechanism:
     target: Prompt-level agent loop specification (the harness)
@@ -3346,7 +3346,7 @@ entries:
   - harness-evolution
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2026-07-31'
   rsi_mechanism:
     target: Agent harness (prompts, tools, skills, control flow) with frozen model weights
@@ -3384,7 +3384,7 @@ entries:
   - harness-evolution
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2026-07-15'
   rsi_mechanism:
     target: Agent harness configurations (prompts, tools, control flow)
@@ -3421,7 +3421,7 @@ entries:
   - curriculum-generation
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2026-08-19'
   rsi_mechanism:
     target: Reasoning Agent policy updated via RL on Designer-generated environments
@@ -3458,7 +3458,7 @@ entries:
   - credit-assignment
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2026-06-05'
   rsi_mechanism:
     target: LLM agent policy weights
@@ -3495,7 +3495,7 @@ entries:
   - self-improvement
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2026-08-31'
   rsi_mechanism:
     target: LLM agent capabilities measured through self-testing, self-judging and self-improvement
@@ -3532,7 +3532,7 @@ entries:
   - self-training
   stars_snapshot: 0
   updated_at: '2026-09-09'
-  reviewed_at: '2026-09-09'
+  reviewed_at: '2026-09-12'
   published_at: '2026-06-17'
   rsi_mechanism:
     target: LLM policy during REINFORCE post-training
