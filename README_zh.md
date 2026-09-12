@@ -4,7 +4,7 @@
 
 [English](./README.md) | [中文](./README_zh.md)
 
-**31 篇一手博客 · 29 篇研究论文 · 12 个活跃 GitHub 项目**
+**31 篇一手博客 · 37 篇研究论文 · 16 个活跃 GitHub 项目**
 
 最后核验：**2026-09-09**
 
@@ -47,16 +47,16 @@
 | [评测与失败模式](#evaluation-and-failure-modes) | 博客 | 4 |
 | [研究路线](#research-agendas) | 博客 | 2 |
 | [奠基研究与历史教程](#foundations-and-historical-tutorials) | 博客 | 4 |
-| [论文 / Harness](#papers--harness) | 论文 | 9 |
-| [论文 / Models](#papers--models) | 论文 | 16 |
-| [论文 / 理论与评测](#papers--theory-and-evaluation) | 论文 | 4 |
-| [GitHub / Models / 训练研究](#github--models--training-research) | GitHub 项目 | 1 |
+| [论文 / Harness](#papers--harness) | 论文 | 13 |
+| [论文 / Models](#papers--models) | 论文 | 18 |
+| [论文 / 理论与评测](#papers--theory-and-evaluation) | 论文 | 6 |
+| [GitHub / Models / 训练研究](#github--models--training-research) | GitHub 项目 | 3 |
 | [GitHub / Models / 递归自训练](#github--models--recursive-self-training) | GitHub 项目 | 1 |
-| [GitHub / Harness / 自修改](#github--harness--self-modification) | GitHub 项目 | 3 |
+| [GitHub / Harness / 自修改](#github--harness--self-modification) | GitHub 项目 | 4 |
 | [GitHub / Harness / 提示与工作流优化](#github--harness--prompt-and-workflow-optimization) | GitHub 项目 | 4 |
 | [GitHub / Artifacts / 程序进化](#github--artifacts--program-evolution) | GitHub 项目 | 2 |
-| [GitHub / Artifacts / 学习所得技能](#github--artifacts--learned-skills) | GitHub 项目 | 1 |
-| **合计** |  | **72** |
+| [GitHub / Artifacts / 学习所得技能](#github--artifacts--learned-skills) | GitHub 项目 | 2 |
+| **合计** |  | **84** |
 
 ## Company Research Blogs
 
@@ -230,6 +230,10 @@
 | 论文 | 改进机制 | 代码 |
 | --- | --- | --- |
 | **[Meta^n](https://arxiv.org/abs/2608.24735)**<br>2026-08-25 | **直接自修改**<br>对演化中的求解器栈反复应用固定元操作，生成预处理代码与可复用辅助函数，并以档案保留已评测的层链。<br><details open><summary>边界</summary>递归作用于生成的层，而非元操作或模型权重；论文多数收益来自层间上下文传递，运行在有限深度停滞。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/minnesotanlp/meta-n)<br>[![star: 28](https://img.shields.io/badge/star-28-f4b400?style=flat-square)](https://github.com/minnesotanlp/meta-n)<br><details open><summary>详情</summary>• **最近推送:** 2026-08-26<br>• 作者将该实现标为研究原型，结果属探索性质。</details> |
+| **[HELIX](https://arxiv.org/abs/2608.13951)**<br>2026-08-14 | **直接自修改**<br>将代理系统分解为类型化模块组件，在闭环中联合进化 harness 与模型；harness 进化提升当前表现，同时生成经过验证的轨迹作为下一轮模型更新的训练数据。<br><details open><summary>边界</summary>仅在代码修复任务上评测。65 候选组合和 200 槽位同胞切片定义搜索预算。模型-harness 联合进化展示在有界迭代内，未证明无限改进。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/HKUDS/HELIX)<br>[![star: 0](https://img.shields.io/badge/star-0-f4b400?style=flat-square)](https://github.com/HKUDS/HELIX)<br><details open><summary>详情</summary>• **最近推送:** 2026-09-01</details> |
+| **[DarwinX](https://arxiv.org/abs/2608.07545)**<br>2026-07-31 | **直接自修改**<br>冻结模型权重，维护 harness 变体种群；基于适应度的选择机制仅接纳扩展任务覆盖且不退化的变体，归档保留替代谱系用于重组。<br><details open><summary>边界</summary>模型权重全程冻结，仅 harness 脚手架进化。跨基准迁移已展示但未保证适用于任意领域。适应度由各基准自有验证器判定。</details> | — |
+| **[RHI](https://arxiv.org/abs/2607.15524)**<br>2026-07-17 | **直接自修改**<br>将 harness 表示为代理循环的提示级规格，利用自身修订历史的成对反馈迭代优化，使低推理开销的代理超越最高推理开销设置。<br><details open><summary>边界</summary>在三个领域的 30 个合成 ML 研究任务上测试。收益主要来自改进的上下文管理而非更深层推理。信息论框架是提出的假设，非已证上界。</details> | — |
+| **[HarnessBank](https://arxiv.org/abs/2607.13683)**<br>2026-07-15 | **直接自修改**<br>将任务代理与进化代理配对：进化代理诊断失败、生成 harness 候选，并维护按语义坐标组织的 Harness Gene Bank；门控筛选机制在高成本评测前过滤候选。<br><details open><summary>边界</summary>跨模型实验表明改进具有模型特异性而非普遍性。七个基准上 5.1-15.4% 的收益相对于现有方法而非绝对基线。进化代理和筛选机制固定。</details> | — |
 | **[MetaSkill-Evolve](https://arxiv.org/abs/2607.05297)**<br>2026-07-06 | **直接自修改**<br>高频进化任务技能，低频进化五个代理的元技能文件；同一流水线改写指导其自身改进的指令。<br><details open><summary>边界</summary>使用一个冻结骨干和三个整理后的基准；元技能可变，但五个角色、连接方式与更新周期固定。</details> | — |
 | **[Continual Harness](https://arxiv.org/abs/2605.09998)**<br>2026-05-11 | **经验学习**<br>在不重置的运行中交替行动与修订提示、子代理、技能和记忆；另一个共学习实验由前沿教师重标注轨迹，并在不重置游戏的情况下更新开放模型。<br><details open><summary>边界</summary>早期 Gemini Plays Pokemon 结果使用人在环 Harness 修订，后续自动适配与教师辅助权重共学习是不同设置；教师监督与游戏专用评测限制其自主性主张。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/PrimeIntellect-ai/prime-agent)<br>[![star: 20,342](https://img.shields.io/badge/star-20342-f4b400?style=flat-square)](https://github.com/PrimeIntellect-ai/prime-agent)<br><details open><summary>详情</summary>• **最近推送:** 2026-09-09<br>• README 明确链接本文，因此属于 Harness 组件的官方关联实现；所读论文 v1 未证明全部 Pokemon 实验或教师重标注权重共学习流水线已发布，不可称为完整复现代码。</details> |
 | **[Hyperagents](https://arxiv.org/abs/2603.19461)**<br>2026-03-19 | **直接自修改**<br>将任务代理与元代理合并为可编辑程序，使评测后的修改既能改善任务行为，也能改善产生未来修改的机制。<br><details open><summary>边界</summary>报告的迁移与积累属于有限实验，并非无限加速或自主权重学习的证明。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/facebookresearch/HyperAgents)<br>[![star: 2,719](https://img.shields.io/badge/star-2719-f4b400?style=flat-square)](https://github.com/facebookresearch/HyperAgents)<br><details open><summary>详情</summary>• **最近推送:** 2026-07-31</details> |
@@ -246,7 +250,9 @@
 | 论文 | 改进机制 | 代码 |
 | --- | --- | --- |
 | **[J-Zero](https://arxiv.org/abs/2608.26582)**<br>2026-08-27 | **自训练**<br>跨轮共同训练出题者、求解者和评判者；以结构化构造的偏好对更新评判者，再用其奖励指导后续策略训练。<br><details open><summary>边界</summary>评判者从预训练奖励模型开始；偏好次序是人为设计的假设，报告的十轮收益不代表无界改进。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/GyoukChu/J-Zero)<br>[![star: 8](https://img.shields.io/badge/star-8-f4b400?style=flat-square)](https://github.com/GyoukChu/J-Zero)<br><details open><summary>详情</summary>• **最近推送:** 2026-08-28</details> |
+| **[SPADE](https://arxiv.org/abs/2608.19197)**<br>2026-08-19 | **自训练**<br>单个 LLM 扮演双重自博弈角色：环境设计者与推理代理；设计者基于预训练文档编写可执行 Gym 风格环境，代理的遗憾信号引导设计者生成处于能力边界的挑战。<br><details open><summary>边界</summary>在研工作。在 30B 规模下测试。设计者-代理联合进化依赖预训练语料锚定和累积环境记忆，非任意开放式生成。</details> | — |
 | **[Socratic-SWE](https://arxiv.org/abs/2606.07412)**<br>2026-06-05 | **自训练**<br>将求解轨迹提炼为技能，生成针对性修复任务并联合训练生成者与求解者；更新后的求解者再产生下一轮课程所需轨迹。<br><details open><summary>边界</summary>回路受固定种子仓库、可执行测试与可信验证任务约束；论文报告后期迭代趋于饱和。</details> | — |
+| **[Q-Evolve](https://arxiv.org/abs/2606.07367)**<br>2026-06-05<br>[ICML 2026](https://arxiv.org/abs/2606.07367) | **自训练**<br>在分布内 RL 循环中统一自动过程奖励标注与策略学习；在专家和代理混合数据上训练的批评者通过优势估计派生步级奖励，为迭代自改进提供密集监督且无分布漂移。<br><details open><summary>边界</summary>在 AlfWorld、WebShop 和 ScienceWorld 上评测。批评者在专家与自生成数据混合上训练而非纯自生成。报告收益限于这些基准环境。</details> | — |
 | **[Agent0](https://arxiv.org/abs/2511.16043)**<br>2025-11-20 | **自训练**<br>将课程模型与使用工具的执行模型耦合；更强执行能力推动生成更难课程，课程再提供强化学习数据。<br><details open><summary>边界</summary>公开训练指南需要人工选择轮次间 checkpoint；零外部数据也未消除对预训练基础模型和工具的依赖。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/aiming-lab/Agent0)<br>[![star: 1,258](https://img.shields.io/badge/star-1258-f4b400?style=flat-square)](https://github.com/aiming-lab/Agent0)<br><details open><summary>详情</summary>• **最近推送:** 2026-07-10</details> |
 | **[R-Zero](https://arxiv.org/abs/2508.05004)**<br>2025-08-07<br>[ICLR 2026](https://github.com/Chengsong-Huang/R-Zero/blob/main/README.md) | **自训练**<br>共同进化 Challenger 与 Solver 模型，以能力边界附近的生成任务训练 Solver，而 Solver 能力变化又改变 Challenger 的奖励。<br><details open><summary>边界</summary>使用预训练基础模型与人工设计奖励；有限迭代可能退步，作者后续 R-Few 工作引入人工数据以应对扩展限制。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/Chengsong-Huang/R-Zero)<br>[![star: 845](https://img.shields.io/badge/star-845-f4b400?style=flat-square)](https://github.com/Chengsong-Huang/R-Zero)<br><details open><summary>详情</summary>• **最近推送:** 2026-02-04</details> |
 | **[Self-Adapting Language Models (SEAL)](https://arxiv.org/abs/2506.10943)**<br>2025-06-12 | **自训练**<br>模型生成包含微调数据或更新指令的自编辑内容；SFT 产生持久权重变化，下游性能通过外层 RL 循环训练更好的自编辑生成能力。<br><details open><summary>边界</summary>自编辑在研究者设计的 SFT/RL 框架内控制适配；知识吸收与少样本泛化实验不能证明无约束的自主重设计。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/Continual-Intelligence/SEAL)<br>[![star: 1,855](https://img.shields.io/badge/star-1855-f4b400?style=flat-square)](https://github.com/Continual-Intelligence/SEAL)<br><details open><summary>详情</summary>• **最近推送:** 2025-08-01<br>• 论文链接作者项目页，匹配的官方仓库链接同一论文与项目页；规范仓库为 Continual-Intelligence/SEAL。</details> |
@@ -268,6 +274,8 @@
 
 | 论文 | 改进机制 | 代码 |
 | --- | --- | --- |
+| **[S3Gym](https://arxiv.org/abs/2608.31100)**<br>2026-08-31 | **评测与安全**<br>评估 LLM 自改进的交互式基准，通过自测试、自评判和自改进三项耦合能力，基于七个文本游戏和可执行环境验证器。<br><details open><summary>边界</summary>核心发现：自改进既非自动也非跨任务均匀。参数训练显示不稳定性和负迁移。七个文本游戏是通用能力的有限代理。</details> | — |
+| **[Rise-and-Collapse](https://arxiv.org/abs/2606.21090)**<br>2026-06-17 | **评测与安全**<br>记录 REINFORCE 代码后训练中先升后崩的模式：性能在数十梯度步内达峰然后下跌、有时接近零；KL 和 EWC 约束无法阻止，GRPO 提高下限但不消除断崖。<br><details open><summary>边界</summary>在 Qwen-2.5-3B/7B 和 Gemma-3-4B 试验上用竞赛编程任务研究。缓解措施效果依赖具体设置。这是任务内失败分析，非自训练极限的一般理论。</details> | — |
 | **[Statistical Gödel Machine (SGM)](https://arxiv.org/abs/2510.10232)**<br>2025-10-11 | **评测与安全**<br>在采用候选修改前进行检验，并跨轮分配错误接受风险预算，为自修改提供统计门控。<br><details open><summary>边界</summary>保证依赖有界、独立的成对测量和稳定评测器；实验使用简单提案，不是自改写 LLM 的实证。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/gravitywavelet/sgm-anon)<br>[![star: 0](https://img.shields.io/badge/star-0-f4b400?style=flat-square)](https://github.com/gravitywavelet/sgm-anon)<br><details open><summary>详情</summary>• **最近推送:** 2026-05-11<br>• 所链接仓库现描述后续匿名投稿；本条概述以 arXiv v1 为准。</details> |
 | **[Socratic Learning](https://arxiv.org/abs/2411.16905)**<br>2024-11-25 | **研究路线**<br>提出通过语言游戏实现封闭系统递归学习的立场，区分反馈质量、经验覆盖与资源条件。<br><details open><summary>边界</summary>这是依赖明确假设的立场论文，没有报告具备无界实证能力增长的实现。</details> | — |
 | **[Guided Self-Improvement (GSI)](https://arxiv.org/abs/2411.00750)**<br>2024-11-01 | **评测与安全**<br>研究反复自训练中困难样本逐渐消失的问题，并用苏格拉底式提示恢复后续训练轮次的采样覆盖。<br><details open><summary>边界</summary>需要已知答案校验和引导；正确终答仍可能掩盖伪推理。这是边界与缓解研究，并非无约束 RSI。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/Yiwen-Ding/Guided-Self-Improvement)<br>[![star: 9](https://img.shields.io/badge/star-9-f4b400?style=flat-square)](https://github.com/Yiwen-Ding/Guided-Self-Improvement)<br><details open><summary>详情</summary>• **最近推送:** 2024-11-10</details> |
@@ -285,7 +293,9 @@
 
 | 项目 | 链接 | Stars | 标签 | 改进闭环与边界 |
 | --- | --- | ---: | --- | --- |
+| autoresearch | [GitHub](https://github.com/karpathy/autoresearch) | [![star: 95,200](https://img.shields.io/badge/star-95200-f4b400?style=flat-square)](https://github.com/karpathy/autoresearch) | `model-training`<br>`experiment-loop`<br>`validation` | **有界优化**<br>AI 代理自主修改小型 LLM 训练脚本，在单 GPU 上运行 5 分钟实验，评估验证损失，保留或丢弃修改后再提出下一轮改动。<br><details open><summary>边界</summary>代理修改的是外部训练目标，而非自身权重或改进流程。单文件实验循环和 5 分钟预算限制了可探索空间。仓库自 2026-03-26 后维护停滞，185+ open issue/PR 未处理；社区分叉仍活跃。</details><br>• [证据](https://github.com/karpathy/autoresearch/blob/master/README.md) |
 | RD-Agent / FT-Agent | [GitHub](https://github.com/microsoft/RD-Agent) | [![star: 14,553](https://img.shields.io/badge/star-14553-f4b400?style=flat-square)](https://github.com/microsoft/RD-Agent) | `model-training`<br>`experiment-loop`<br>`validation` | **有界优化**<br>FT-Agent 生成数据处理代码和训练配置、微调目标 LLM，再利用 OpenCompass 验证反馈调整下一轮训练实验。<br><details open><summary>边界</summary>改进的是外部目标模型，不是规划代理自身权重；测试集保留用于最终报告。</details><br>• [证据](https://github.com/microsoft/RD-Agent/blob/main/rdagent/app/finetune/llm/README.md) |
+| OpenRSI / OpenMLE | [GitHub](https://github.com/FrontisAI/OpenRSI) | [![star: 657](https://img.shields.io/badge/star-657-f4b400?style=flat-square)](https://github.com/FrontisAI/OpenRSI) | `model-training`<br>`meta-evolution`<br>`program-evolution` | **有界优化**<br>可执行 RSI 框架：OpenMLE-Gym 构建 ML 任务包，OpenMLE-ERL 通过 SFT 与 RL 训练程序进化算子，OpenMLE-Evo 运行长程搜索；搜索产生经验，经验进入训练，训练后的模型回到搜索。<br><details open><summary>边界</summary>元进化仅在有界 ML 工程任务（NatureBench）上运行，不涉及通用领域。Frontis-MA1 模型学习四个固定原子算子（Draft、Improve、Debug、Crossover）；算子词汇和组合规则由人设计。</details><br>• [证据](https://github.com/FrontisAI/OpenRSI) |
 
 #### GitHub / Models / Recursive Self-Training
 
@@ -305,6 +315,7 @@
 | --- | --- | ---: | --- | --- |
 | Prime Agent / Continual Harness | [GitHub](https://github.com/PrimeIntellect-ai/prime-agent) | [![star: 20,342](https://img.shields.io/badge/star-20342-f4b400?style=flat-square)](https://github.com/PrimeIntellect-ai/prime-agent) | `self-refinement`<br>`continual-harness`<br>`rollback` | **直接自修改**<br>通过 /refine 审查轨迹，保留有证据支持的补充提示、记忆、技能描述与子代理规格更新，并利用快照回滚。<br><details open><summary>边界</summary>基础系统提示不可变；修订不能替代可执行技能的打包审查，其进程隔离也不是安全沙箱。</details><br>• [证据](https://github.com/PrimeIntellect-ai/prime-agent) |
 | HyperAgents | [GitHub](https://github.com/facebookresearch/HyperAgents) | [![star: 2,719](https://img.shields.io/badge/star-2719-f4b400?style=flat-square)](https://github.com/facebookresearch/HyperAgents) | `self-modification`<br>`meta-agent`<br>`archive` | **直接自修改**<br>将任务代理与元代理整合为可编辑程序；经过评测的后代既能修改任务行为，也能修改生成后续代理的过程。<br><details open><summary>边界</summary>属于限定任务的实证实验，不是无限改进证明，也不是基础模型权重自训练。</details><br>• [证据](https://github.com/facebookresearch/HyperAgents/blob/main/utils/gl_utils.py) |
+| SIA | [GitHub](https://github.com/hexo-ai/sia) | [![star: 2,100](https://img.shields.io/badge/star-2100-f4b400?style=flat-square)](https://github.com/hexo-ai/sia) | `self-modification`<br>`weight-update`<br>`harness-evolution` | **直接自修改**<br>自改进闭环：反馈代理审查任务代理执行日志，跨代同时更新 harness 代码（提示、编排、代理实现）和任务代理的模型权重。<br><details open><summary>边界</summary>反馈代理和元代理在各代之间固定不变；改进仅作用于任务代理。基准特定的评估器定义适应度。报告的收益（LawBench +56.6%、GPU kernel -91.9%）是选定任务上的单次运行样本。</details><br>• [证据](https://github.com/hexo-ai/sia) |
 | Meta^n | [GitHub](https://github.com/minnesotanlp/meta-n) | [![star: 28](https://img.shields.io/badge/star-28-f4b400?style=flat-square)](https://github.com/minnesotanlp/meta-n) | `self-modification`<br>`meta-improvement` | **直接自修改**<br>实现：对演化中的求解器栈反复应用固定元操作，生成预处理代码与可复用辅助函数，并以档案保留已评测的层链。<br><details open><summary>边界</summary>递归作用于生成的层，而非元操作或模型权重；论文多数收益来自层间上下文传递，运行在有限深度停滞。</details><br>• [证据](https://github.com/minnesotanlp/meta-n) |
 
 #### GitHub / Harness / Prompt and Workflow Optimization
@@ -336,6 +347,7 @@
 | 项目 | 链接 | Stars | 标签 | 改进闭环与边界 |
 | --- | --- | ---: | --- | --- |
 | Hermes Agent / Learned Skills | [GitHub](https://github.com/NousResearch/hermes-agent) | [![star: 243,485](https://img.shields.io/badge/star-243485-f4b400?style=flat-square)](https://github.com/NousResearch/hermes-agent) | `learned-skills`<br>`procedural-memory`<br>`experience` | **经验学习**<br>在复杂任务后创建过程性技能，并在使用中修订；持久技能与可搜索经验用于后续会话。<br><details open><summary>边界</summary>这是经验驱动的技能持久化，不是模型权重训练，也不是独立证明的单调能力增长。</details><br>• [证据](https://github.com/NousResearch/hermes-agent) |
+| GenericAgent | [GitHub](https://github.com/lsdefine/GenericAgent) | [![star: 14,200](https://img.shields.io/badge/star-14200-f4b400?style=flat-square)](https://github.com/lsdefine/GenericAgent) | `skill-learning`<br>`experience-accumulation`<br>`tool-use` | **有界优化**<br>最小化自进化代理，每完成一个任务即结晶为可复用技能，从 3.3K 行种子代码生长持久技能树；积累的技能在后续任务中被检索并组合使用。<br><details open><summary>边界</summary>技能是存储的产物而非自修改代码；代理循环、工具定义和技能结晶过程保持固定。优化器本身不跨轮改变。</details><br>• [证据](https://github.com/lsdefine/GenericAgent) |
 
 ## Scope and Curation
 

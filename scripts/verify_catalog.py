@@ -132,7 +132,10 @@ def validate_catalog(catalog, today=None):
                 if date.isoformat() != e.get("updated_at"):
                     errors.append(f"{name}: updated_at does not match pushed_at")
                 if date < today - dt.timedelta(days=ACTIVITY_DAYS) or date > today:
-                    errors.append(f"{name}: outside {ACTIVITY_DAYS}-day activity window ({date})")
+                    if not e.get("activity_exempt"):
+                        errors.append(f"{name}: outside {ACTIVITY_DAYS}-day activity window ({date})")
+                    elif not isinstance(e.get("activity_exempt"), str) or not e["activity_exempt"].strip():
+                        errors.append(f"{name}: activity_exempt must state a reason")
             except (ValueError, TypeError, KeyError, AttributeError):
                 errors.append(f"{name}: invalid/missing pushed_at")
             try:
