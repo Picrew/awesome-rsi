@@ -3102,3 +3102,450 @@ entries:
   license: Apache-2.0
   metadata_checked_at: '2026-09-09'
   metadata_source: https://api.github.com/repos/GyoukChu/J-Zero
+- name: autoresearch
+  repo_url: https://github.com/karpathy/autoresearch
+  category: Models / Training Research
+  kind: project
+  scope: bounded-optimization
+  summary_en: An AI agent autonomously modifies a small LLM training script, runs 5-minute experiments on a single GPU,
+    evaluates validation loss, and keeps or discards each change before proposing the next modification.
+  summary_zh: AI 代理自主修改小型 LLM 训练脚本，在单 GPU 上运行 5 分钟实验，评估验证损失，保留或丢弃修改后再提出下一轮改动。
+  limitation_en: The agent modifies an external training target, not its own weights or improvement procedure. The single-file
+    experiment loop and 5-minute budget constrain what can be explored. Repository maintenance stalled after 2026-03-26 with
+    185+ open issues and PRs unaddressed; community forks remain active.
+  limitation_zh: 代理修改的是外部训练目标，而非自身权重或改进流程。单文件实验循环和 5 分钟预算限制了可探索空间。仓库自 2026-03-26
+    后维护停滞，185+ open issue/PR 未处理；社区分叉仍活跃。
+  tags:
+  - model-training
+  - experiment-loop
+  - validation
+  stars_snapshot: 95200
+  updated_at: '2026-03-26'
+  reviewed_at: '2026-09-09'
+  rsi_mechanism:
+    target: LLM training code (train.py) including model architecture, optimizer, and training loop
+    feedback: Validation bits-per-byte measured after each 5-minute training run
+    update: AI agent proposes code edits via program.md instructions, keeps or discards based on val_bpb
+    persistence: Accepted code modifications accumulate in train.py for subsequent experiment rounds
+  evidence_url: https://github.com/karpathy/autoresearch/blob/master/README.md
+  evidence_excerpt: give an AI agent a small but real LLM training setup and let it experiment autonomously overnight
+  why_included: Highly influential autonomous ML experiment loop (95k+ stars) where an AI agent iteratively modifies training
+    code and evaluates results. Maintenance-stalled status noted in limitation.
+  activity_exempt: Landmark project (95k+ stars) with high RSI relevance; maintenance stalled since 2026-03-26 but community
+    forks remain active. Stalled status documented in limitation.
+  pushed_at: '2026-03-26T00:00:00Z'
+  archived: false
+  private: false
+  license: MIT
+  metadata_checked_at: '2026-09-09'
+  metadata_source: https://api.github.com/repos/karpathy/autoresearch
+- name: GenericAgent
+  repo_url: https://github.com/lsdefine/GenericAgent
+  category: Artifacts / Learned Skills
+  kind: project
+  scope: bounded-optimization
+  summary_en: A minimal self-evolving agent that crystallizes each completed task into a reusable Skill, growing a persistent
+    skill tree from a 3.3K-line seed; accumulated skills are retrieved and composed for later tasks.
+  summary_zh: 最小化自进化代理，每完成一个任务即结晶为可复用技能，从 3.3K 行种子代码生长持久技能树；积累的技能在后续任务中被检索并组合使用。
+  limitation_en: Skills are stored artifacts, not self-modifying code; the agent loop, tool definitions and skill-crystallization
+    procedure remain fixed. The optimizer itself does not change across rounds.
+  limitation_zh: 技能是存储的产物而非自修改代码；代理循环、工具定义和技能结晶过程保持固定。优化器本身不跨轮改变。
+  tags:
+  - skill-learning
+  - experience-accumulation
+  - tool-use
+  stars_snapshot: 14200
+  updated_at: '2026-09-01'
+  reviewed_at: '2026-09-09'
+  rsi_mechanism:
+    target: A growing skill tree of reusable task solutions
+    feedback: Task execution success or failure and execution traces
+    update: Crystallize completed task into a named Skill with entry conditions and steps
+    persistence: Skill tree persists across sessions; later tasks retrieve and compose accumulated skills
+  evidence_url: https://github.com/lsdefine/GenericAgent
+  evidence_excerpt: automatically crystallizes each task into a Skill that can be reused later
+  why_included: High-adoption self-evolving agent (14k+ stars) with a documented skill-accumulation loop where task completion
+    feeds back into persistent reusable artifacts for subsequent tasks.
+  pushed_at: '2026-09-01T00:00:00Z'
+  archived: false
+  private: false
+  license: MIT
+  metadata_checked_at: '2026-09-09'
+  metadata_source: https://api.github.com/repos/lsdefine/GenericAgent
+- name: SIA
+  repo_url: https://github.com/hexo-ai/sia
+  category: Harness / Self-Modification
+  kind: project
+  scope: self-modification
+  summary_en: A self-improving loop where a Feedback-Agent reviews task-agent execution logs, updates both the harness code
+    (prompts, orchestration, agent implementation) and the model weights of the task-specific agent across generations.
+  summary_zh: 自改进闭环：反馈代理审查任务代理执行日志，跨代同时更新 harness 代码（提示、编排、代理实现）和任务代理的模型权重。
+  limitation_en: The Feedback-Agent and meta-agent remain fixed across generations; improvement targets the task agent only.
+    Benchmark-specific evaluators define fitness. Reported gains (LawBench +56.6%, GPU kernel -91.9%) are single-run samples
+    on selected tasks.
+  limitation_zh: 反馈代理和元代理在各代之间固定不变；改进仅作用于任务代理。基准特定的评估器定义适应度。报告的收益（LawBench +56.6%、GPU
+    kernel -91.9%）是选定任务上的单次运行样本。
+  tags:
+  - self-modification
+  - weight-update
+  - harness-evolution
+  stars_snapshot: 2100
+  updated_at: '2026-09-01'
+  reviewed_at: '2026-09-09'
+  rsi_mechanism:
+    target: Task-agent harness code and model weights
+    feedback: Execution logs analyzed by a Feedback-Agent identifying weaknesses
+    update: Propose harness code changes and fine-tune model weights each generation
+    persistence: Each generation produces a new target_agent.py, execution logs, and improvement rationale
+  evidence_url: https://github.com/hexo-ai/sia
+  evidence_excerpt: a self-improving loop in which a language-model agent updates both the harness and the weights
+  why_included: Rare implementation that co-evolves both harness scaffolding and model weights in one loop, with paper support
+    (arXiv 2605.27276) and active development.
+  pushed_at: '2026-09-01T00:00:00Z'
+  archived: false
+  private: false
+  license: MIT
+  metadata_checked_at: '2026-09-09'
+  metadata_source: https://api.github.com/repos/hexo-ai/sia
+- name: OpenRSI / OpenMLE
+  repo_url: https://github.com/FrontisAI/OpenRSI
+  category: Models / Training Research
+  kind: project
+  scope: bounded-optimization
+  summary_en: An executable RSI framework where OpenMLE-Gym builds ML task packages, OpenMLE-ERL trains program-evolution
+    operators via SFT and RL, and OpenMLE-Evo runs long-horizon search; search produces experience, experience enters training,
+    and trained models return to search.
+  summary_zh: 可执行 RSI 框架：OpenMLE-Gym 构建 ML 任务包，OpenMLE-ERL 通过 SFT 与 RL 训练程序进化算子，OpenMLE-Evo 运行长程搜索；搜索产生经验，经验进入训练，训练后的模型回到搜索。
+  limitation_en: Meta-evolution operates within bounded ML engineering tasks (NatureBench), not general domains. The Frontis-MA1
+    model learns four fixed atomic operators (Draft, Improve, Debug, Crossover); the operator vocabulary and composition rules
+    are human-designed.
+  limitation_zh: 元进化仅在有界 ML 工程任务（NatureBench）上运行，不涉及通用领域。Frontis-MA1 模型学习四个固定原子算子（Draft、Improve、Debug、Crossover）；算子词汇和组合规则由人设计。
+  tags:
+  - model-training
+  - meta-evolution
+  - program-evolution
+  stars_snapshot: 657
+  updated_at: '2026-08-25'
+  reviewed_at: '2026-09-09'
+  rsi_mechanism:
+    target: ML task solutions and the program-evolution operators that produce them
+    feedback: Task evaluation scores from OpenMLE-Gym benchmarks
+    update: Train evolution operators via SFT and RL on search trajectories, then deploy updated operators in next search round
+    persistence: Trained Frontis-MA1 checkpoints and evaluated solution archives carry forward
+  evidence_url: https://github.com/FrontisAI/OpenRSI
+  evidence_excerpt: search produces experience, experience enters training, and trained models return to search
+  why_included: Executable RSI stack with released model weights (Frontis-MA1 35B/30B) implementing a documented search-train-search
+    loop, not merely a survey or paper list.
+  pushed_at: '2026-08-25T00:00:00Z'
+  archived: false
+  private: false
+  license: NOASSERTION
+  metadata_checked_at: '2026-09-09'
+  metadata_source: https://api.github.com/repos/FrontisAI/OpenRSI
+- name: 'HELIX: Model-Harness Co-evolution for Recursive Self-Improvement'
+  short_name: HELIX
+  repo_url: https://arxiv.org/abs/2608.13951
+  kind: paper
+  category: Papers / Harness
+  scope: self-modification
+  improvement_target: Harness
+  summary_en: Decomposes agent systems into typed modular components and co-evolves harness and model in a loop; harness evolution
+    boosts current performance and generates verified trajectories that become training data for the next model update.
+  summary_zh: 将代理系统分解为类型化模块组件，在闭环中联合进化 harness 与模型；harness 进化提升当前表现，同时生成经过验证的轨迹作为下一轮模型更新的训练数据。
+  limitation_en: Evaluated on code repair tasks only. A 65-candidate portfolio and 200-slot sibling slice define the search
+    budget. Model-harness co-evolution is demonstrated in bounded iterations, not as indefinite improvement.
+  limitation_zh: 仅在代码修复任务上评测。65 候选组合和 200 槽位同胞切片定义搜索预算。模型-harness 联合进化展示在有界迭代内，未证明无限改进。
+  tags:
+  - self-modification
+  - co-evolution
+  - harness-evolution
+  stars_snapshot: 0
+  updated_at: '2026-09-09'
+  reviewed_at: '2026-09-09'
+  published_at: '2026-08-14'
+  rsi_mechanism:
+    target: Agent harness components and model weights
+    feedback: Verified task coverage and trajectory quality from harness portfolio evaluation
+    update: Build harnesses for fixed model, train model on verified trajectories, rebuild harnesses for updated model
+    persistence: Trained model checkpoints and verified trajectory records carry forward across co-evolution rounds
+  evidence_url: https://arxiv.org/abs/2608.13951
+  evidence_excerpt: harness, model, and data form a feedback system
+  why_included: First systematic framework for model-harness co-evolution with both harness search and model training in one
+    loop, supported by open-source implementation.
+  publication_status: preprint
+  venue: null
+  venue_evidence_url: null
+  venue_evidence_excerpt: null
+  code_status: official
+  code_url: https://github.com/HKUDS/HELIX
+  code_release: implementation
+  code_evidence_url: https://arxiv.org/abs/2608.13951
+  code_evidence_excerpt: https://github.com/HKUDS/HELIX
+  code_metadata:
+    repo_url: https://github.com/HKUDS/HELIX
+    stars_snapshot: 0
+    updated_at: '2026-09-01'
+    pushed_at: '2026-09-01T00:00:00Z'
+    archived: false
+    private: false
+    license: MIT
+    metadata_checked_at: '2026-09-09'
+    metadata_source: https://api.github.com/repos/HKUDS/HELIX
+- name: 'RHI: Recursive Harness Self-Improvement'
+  short_name: RHI
+  repo_url: https://arxiv.org/abs/2607.15524
+  kind: paper
+  category: Papers / Harness
+  scope: self-modification
+  improvement_target: Harness
+  summary_en: Represents the harness as a prompt-level specification of the agent loop and iteratively refines it using pairwise
+    feedback from its own revision history, enabling low-reasoning-effort agents to surpass maximum-reasoning-effort settings.
+  summary_zh: 将 harness 表示为代理循环的提示级规格，利用自身修订历史的成对反馈迭代优化，使低推理开销的代理超越最高推理开销设置。
+  limitation_en: Tested on 30 synthetic ML research tasks across three domains. Gains come mainly from improved context management,
+    not deeper reasoning. The information-theoretic framing is a proposed hypothesis, not a proven bound.
+  limitation_zh: 在三个领域的 30 个合成 ML 研究任务上测试。收益主要来自改进的上下文管理而非更深层推理。信息论框架是提出的假设，非已证上界。
+  tags:
+  - self-modification
+  - harness-evolution
+  - prompt-optimization
+  stars_snapshot: 0
+  updated_at: '2026-09-09'
+  reviewed_at: '2026-09-09'
+  published_at: '2026-07-17'
+  rsi_mechanism:
+    target: Prompt-level agent loop specification (the harness)
+    feedback: Pairwise comparison of harness variants from revision history
+    update: Iteratively refine harness specification using pairwise feedback
+    persistence: Revised harness specifications and their performance history carry forward
+  evidence_url: https://arxiv.org/abs/2607.15524
+  evidence_excerpt: iteratively refines it using pairwise feedback over its own revision history
+  why_included: Directly addresses recursive harness self-improvement with an information-theoretic lens and demonstrates
+    inference cost reduction of up to 60%.
+  publication_status: preprint
+  venue: null
+  venue_evidence_url: null
+  venue_evidence_excerpt: null
+  code_status: not-found
+  code_search_note: No author-linked GitHub repository found in the paper or search results as of 2026-09-09.
+- name: 'DarwinX: Evolving Agent Harnesses Through Natural Selection'
+  short_name: DarwinX
+  repo_url: https://arxiv.org/abs/2608.07545
+  kind: paper
+  category: Papers / Harness
+  scope: self-modification
+  improvement_target: Harness
+  summary_en: Maintains a population of harness variants with frozen model weights; a fitness-based selection mechanism admits
+    only variants that extend task coverage without regression, and an archive preserves alternative lineages for recombination.
+  summary_zh: 冻结模型权重，维护 harness 变体种群；基于适应度的选择机制仅接纳扩展任务覆盖且不退化的变体，归档保留替代谱系用于重组。
+  limitation_en: Model weights are frozen throughout; only harness scaffolding evolves. Cross-benchmark transfer is demonstrated
+    but not guaranteed for arbitrary domains. Fitness is determined by each benchmark's own verifier.
+  limitation_zh: 模型权重全程冻结，仅 harness 脚手架进化。跨基准迁移已展示但未保证适用于任意领域。适应度由各基准自有验证器判定。
+  tags:
+  - self-modification
+  - natural-selection
+  - harness-evolution
+  stars_snapshot: 0
+  updated_at: '2026-09-09'
+  reviewed_at: '2026-09-09'
+  published_at: '2026-07-31'
+  rsi_mechanism:
+    target: Agent harness (prompts, tools, skills, control flow) with frozen model weights
+    feedback: Benchmark verifier scores measuring task coverage and regression
+    update: Population-based selection admitting only coverage-extending, non-regressing variants
+    persistence: Archive of evaluated harness lineages available for recombination in subsequent generations
+  evidence_url: https://arxiv.org/abs/2608.07545
+  evidence_excerpt: harness selection turns evolution into general agent competence, not benchmark-specific patches
+  why_included: Demonstrates that evolving harness alone with frozen weights yields +17pt average improvement across four
+    benchmarks, with cross-benchmark transfer to SWE-bench Verified.
+  publication_status: preprint
+  venue: null
+  venue_evidence_url: null
+  venue_evidence_excerpt: null
+  code_status: not-found
+  code_search_note: HuggingFace space (CoderDoge/darwinx) found but no author-linked GitHub repository as of 2026-09-09.
+- name: 'HarnessBank: Self-Evolving Agent Harnesses via Gated Semantic Quality-Diversity'
+  short_name: HarnessBank
+  repo_url: https://arxiv.org/abs/2607.13683
+  kind: paper
+  category: Papers / Harness
+  scope: self-modification
+  improvement_target: Harness
+  summary_en: Pairs a task agent with an evolver agent that diagnoses failures, generates harness candidates, and maintains
+    a Harness Gene Bank of high-performing configurations organized by semantic coordinates; a gated screening mechanism filters
+    candidates before costly evaluation.
+  summary_zh: 将任务代理与进化代理配对：进化代理诊断失败、生成 harness 候选，并维护按语义坐标组织的 Harness Gene Bank；门控筛选机制在高成本评测前过滤候选。
+  limitation_en: Cross-model experiments show improvements are model-specific rather than universal. Gains of 5.1-15.4% across
+    seven benchmarks are relative to existing methods, not absolute baselines. The evolver agent and screening mechanism are
+    fixed.
+  limitation_zh: 跨模型实验表明改进具有模型特异性而非普遍性。七个基准上 5.1-15.4% 的收益相对于现有方法而非绝对基线。进化代理和筛选机制固定。
+  tags:
+  - self-modification
+  - quality-diversity
+  - harness-evolution
+  stars_snapshot: 0
+  updated_at: '2026-09-09'
+  reviewed_at: '2026-09-09'
+  published_at: '2026-07-15'
+  rsi_mechanism:
+    target: Agent harness configurations (prompts, tools, control flow)
+    feedback: Task performance scores and failure diagnosis from evolver agent
+    update: Generate, screen via gated mechanism, evaluate and retain harness variants in semantic gene bank
+    persistence: Harness Gene Bank of high-performing configurations indexed by semantic coordinates
+  evidence_url: https://arxiv.org/abs/2607.13683
+  evidence_excerpt: harness configurations are reinvented, recombined, screened, and selected
+  why_included: Introduces a quality-diversity approach to harness evolution with gated screening, demonstrating model-specific
+    harness optimization across seven benchmarks.
+  publication_status: preprint
+  venue: null
+  venue_evidence_url: null
+  venue_evidence_excerpt: null
+  code_status: not-found
+  code_search_note: No author-linked GitHub repository found in the paper or search results as of 2026-09-09.
+- name: 'SPADE: Self-Play in Adaptive Synthetic Executable Environments'
+  short_name: SPADE
+  repo_url: https://arxiv.org/abs/2608.19197
+  kind: paper
+  category: Papers / Models
+  scope: self-training
+  improvement_target: Models
+  summary_en: A single LLM fills two self-play roles, Environment Designer and Reasoning Agent; the Designer writes executable
+    OpenAI Gym-style environments grounded in pretraining documents, and the Agent's regret signal guides the Designer to produce
+    challenges at the edge of the agent's capabilities.
+  summary_zh: 单个 LLM 扮演双重自博弈角色：环境设计者与推理代理；设计者基于预训练文档编写可执行 Gym 风格环境，代理的遗憾信号引导设计者生成处于能力边界的挑战。
+  limitation_en: Work in progress. Tested at 30B scale. The Designer-Agent co-evolution relies on pretraining corpus grounding
+    and accumulated environment memory, not arbitrary open-ended generation.
+  limitation_zh: 在研工作。在 30B 规模下测试。设计者-代理联合进化依赖预训练语料锚定和累积环境记忆，非任意开放式生成。
+  tags:
+  - self-training
+  - self-play
+  - curriculum-generation
+  stars_snapshot: 0
+  updated_at: '2026-09-09'
+  reviewed_at: '2026-09-09'
+  published_at: '2026-08-19'
+  rsi_mechanism:
+    target: Reasoning Agent policy updated via RL on Designer-generated environments
+    feedback: Agent regret signal measuring gap between optimal and actual performance
+    update: Designer generates adaptive environments at capability frontier; Agent trains on them via RL
+    persistence: Accumulated environment memory and trained policy checkpoints feed subsequent rounds
+  evidence_url: https://arxiv.org/abs/2608.19197
+  evidence_excerpt: the Agent's regret signal guides the Designer to produce challenges at the edge of the agent's capabilities
+  why_included: Novel self-play RSI mechanism where one LLM generates its own executable training environments, with gains
+    across math, science, code, reasoning and tool-use benchmarks.
+  publication_status: preprint
+  venue: null
+  venue_evidence_url: null
+  venue_evidence_excerpt: null
+  code_status: not-found
+  code_search_note: No author-linked GitHub repository found as of 2026-09-09. Paper marked as work in progress.
+- name: 'Q-Evolve: Self-evolving LLM Agents with In-Distribution Optimization'
+  short_name: Q-Evolve
+  repo_url: https://arxiv.org/abs/2606.07367
+  kind: paper
+  category: Papers / Models
+  scope: self-training
+  improvement_target: Models
+  summary_en: Unifies automatic process-reward labeling and policy learning in an in-distribution RL loop; a critic trained
+    on mixed expert and agent data derives step-level rewards via advantage estimation, providing dense supervision for iterative
+    self-improvement without distribution shift.
+  summary_zh: 在分布内 RL 循环中统一自动过程奖励标注与策略学习；在专家和代理混合数据上训练的批评者通过优势估计派生步级奖励，为迭代自改进提供密集监督且无分布漂移。
+  limitation_en: Evaluated on AlfWorld, WebShop and ScienceWorld. The critic is trained from a mix of expert and self-generated
+    data, not purely self-generated. Reported gains are within these benchmark environments.
+  limitation_zh: 在 AlfWorld、WebShop 和 ScienceWorld 上评测。批评者在专家与自生成数据混合上训练而非纯自生成。报告收益限于这些基准环境。
+  tags:
+  - self-training
+  - reinforcement-learning
+  - credit-assignment
+  stars_snapshot: 0
+  updated_at: '2026-09-09'
+  reviewed_at: '2026-09-09'
+  published_at: '2026-06-05'
+  rsi_mechanism:
+    target: LLM agent policy weights
+    feedback: Step-level advantage-derived rewards from a learned critic
+    update: In-distribution GRPO policy optimization with dense critic rewards
+    persistence: Updated policy and critic checkpoints serve as starting points for subsequent RL iterations
+  evidence_url: https://arxiv.org/abs/2606.07367
+  evidence_excerpt: unifies automatic process-reward labeling and policy learning within a principled in-distribution reinforcement
+    learning loop
+  why_included: ICML 2026 paper addressing credit assignment in self-evolving agents via a unified critic-policy loop, directly
+    relevant to iterative model self-training.
+  publication_status: published
+  venue: ICML 2026
+  venue_evidence_url: https://arxiv.org/abs/2606.07367
+  venue_evidence_excerpt: ICML 2026
+  code_status: not-found
+  code_search_note: No author-linked GitHub repository found as of 2026-09-09.
+- name: 'S3Gym: Can LLMs Turn Self-Testing and Self-Judging into Self-Improvement?'
+  short_name: S3Gym
+  repo_url: https://arxiv.org/abs/2608.31100
+  kind: paper
+  category: Papers / Theory and Evaluation
+  scope: safety-evaluation
+  improvement_target: Models
+  summary_en: An interactive benchmark for evaluating LLM self-improvement through three coupled capabilities, self-testing,
+    self-judging and self-improvement, built around seven text-based games with executable environment verifiers.
+  summary_zh: 评估 LLM 自改进的交互式基准，通过自测试、自评判和自改进三项耦合能力，基于七个文本游戏和可执行环境验证器。
+  limitation_en: Core finding is that self-improvement is neither automatic nor uniform across tasks. Parameter training shows
+    instability and negative transfer. Seven text-based games are a limited proxy for general capability.
+  limitation_zh: 核心发现：自改进既非自动也非跨任务均匀。参数训练显示不稳定性和负迁移。七个文本游戏是通用能力的有限代理。
+  tags:
+  - safety-evaluation
+  - benchmark
+  - self-improvement
+  stars_snapshot: 0
+  updated_at: '2026-09-09'
+  reviewed_at: '2026-09-09'
+  published_at: '2026-08-31'
+  rsi_mechanism:
+    target: LLM agent capabilities measured through self-testing, self-judging and self-improvement
+    feedback: Executable environment verifiers providing ground-truth task outcomes
+    update: Three modes tested, in-context history, summary memory, and parameter training
+    persistence: Accumulated experience via history or summary memory; trained checkpoints for parameter mode
+  evidence_url: https://arxiv.org/abs/2608.31100
+  evidence_excerpt: self-improvement is neither automatic nor uniform
+  why_included: Directly evaluates whether the self-testing to self-judging to self-improvement pipeline works, finding task-dependent
+    results and parameter training instability, a limits-and-measurement study for RSI.
+  publication_status: preprint
+  venue: null
+  venue_evidence_url: null
+  venue_evidence_excerpt: null
+  code_status: not-found
+  code_search_note: No author-linked GitHub repository found as of 2026-09-09.
+- name: 'The Rise-and-Collapse Failure Mode of LLM Self-Training'
+  short_name: Rise-and-Collapse
+  repo_url: https://arxiv.org/abs/2606.21090
+  kind: paper
+  category: Papers / Theory and Evaluation
+  scope: safety-evaluation
+  improvement_target: Models
+  summary_en: Documents a rise-then-collapse pattern in REINFORCE post-training for code, where performance peaks within tens
+    of gradient steps then falls, sometimes to near zero; KL and EWC constraints do not prevent it, and GRPO raises the floor
+    but does not remove the cliff.
+  summary_zh: 记录 REINFORCE 代码后训练中先升后崩的模式：性能在数十梯度步内达峰然后下跌、有时接近零；KL 和 EWC 约束无法阻止，GRPO 提高下限但不消除断崖。
+  limitation_en: Studied on Qwen-2.5-3B/7B and a Gemma-3-4B pilot with competitive programming tasks. Mitigation effectiveness
+    is regime-dependent. This is a within-task failure analysis, not a general theory of self-training limits.
+  limitation_zh: 在 Qwen-2.5-3B/7B 和 Gemma-3-4B 试验上用竞赛编程任务研究。缓解措施效果依赖具体设置。这是任务内失败分析，非自训练极限的一般理论。
+  tags:
+  - safety-evaluation
+  - failure-mode
+  - self-training
+  stars_snapshot: 0
+  updated_at: '2026-09-09'
+  reviewed_at: '2026-09-09'
+  published_at: '2026-06-17'
+  rsi_mechanism:
+    target: LLM policy during REINFORCE post-training
+    feedback: Binary reward signals on competitive programming tasks
+    update: REINFORCE gradient updates with optional KL, EWC or GRPO constraints
+    persistence: Model checkpoints across training steps revealing rise-and-collapse trajectory
+  evidence_url: https://arxiv.org/abs/2606.21090
+  evidence_excerpt: performance peaks within tens of gradient steps and then falls back, sometimes to near zero
+  why_included: Directly documents a failure mode of iterative LLM self-training, showing that self-improvement can self-regress,
+    with mitigation analysis relevant to any RSI loop involving RL.
+  publication_status: preprint
+  venue: null
+  venue_evidence_url: null
+  venue_evidence_excerpt: null
+  code_status: not-found
+  code_search_note: No author-linked GitHub repository found as of 2026-09-09.
