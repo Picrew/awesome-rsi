@@ -4,7 +4,7 @@
 
 [English](./README.md) | [中文](./README_zh.md)
 
-**31 篇一手博客 · 37 篇研究论文 · 16 个活跃 GitHub 项目**
+**31 篇一手博客 · 40 篇研究论文 · 16 个活跃 GitHub 项目**
 
 最后核验：**2026-09-14**
 
@@ -48,15 +48,15 @@
 | [研究路线](#research-agendas) | 博客 | 2 |
 | [奠基研究与历史教程](#foundations-and-historical-tutorials) | 博客 | 4 |
 | [论文 / Harness](#papers--harness) | 论文 | 13 |
-| [论文 / Models](#papers--models) | 论文 | 18 |
-| [论文 / 理论与评测](#papers--theory-and-evaluation) | 论文 | 6 |
+| [论文 / Models](#papers--models) | 论文 | 19 |
+| [论文 / 理论与评测](#papers--theory-and-evaluation) | 论文 | 8 |
 | [GitHub / Models / 训练研究](#github--models--training-research) | GitHub 项目 | 3 |
 | [GitHub / Models / 递归自训练](#github--models--recursive-self-training) | GitHub 项目 | 1 |
 | [GitHub / Harness / 自修改](#github--harness--self-modification) | GitHub 项目 | 4 |
 | [GitHub / Harness / 提示与工作流优化](#github--harness--prompt-and-workflow-optimization) | GitHub 项目 | 4 |
 | [GitHub / Artifacts / 程序进化](#github--artifacts--program-evolution) | GitHub 项目 | 2 |
 | [GitHub / Artifacts / 学习所得技能](#github--artifacts--learned-skills) | GitHub 项目 | 2 |
-| **合计** |  | **84** |
+| **合计** |  | **87** |
 
 ## Company Research Blogs
 
@@ -253,6 +253,7 @@
 | **[SPADE](https://arxiv.org/abs/2608.19197)**<br>2026-08-19 | **自训练**<br>单个 LLM 扮演双重自博弈角色：环境设计者与推理代理；设计者基于预训练文档编写可执行 Gym 风格环境，代理的遗憾信号引导设计者生成处于能力边界的挑战。<br><details open><summary>边界</summary>在研工作。在 30B 规模下测试。设计者-代理联合进化依赖预训练语料锚定和累积环境记忆，非任意开放式生成。</details> | — |
 | **[Socratic-SWE](https://arxiv.org/abs/2606.07412)**<br>2026-06-05 | **自训练**<br>将求解轨迹提炼为技能，生成针对性修复任务并联合训练生成者与求解者；更新后的求解者再产生下一轮课程所需轨迹。<br><details open><summary>边界</summary>回路受固定种子仓库、可执行测试与可信验证任务约束；论文报告后期迭代趋于饱和。</details> | — |
 | **[Q-Evolve](https://arxiv.org/abs/2606.07367)**<br>2026-06-05<br>[ICML 2026](https://arxiv.org/abs/2606.07367) | **自训练**<br>在分布内 RL 循环中统一自动过程奖励标注与策略学习；在专家和代理混合数据上训练的批评者通过优势估计派生步级奖励，为迭代自改进提供密集监督且无分布漂移。<br><details open><summary>边界</summary>在 AlfWorld、WebShop 和 ScienceWorld 上评测。批评者在专家与自生成数据混合上训练而非纯自生成。报告收益限于这些基准环境。</details> | — |
+| **[SIA-W](https://arxiv.org/abs/2605.27276)**<br>2026-05-22<br>[ICML 2026 Workshop (AI as a Tool for Mathematics, Computer Science, and Machine Learning)](https://icml.cc/virtual/2026/74811) | **自训练**<br>联合优化代理脚手架（工具、提示、执行 harness）和模型权重的自改进代理框架，通过测试时强化学习跨代构建领域自适应搜索和推理流程。<br><details open><summary>边界</summary>在三个对比领域（LawBench、GPU 内核优化、单细胞 RNA 去噪）上评测。权重更新需要测试时 RL 计算。框架结合脚手架进化与权重自适应，难以隔离各自贡献。</details> | — |
 | **[Agent0](https://arxiv.org/abs/2511.16043)**<br>2025-11-20 | **自训练**<br>将课程模型与使用工具的执行模型耦合；更强执行能力推动生成更难课程，课程再提供强化学习数据。<br><details open><summary>边界</summary>公开训练指南需要人工选择轮次间 checkpoint；零外部数据也未消除对预训练基础模型和工具的依赖。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/aiming-lab/Agent0)<br>[![star: 1,258](https://img.shields.io/badge/star-1258-f4b400?style=flat-square)](https://github.com/aiming-lab/Agent0)<br><details open><summary>详情</summary>• **最近推送:** 2026-07-10</details> |
 | **[R-Zero](https://arxiv.org/abs/2508.05004)**<br>2025-08-07<br>[ICLR 2026](https://github.com/Chengsong-Huang/R-Zero/blob/main/README.md) | **自训练**<br>共同进化 Challenger 与 Solver 模型，以能力边界附近的生成任务训练 Solver，而 Solver 能力变化又改变 Challenger 的奖励。<br><details open><summary>边界</summary>使用预训练基础模型与人工设计奖励；有限迭代可能退步，作者后续 R-Few 工作引入人工数据以应对扩展限制。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/Chengsong-Huang/R-Zero)<br>[![star: 849](https://img.shields.io/badge/star-849-f4b400?style=flat-square)](https://github.com/Chengsong-Huang/R-Zero)<br><details open><summary>详情</summary>• **最近推送:** 2026-02-04</details> |
 | **[Self-Adapting Language Models (SEAL)](https://arxiv.org/abs/2506.10943)**<br>2025-06-12 | **自训练**<br>模型生成包含微调数据或更新指令的自编辑内容；SFT 产生持久权重变化，下游性能通过外层 RL 循环训练更好的自编辑生成能力。<br><details open><summary>边界</summary>自编辑在研究者设计的 SFT/RL 框架内控制适配；知识吸收与少样本泛化实验不能证明无约束的自主重设计。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/Continual-Intelligence/SEAL)<br>[![star: 1,856](https://img.shields.io/badge/star-1856-f4b400?style=flat-square)](https://github.com/Continual-Intelligence/SEAL)<br><details open><summary>详情</summary>• **最近推送:** 2025-08-01<br>• 论文链接作者项目页，匹配的官方仓库链接同一论文与项目页；规范仓库为 Continual-Intelligence/SEAL。</details> |
@@ -276,6 +277,8 @@
 | --- | --- | --- |
 | **[S3Gym](https://arxiv.org/abs/2608.31100)**<br>2026-08-31 | **评测与安全**<br>评估 LLM 自改进的交互式基准，通过自测试、自评判和自改进三项耦合能力，基于七个文本游戏和可执行环境验证器。<br><details open><summary>边界</summary>核心发现：自改进既非自动也非跨任务均匀。参数训练显示不稳定性和负迁移。七个文本游戏是通用能力的有限代理。</details> | — |
 | **[Rise-and-Collapse](https://arxiv.org/abs/2606.21090)**<br>2026-06-17 | **评测与安全**<br>记录 REINFORCE 代码后训练中先升后崩的模式：性能在数十梯度步内达峰然后下跌、有时接近零；KL 和 EWC 约束无法阻止，GRPO 提高下限但不消除断崖。<br><details open><summary>边界</summary>在 Qwen-2.5-3B/7B 和 Gemma-3-4B 试验上用竞赛编程任务研究。缓解措施效果依赖具体设置。这是任务内失败分析，非自训练极限的一般理论。</details> | — |
+| **[Self-Evolution Generalization Gap](https://arxiv.org/abs/2606.01075)**<br>2026-06-02<br>[ICML 2026](https://icml.cc/virtual/2026/poster/61802) | **评测与安全**<br>检验 LLM 在闭环设置中仅使用内部生成监督的自进化能力；发现自进化持续优于基线但在过度训练后停滞，与 oracle 监督存在差距。<br><details open><summary>边界</summary>主要在 Knights and Knaves 逻辑推理上测试，真实世界基准收益有限。大模型（Gemma 12B）多轮批评修订接近 oracle 表现，但最小化设定下内部生成监督仍不足。</details> | — |
+| **[Task-centric Self-Improvement](https://arxiv.org/abs/2602.10014)**<br>2026-02-14<br>[ICML 2026](https://icml.cc/virtual/2026/poster/62341) | **评测与安全**<br>为模型在奖励验证输出上微调的迭代自改进提供有限样本理论分析，揭示更好模型每轮接受更多数据的显式反馈循环；证明简单到难课程优于固定任务混合的量化条件。<br><details open><summary>边界</summary>基于有限样本设置和可验证奖励的理论分析。在合成图推理和数学基准上验证。分析解释饱和现象但未消除。</details> | — |
 | **[Statistical Gödel Machine (SGM)](https://arxiv.org/abs/2510.10232)**<br>2025-10-11 | **评测与安全**<br>在采用候选修改前进行检验，并跨轮分配错误接受风险预算，为自修改提供统计门控。<br><details open><summary>边界</summary>保证依赖有界、独立的成对测量和稳定评测器；实验使用简单提案，不是自改写 LLM 的实证。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/gravitywavelet/sgm-anon)<br>[![star: 0](https://img.shields.io/badge/star-0-f4b400?style=flat-square)](https://github.com/gravitywavelet/sgm-anon)<br><details open><summary>详情</summary>• **最近推送:** 2026-05-11<br>• 所链接仓库现描述后续匿名投稿；本条概述以 arXiv v1 为准。</details> |
 | **[Socratic Learning](https://arxiv.org/abs/2411.16905)**<br>2024-11-25 | **研究路线**<br>提出通过语言游戏实现封闭系统递归学习的立场，区分反馈质量、经验覆盖与资源条件。<br><details open><summary>边界</summary>这是依赖明确假设的立场论文，没有报告具备无界实证能力增长的实现。</details> | — |
 | **[Guided Self-Improvement (GSI)](https://arxiv.org/abs/2411.00750)**<br>2024-11-01 | **评测与安全**<br>研究反复自训练中困难样本逐渐消失的问题，并用苏格拉底式提示恢复后续训练轮次的采样覆盖。<br><details open><summary>边界</summary>需要已知答案校验和引导；正确终答仍可能掩盖伪推理。这是边界与缓解研究，并非无约束 RSI。</details> | [官&#8288;方&#8288;代&#8288;码](https://github.com/Yiwen-Ding/Guided-Self-Improvement)<br>[![star: 9](https://img.shields.io/badge/star-9-f4b400?style=flat-square)](https://github.com/Yiwen-Ding/Guided-Self-Improvement)<br><details open><summary>详情</summary>• **最近推送:** 2024-11-10</details> |

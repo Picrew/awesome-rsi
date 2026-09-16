@@ -3548,3 +3548,117 @@ entries:
   venue_evidence_excerpt: null
   code_status: not-found
   code_search_note: No author-linked GitHub repository found as of 2026-09-09.
+- name: 'SIA-W: Self-Improving Agents with Test-Time Weight Updates'
+  short_name: SIA-W
+  repo_url: https://arxiv.org/abs/2605.27276
+  kind: paper
+  category: Papers / Models
+  scope: self-training
+  improvement_target: Models
+  summary_en: A self-improving agent framework that jointly optimizes agent scaffold (tools, prompts, execution harnesses) and model
+    weights through test-time reinforcement learning, building domain-adapted search and reasoning procedures across generations.
+  summary_zh: 联合优化代理脚手架（工具、提示、执行 harness）和模型权重的自改进代理框架，通过测试时强化学习跨代构建领域自适应搜索和推理流程。
+  limitation_en: Evaluated on three contrasting domains (LawBench, GPU kernel optimization, single-cell RNA denoising). Weight
+    updates require test-time RL computation. The framework combines scaffold evolution with weight adaptation, making it difficult
+    to isolate individual contributions.
+  limitation_zh: 在三个对比领域（LawBench、GPU 内核优化、单细胞 RNA 去噪）上评测。权重更新需要测试时 RL 计算。框架结合脚手架进化与权重自适应，难以隔离各自贡献。
+  tags:
+  - self-modification
+  - test-time-training
+  - weight-update
+  stars_snapshot: 0
+  updated_at: '2026-09-16'
+  reviewed_at: '2026-09-16'
+  published_at: '2026-05-22'
+  rsi_mechanism:
+    target: Agent scaffold (tools, prompts, harnesses) and model weights
+    feedback: Task performance metrics and execution traces across domains
+    update: Iterative scaffold evolution followed by test-time RL weight updates
+    persistence: Evolved scaffold configurations and updated model checkpoints feed subsequent generations
+  evidence_url: https://arxiv.org/abs/2605.27276
+  evidence_excerpt: jointly optimises the agent scaffold and the model weights
+  why_included: ICML 2026 workshop paper demonstrating rare joint optimization of both harness and weights with significant gains
+    (+16pt on LawBench, -19% GPU runtime, +19% denoising).
+  publication_status: published
+  venue: ICML 2026 Workshop (AI as a Tool for Mathematics, Computer Science, and Machine Learning)
+  venue_evidence_url: https://icml.cc/virtual/2026/74811
+  venue_evidence_excerpt: ICML 2026 workshop
+  code_status: not-found
+  code_search_note: No author-linked GitHub repository found as of 2026-09-16. Related SIA framework at https://github.com/hexo-ai/sia.
+- name: 'A Task-centric Theory for Iterative Self-Improvement with Easy-to-Hard Curricula'
+  short_name: Task-centric Self-Improvement
+  repo_url: https://arxiv.org/abs/2602.10014
+  kind: paper
+  category: Papers / Theory and Evaluation
+  scope: safety-evaluation
+  improvement_target: Models
+  summary_en: Provides finite-sample theoretical analysis of iterative self-improvement where models fine-tune on reward-verified
+    outputs, revealing an explicit feedback loop where better models accept more data per iteration; proves conditions where easy-to-hard
+    curricula outperform fixed task mixtures.
+  summary_zh: 为模型在奖励验证输出上微调的迭代自改进提供有限样本理论分析，揭示更好模型每轮接受更多数据的显式反馈循环；证明简单到难课程优于固定任务混合的量化条件。
+  limitation_en: Theoretical analysis grounded in finite-sample setting with verifiable rewards. Validated on synthetic graph-based
+    reasoning and mathematical benchmarks. Analysis explains saturation but does not eliminate it.
+  limitation_zh: 基于有限样本设置和可验证奖励的理论分析。在合成图推理和数学基准上验证。分析解释饱和现象但未消除。
+  tags:
+  - self-training
+  - curriculum-learning
+  - theory
+  stars_snapshot: 0
+  updated_at: '2026-09-16'
+  reviewed_at: '2026-09-16'
+  published_at: '2026-02-14'
+  rsi_mechanism:
+    target: LLM policy weights through iterative fine-tuning on self-generated data
+    feedback: External verifiers providing binary accept/reject signals on candidate answers
+    update: Fine-tune on reward-verified question-answer pairs with easy-to-hard curriculum scheduling
+    persistence: Model checkpoints carry forward; better models generate more accepted data in subsequent iterations
+  evidence_url: https://arxiv.org/abs/2602.10014
+  evidence_excerpt: explicit feedback loop where better models accept more data per iteration, supporting sustained self-improvement
+    while explaining eventual saturation
+  why_included: ICML 2026 paper providing rigorous theoretical foundation for iterative self-improvement and curriculum learning,
+    explaining both success mechanisms and saturation limits.
+  publication_status: published
+  venue: ICML 2026
+  venue_evidence_url: https://icml.cc/virtual/2026/poster/62341
+  venue_evidence_excerpt: ICML 2026
+  code_status: not-found
+  code_search_note: No author-linked GitHub repository found as of 2026-09-16.
+- name: 'On the Generalization Gap in Self-Evolving Language Model Reasoning'
+  short_name: Self-Evolution Generalization Gap
+  repo_url: https://arxiv.org/abs/2606.01075
+  kind: paper
+  category: Papers / Theory and Evaluation
+  scope: safety-evaluation
+  improvement_target: Models
+  summary_en: Examines whether LLMs can improve through self-evolution using only internally generated supervision in a closed-loop
+    setup; finds self-evolution consistently improves over base but plateaus after excessive training compute, leaving a gap versus
+    oracle supervision.
+  summary_zh: 检验 LLM 在闭环设置中仅使用内部生成监督的自进化能力；发现自进化持续优于基线但在过度训练后停滞，与 oracle 监督存在差距。
+  limitation_en: Tested on Knights and Knaves logical reasoning as primary testbed, with modest gains on real-world benchmarks.
+    Multi-turn critic-revision with large models (Gemma 12B) nearly matched oracle performance, but internally generated supervision
+    remains insufficient under minimal formulation.
+  limitation_zh: 主要在 Knights and Knaves 逻辑推理上测试，真实世界基准收益有限。大模型（Gemma 12B）多轮批评修订接近 oracle 表现，但最小化设定下内部生成监督仍不足。
+  tags:
+  - self-training
+  - generalization
+  - evaluation
+  stars_snapshot: 0
+  updated_at: '2026-09-16'
+  reviewed_at: '2026-09-16'
+  published_at: '2026-06-02'
+  rsi_mechanism:
+    target: LLM reasoning capabilities through self-generated supervision
+    feedback: Four strategies tested, single-round verification, multi-turn revision, iterative training, curriculum learning
+    update: Fine-tune on self-generated and verified solutions across iterations
+    persistence: Trained model checkpoints serve as starting points for subsequent self-evolution rounds
+  evidence_url: https://arxiv.org/abs/2606.01075
+  evidence_excerpt: self-evolution consistently improves over the base model, but plateaus after excessive training compute is
+    invested
+  why_included: ICML 2026 paper providing empirical measurement of self-evolution limits, showing the generalization gap between
+    self-generated and oracle supervision in closed-loop reasoning improvement.
+  publication_status: published
+  venue: ICML 2026
+  venue_evidence_url: https://icml.cc/virtual/2026/poster/61802
+  venue_evidence_excerpt: ICML 2026
+  code_status: not-found
+  code_search_note: No author-linked GitHub repository found as of 2026-09-16.
