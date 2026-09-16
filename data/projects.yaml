@@ -1,7 +1,7 @@
 catalog:
   title_en: Awesome RSI
   title_zh: Awesome RSI
-  last_verified: '2026-09-14'
+  last_verified: '2026-09-16'
   description_en: 'A curated research map of recursive self-improvement: agents that revise their own machinery, models that
     generate their next training signal, and the evidence that defines their limits.'
   description_zh: 递归自我改进研究地图：修改自身机制的代理、产生下一轮训练信号的模型，以及界定其能力边界的证据。

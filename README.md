@@ -6,7 +6,7 @@ A curated research map of recursive self-improvement: agents that revise their o
 
 **31 first-party blog posts · 40 research papers · 16 active GitHub projects**
 
-Last verified: **2026-09-14**
+Last verified: **2026-09-16**
 
 ## Start Here
 
@@ -221,7 +221,7 @@ Start here: first-party technical accounts from model builders and specialist AI
 
 - Dates refer to first publication. Only source-verified venues are shown; a date alone makes no peer-review claim.
 - Code links are author-linked releases. **—** means no author-linked implementation was established in this review; it does not assert that none exists. Release details preserve metadata and partial-release notes.
-- Star badges and push dates use the **2026-09-14** metadata snapshot.
+- Star badges and push dates use the **2026-09-16** metadata snapshot.
 
 ### Papers / Harness
 
@@ -286,7 +286,7 @@ Formal foundations, proposed closed-loop learning, and tests of whether self-imp
 
 ## Active GitHub Projects
 
-Repository metadata snapshot: **2026-09-14**. Only public, non-archived projects pushed in the last **60 days** appear here; stars are snapshots, not evidence of RSI. Paper-associated code above has no activity gate.
+Repository metadata snapshot: **2026-09-16**. Only public, non-archived projects pushed in the last **60 days** appear here; stars are snapshots, not evidence of RSI. Paper-associated code above has no activity gate.
 
 ### GitHub / Models
 
