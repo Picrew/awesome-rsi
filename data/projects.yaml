@@ -87,6 +87,42 @@ categories:
     reliable. These are not implementation demonstrations.
   description_zh: 形式化基础、闭环学习设想，以及自改进信号可靠性的评测。这些条目不作为实现类实证展示。
 entries:
+- name: Gear
+  repo_url: https://github.com/rsi-gear/gear
+  category: Harness / Prompt and Workflow Optimization
+  kind: project
+  scope: bounded-optimization
+  summary_en: Uses execution traces and benchmark feedback to iteratively optimize agent prompts, tools, and workflows, retaining
+    versioned harness candidates for later rounds.
+  summary_zh: 利用执行轨迹与基准评测反馈迭代优化智能体的提示词、工具和工作流，将选中的外壳版本保留供后续轮次使用。
+  limitation_en: The published five-round harness experiment reuses public tasks for optimization and does not establish independent
+    generalization; configurable search components do not demonstrate autonomous optimizer self-improvement, and the full
+    model-training loop remains under development.
+  limitation_zh: 公开的五轮外壳实验重复使用公共任务进行优化，不构成独立泛化验证；可配置的搜索组件不等于已实现优化器自主改进，完整的模型训练循环仍在开发中。
+  tags:
+  - harness-optimization
+  - execution-feedback
+  - candidate-selection
+  reviewed_at: '2026-09-20'
+  rsi_mechanism:
+    target: Agent harness prompts, tools, skills, workflows and context management
+    feedback: Task execution traces and benchmark scores collected through Hitch
+    update: A Meta agent proposes authorized harness edits; configured evaluation and selection retain candidate versions
+    persistence: Retained harness versions and their evaluation results carry into later optimization rounds and can be exported
+      for reuse
+  evidence_url: https://github.com/rsi-gear/gear#algorithm-design
+  evidence_excerpt: Gear records each harness version and its evaluation results, so you can inspect the changes and reuse
+    the resulting harness.
+  why_included: An implemented evaluation-driven harness improvement loop with a public multi-round example; included as bounded
+    optimization rather than evidence of unrestricted RSI.
+  stars_snapshot: 42
+  updated_at: '2026-09-18'
+  pushed_at: '2026-09-18T11:40:54Z'
+  archived: false
+  private: false
+  license: MIT
+  metadata_checked_at: '2026-09-20'
+  metadata_source: https://api.github.com/repos/rsi-gear/gear
 - name: RD-Agent / FT-Agent
   repo_url: https://github.com/microsoft/RD-Agent
   category: Models / Training Research
@@ -102,7 +138,7 @@ entries:
   - model-training
   - experiment-loop
   - validation
-  stars_snapshot: 14695
+  stars_snapshot: 14696
   updated_at: '2026-09-15'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
@@ -167,7 +203,7 @@ entries:
   - demonstrations
   - metrics
   stars_snapshot: 38161
-  updated_at: '2026-09-18'
+  updated_at: '2026-09-20'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
     target: LM program instructions and demonstrations
@@ -179,7 +215,7 @@ entries:
     scores.
   why_included: Automatic metric-driven program compilation is a bounded harness-improvement component; general LM orchestration
     is not the inclusion rationale.
-  pushed_at: '2026-09-18T22:32:06Z'
+  pushed_at: '2026-09-20T16:55:51Z'
   archived: false
   private: false
   license: MIT
@@ -200,7 +236,7 @@ entries:
   - reflection
   - pareto-selection
   - prompt-optimization
-  stars_snapshot: 6664
+  stars_snapshot: 6665
   updated_at: '2026-09-16'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
@@ -339,7 +375,7 @@ entries:
   - learned-skills
   - procedural-memory
   - experience
-  stars_snapshot: 247402
+  stars_snapshot: 247407
   updated_at: '2026-09-20'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
@@ -351,7 +387,7 @@ entries:
   evidence_excerpt: Autonomous skill creation after complex tasks. Skills self-improve during use.
   why_included: Included specifically for the documented learned-skill lifecycle, not for its chat interfaces, schedulers,
     or generic agent tools.
-  pushed_at: '2026-09-20T16:23:56Z'
+  pushed_at: '2026-09-20T17:15:16Z'
   archived: false
   private: false
   license: MIT
@@ -372,7 +408,7 @@ entries:
   - self-refinement
   - continual-harness
   - rollback
-  stars_snapshot: 21091
+  stars_snapshot: 21092
   updated_at: '2026-09-20'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
@@ -384,7 +420,7 @@ entries:
   evidence_excerpt: It never rewrites the immutable base system prompt, and recorded snapshots support rollback.
   why_included: Primary implementation describes retained harness self-refinement with explicit immutable boundaries, rather
     than generic tool orchestration.
-  pushed_at: '2026-09-20T08:13:23Z'
+  pushed_at: '2026-09-20T16:58:04Z'
   archived: false
   private: false
   license: MIT
@@ -2556,9 +2592,9 @@ entries:
   code_release: implementation
   code_metadata:
     repo_url: https://github.com/PrimeIntellect-ai/prime-agent
-    stars_snapshot: 21091
+    stars_snapshot: 21092
     updated_at: '2026-09-20'
-    pushed_at: '2026-09-20T08:13:23Z'
+    pushed_at: '2026-09-20T16:58:04Z'
     archived: false
     private: false
     license: MIT
@@ -3642,7 +3678,7 @@ entries:
   code_note_zh: 作者关联仓库目前包含论文与展示材料。README 将完整代码库、发现程序的发布及复现脚本列为待发布，不属于可运行的实现发布。
   code_metadata:
     repo_url: https://github.com/zhengkid/Dream-RSI
-    stars_snapshot: 954
+    stars_snapshot: 957
     updated_at: '2026-09-16'
     pushed_at: '2026-09-16T10:32:18Z'
     archived: false
