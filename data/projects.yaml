@@ -1,7 +1,7 @@
 catalog:
   title_en: Awesome RSI
   title_zh: Awesome RSI
-  last_verified: '2026-09-16'
+  last_verified: '2026-09-20'
   description_en: 'A curated research map of recursive self-improvement: agents that revise their own machinery, models that
     generate their next training signal, and the evidence that defines their limits.'
   description_zh: 递归自我改进研究地图：修改自身机制的代理、产生下一轮训练信号的模型，以及界定其能力边界的证据。
@@ -102,7 +102,7 @@ entries:
   - model-training
   - experiment-loop
   - validation
-  stars_snapshot: 14648
+  stars_snapshot: 14695
   updated_at: '2026-09-15'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
@@ -118,7 +118,7 @@ entries:
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/microsoft/RD-Agent
 - name: HyperAgents
   repo_url: https://github.com/facebookresearch/HyperAgents
@@ -134,7 +134,7 @@ entries:
   - self-modification
   - meta-agent
   - archive
-  stars_snapshot: 2738
+  stars_snapshot: 2750
   updated_at: '2026-07-31'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
@@ -149,7 +149,7 @@ entries:
   archived: false
   private: false
   license: NOASSERTION
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/facebookresearch/HyperAgents
 - name: DSPy / GEPA and MIPROv2
   repo_url: https://github.com/stanfordnlp/dspy
@@ -166,8 +166,8 @@ entries:
   - prompt-optimization
   - demonstrations
   - metrics
-  stars_snapshot: 38062
-  updated_at: '2026-09-15'
+  stars_snapshot: 38161
+  updated_at: '2026-09-18'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
     target: LM program instructions and demonstrations
@@ -179,11 +179,11 @@ entries:
     scores.
   why_included: Automatic metric-driven program compilation is a bounded harness-improvement component; general LM orchestration
     is not the inclusion rationale.
-  pushed_at: '2026-09-15T18:02:55Z'
+  pushed_at: '2026-09-18T22:32:06Z'
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/stanfordnlp/dspy
 - name: GEPA
   repo_url: https://github.com/gepa-ai/gepa
@@ -200,8 +200,8 @@ entries:
   - reflection
   - pareto-selection
   - prompt-optimization
-  stars_snapshot: 6599
-  updated_at: '2026-09-11'
+  stars_snapshot: 6664
+  updated_at: '2026-09-16'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
     target: Prompt instructions in the original GEPA method
@@ -213,11 +213,11 @@ entries:
     with minimal evaluations.
   why_included: Explicit feedback-driven prompt evolution; distinguished from DSPy's integration of this optimizer and from
     unrestricted RSI.
-  pushed_at: '2026-09-11T06:04:59Z'
+  pushed_at: '2026-09-16T20:21:25Z'
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/gepa-ai/gepa
 - name: EvoAgentX / Evolution Algorithms
   repo_url: https://github.com/ANative-Lab/EvoAgentX
@@ -234,7 +234,7 @@ entries:
   - workflow-optimization
   - aflow
   - validation
-  stars_snapshot: 3331
+  stars_snapshot: 3349
   updated_at: '2026-08-27'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
@@ -250,7 +250,7 @@ entries:
   archived: false
   private: false
   license: NOASSERTION
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/ANative-Lab/EvoAgentX
 - name: Reef / Harness Evolution
   repo_url: https://github.com/Human-Agent-Society/reef
@@ -271,8 +271,8 @@ entries:
   - harness-evolution
   - evaluation-gate
   - versioned-artifacts
-  stars_snapshot: 2131
-  updated_at: '2026-09-16'
+  stars_snapshot: 3770
+  updated_at: '2026-09-20'
   reviewed_at: '2026-09-12'
   rsi_mechanism:
     target: The served harness tree of skills, prompts, rules, configuration and extensions
@@ -285,45 +285,12 @@ entries:
     can pull
   why_included: Included for the documented harness evolution path only, where receipt-linked reports produce one gated tree
     mutation that must win an evaluation before publication; the repository's weight-training recipes are outside this entry.
-  pushed_at: '2026-09-16T09:51:44Z'
+  pushed_at: '2026-09-20T16:38:13Z'
   archived: false
   private: false
   license: Apache-2.0
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/Human-Agent-Society/reef
-- name: OpenEvolve
-  repo_url: https://github.com/algorithmicsuperintelligence/openevolve
-  category: Artifacts / Program Evolution
-  kind: project
-  scope: bounded-optimization
-  summary_en: Evolves executable program variants using LLM mutations, task-specific evaluators and an archive that seeds
-    subsequent generations.
-  summary_zh: 利用 LLM 变异、任务专用评测器和候选档案进化可执行程序，档案中的程序继续成为后续代的起点。
-  limitation_en: Programs are the improvement target; neither a self-rewriting optimizer nor recursive proposer-weight training
-    is established.
-  limitation_zh: 改进对象是程序，并未证明优化器会改写自身或递归训练提案模型权重。
-  tags:
-  - program-evolution
-  - evaluator
-  - archive
-  stars_snapshot: 7378
-  updated_at: '2026-07-18'
-  reviewed_at: '2026-09-08'
-  rsi_mechanism:
-    target: Executable candidate programs
-    feedback: User-supplied executable evaluator metrics
-    update: LLM-generated program mutations selected by fitness and diversity
-    persistence: Program database supplies parent and inspiration programs for later generations
-  evidence_url: https://github.com/algorithmicsuperintelligence/openevolve
-  evidence_excerpt: 'Artifact Side-Channel: Error feedback improves subsequent generations'
-  why_included: A concrete archive-to-mutation-to-evaluation program-improvement loop, classified by its changed artifact
-    rather than by its orchestration tooling.
-  pushed_at: '2026-07-18T13:16:12Z'
-  archived: false
-  private: false
-  license: Apache-2.0
-  metadata_checked_at: '2026-09-16'
-  metadata_source: https://api.github.com/repos/algorithmicsuperintelligence/openevolve
 - name: ShinkaEvolve
   repo_url: https://github.com/SakanaAI/ShinkaEvolve
   category: Artifacts / Program Evolution
@@ -339,7 +306,7 @@ entries:
   - program-evolution
   - novelty
   - ai-training
-  stars_snapshot: 1391
+  stars_snapshot: 1402
   updated_at: '2026-08-21'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
@@ -355,7 +322,7 @@ entries:
   archived: false
   private: false
   license: Apache-2.0
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/SakanaAI/ShinkaEvolve
 - name: Hermes Agent / Learned Skills
   repo_url: https://github.com/NousResearch/hermes-agent
@@ -372,8 +339,8 @@ entries:
   - learned-skills
   - procedural-memory
   - experience
-  stars_snapshot: 246012
-  updated_at: '2026-09-16'
+  stars_snapshot: 247402
+  updated_at: '2026-09-20'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
     target: Persisted procedural skill artifacts
@@ -384,11 +351,11 @@ entries:
   evidence_excerpt: Autonomous skill creation after complex tasks. Skills self-improve during use.
   why_included: Included specifically for the documented learned-skill lifecycle, not for its chat interfaces, schedulers,
     or generic agent tools.
-  pushed_at: '2026-09-16T09:54:36Z'
+  pushed_at: '2026-09-20T16:23:56Z'
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/NousResearch/hermes-agent
 - name: Prime Agent / Continual Harness
   repo_url: https://github.com/PrimeIntellect-ai/prime-agent
@@ -405,8 +372,8 @@ entries:
   - self-refinement
   - continual-harness
   - rollback
-  stars_snapshot: 20881
-  updated_at: '2026-09-16'
+  stars_snapshot: 21091
+  updated_at: '2026-09-20'
   reviewed_at: '2026-09-08'
   rsi_mechanism:
     target: Supplemental harness prompts, memory and reusable specifications
@@ -417,11 +384,11 @@ entries:
   evidence_excerpt: It never rewrites the immutable base system prompt, and recorded snapshots support rollback.
   why_included: Primary implementation describes retained harness self-refinement with explicit immutable boundaries, rather
     than generic tool orchestration.
-  pushed_at: '2026-09-16T09:49:50Z'
+  pushed_at: '2026-09-20T08:13:23Z'
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/PrimeIntellect-ai/prime-agent
 - name: 'The Darwin Godel Machine: AI that improves itself by rewriting its own code'
   repo_url: https://sakana.ai/dgm/
@@ -1617,13 +1584,13 @@ entries:
   code_release: implementation
   code_metadata:
     repo_url: https://github.com/jennyzzt/dgm
-    stars_snapshot: 2337
+    stars_snapshot: 2351
     updated_at: '2025-08-13'
     pushed_at: '2025-08-13T10:40:14Z'
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/jennyzzt/dgm
   short_name: Darwin Gödel Machine (DGM)
 - id: hyperagents
@@ -1670,13 +1637,13 @@ entries:
   code_release: implementation
   code_metadata:
     repo_url: https://github.com/facebookresearch/HyperAgents
-    stars_snapshot: 2738
+    stars_snapshot: 2750
     updated_at: '2026-07-31'
     pushed_at: '2026-07-31T16:56:22Z'
     archived: false
     private: false
     license: NOASSERTION
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/facebookresearch/HyperAgents
   short_name: Hyperagents
 - id: stop
@@ -1731,7 +1698,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/microsoft/stop
   short_name: Self-Taught Optimizer (STOP)
 - id: star
@@ -1784,7 +1751,7 @@ entries:
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/ezelikman/STaR
   short_name: STaR
 - id: rest
@@ -1985,7 +1952,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/facebookresearch/RAM
   short_name: Self-Taught Evaluators
 - id: spin
@@ -2038,7 +2005,7 @@ entries:
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/uclaml/SPIN
   short_name: Self-Play Fine-Tuning (SPIN)
 - id: absolute-zero
@@ -2086,13 +2053,13 @@ entries:
   code_release: implementation
   code_metadata:
     repo_url: https://github.com/LeapLabTHU/Absolute-Zero-Reasoner
-    stars_snapshot: 1904
+    stars_snapshot: 1907
     updated_at: '2025-08-24'
     pushed_at: '2025-08-24T00:13:19Z'
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/LeapLabTHU/Absolute-Zero-Reasoner
   short_name: Absolute Zero
 - id: r-zero
@@ -2139,13 +2106,13 @@ entries:
   code_release: implementation
   code_metadata:
     repo_url: https://github.com/Chengsong-Huang/R-Zero
-    stars_snapshot: 848
+    stars_snapshot: 850
     updated_at: '2026-02-04'
     pushed_at: '2026-02-04T23:48:41Z'
     archived: false
     private: false
     license: none
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/Chengsong-Huang/R-Zero
   short_name: R-Zero
 - id: agent0
@@ -2199,7 +2166,7 @@ entries:
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/aiming-lab/Agent0
   short_name: Agent0
 - id: robocat
@@ -2296,13 +2263,13 @@ entries:
   code_release: implementation
   code_metadata:
     repo_url: https://github.com/Continual-Intelligence/SEAL
-    stars_snapshot: 1859
+    stars_snapshot: 1860
     updated_at: '2025-08-01'
     pushed_at: '2025-08-01T20:06:35Z'
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/Continual-Intelligence/SEAL
   short_name: Self-Adapting Language Models (SEAL)
 - id: sica
@@ -2361,7 +2328,7 @@ entries:
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/MaximeRobeyns/self_improving_coding_agent
   short_name: Self-Improving Coding Agent (SICA)
 - id: godel-agent
@@ -2412,13 +2379,13 @@ entries:
   code_release: implementation
   code_metadata:
     repo_url: https://github.com/Arvid-pku/Godel_Agent
-    stars_snapshot: 221
+    stars_snapshot: 223
     updated_at: '2025-09-17'
     pushed_at: '2025-09-17T22:21:44Z'
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/Arvid-pku/Godel_Agent
   short_name: Gödel Agent
 - id: rest-mcts
@@ -2475,7 +2442,7 @@ entries:
     archived: false
     private: false
     license: none
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/THUDM/ReST-MCTS
   short_name: ReST-MCTS*
 - id: sppo
@@ -2533,7 +2500,7 @@ entries:
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/uclaml/SPPO
   short_name: Self-Play Preference Optimization (SPPO)
 - id: continual-harness-paper
@@ -2589,13 +2556,13 @@ entries:
   code_release: implementation
   code_metadata:
     repo_url: https://github.com/PrimeIntellect-ai/prime-agent
-    stars_snapshot: 20881
-    updated_at: '2026-09-16'
-    pushed_at: '2026-09-16T09:49:50Z'
+    stars_snapshot: 21091
+    updated_at: '2026-09-20'
+    pushed_at: '2026-09-20T08:13:23Z'
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/PrimeIntellect-ai/prime-agent
   short_name: Continual Harness
 - name: 'Huxley-Gödel Machine: Human-Level Coding Agent Development by an Approximation of the Optimal Self-Improving Machine'
@@ -2644,7 +2611,7 @@ entries:
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/metauto-ai/HGM
 - name: 'MetaSkill-Evolve: Recursive Self-Improvement of LLM Agents via Two-Timescale Meta-Skill Evolution'
   short_name: MetaSkill-Evolve
@@ -2723,13 +2690,13 @@ entries:
   code_evidence_excerpt: https://github.com/minnesotanlp/meta-n
   code_metadata:
     repo_url: https://github.com/minnesotanlp/meta-n
-    stars_snapshot: 29
+    stars_snapshot: 30
     updated_at: '2026-08-26'
     pushed_at: '2026-08-26T17:00:51Z'
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/minnesotanlp/meta-n
   code_note_en: The authors label this a research prototype with exploratory results.
   code_note_zh: 作者将该实现标为研究原型，结果属探索性质。
@@ -2773,13 +2740,13 @@ entries:
   code_evidence_excerpt: https://github.com/GyoukChu/J-Zero
   code_metadata:
     repo_url: https://github.com/GyoukChu/J-Zero
-    stars_snapshot: 9
+    stars_snapshot: 10
     updated_at: '2026-09-10'
     pushed_at: '2026-09-10T23:36:01Z'
     archived: false
     private: false
     license: Apache-2.0
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/GyoukChu/J-Zero
 - name: 'Socratic-SWE: Self-Evolving Coding Agents via Trace-Derived Agent Skills'
   short_name: Socratic-SWE
@@ -2858,13 +2825,13 @@ entries:
   code_evidence_excerpt: https://github.com/zou-group/sirius
   code_metadata:
     repo_url: https://github.com/zou-group/sirius
-    stars_snapshot: 110
+    stars_snapshot: 111
     updated_at: '2025-12-01'
     pushed_at: '2025-12-01T23:49:34Z'
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/zou-group/sirius
 - name: 'Goedel Machines: Self-Referential Universal Problem Solvers Making Provably Optimal Self-Improvements'
   short_name: Gödel Machines
@@ -2986,7 +2953,7 @@ entries:
     archived: false
     private: false
     license: none
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/gravitywavelet/sgm-anon
   code_note_en: The linked repository now describes a later anonymous submission; the catalog summary refers to arXiv v1.
   code_note_zh: 所链接仓库现描述后续匿名投稿；本条概述以 arXiv v1 为准。
@@ -3036,7 +3003,7 @@ entries:
     archived: false
     private: false
     license: none
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/Yiwen-Ding/Guided-Self-Improvement
 - name: Meta^n
   repo_url: https://github.com/minnesotanlp/meta-n
@@ -3053,7 +3020,7 @@ entries:
   tags:
   - self-modification
   - meta-improvement
-  stars_snapshot: 29
+  stars_snapshot: 30
   updated_at: '2026-08-26'
   reviewed_at: '2026-09-12'
   rsi_mechanism:
@@ -3068,7 +3035,7 @@ entries:
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/minnesotanlp/meta-n
 - name: J-Zero
   repo_url: https://github.com/GyoukChu/J-Zero
@@ -3085,7 +3052,7 @@ entries:
   tags:
   - self-training
   - recursive-learning
-  stars_snapshot: 9
+  stars_snapshot: 10
   updated_at: '2026-09-10'
   reviewed_at: '2026-09-12'
   rsi_mechanism:
@@ -3100,44 +3067,8 @@ entries:
   archived: false
   private: false
   license: Apache-2.0
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/GyoukChu/J-Zero
-- name: autoresearch
-  repo_url: https://github.com/karpathy/autoresearch
-  category: Models / Training Research
-  kind: project
-  scope: bounded-optimization
-  summary_en: An AI agent autonomously modifies a small LLM training script, runs 5-minute experiments on a single GPU, evaluates
-    validation loss, and keeps or discards each change before proposing the next modification.
-  summary_zh: AI 代理自主修改小型 LLM 训练脚本，在单 GPU 上运行 5 分钟实验，评估验证损失，保留或丢弃修改后再提出下一轮改动。
-  limitation_en: The agent modifies an external training target, not its own weights or improvement procedure. The single-file
-    experiment loop and 5-minute budget constrain what can be explored. Repository maintenance stalled after 2026-03-26 with
-    185+ open issues and PRs unaddressed; community forks remain active.
-  limitation_zh: 代理修改的是外部训练目标，而非自身权重或改进流程。单文件实验循环和 5 分钟预算限制了可探索空间。仓库自 2026-03-26 后维护停滞，185+ open issue/PR 未处理；社区分叉仍活跃。
-  tags:
-  - model-training
-  - experiment-loop
-  - validation
-  stars_snapshot: 96074
-  updated_at: '2026-03-26'
-  reviewed_at: '2026-09-12'
-  rsi_mechanism:
-    target: LLM training code (train.py) including model architecture, optimizer, and training loop
-    feedback: Validation bits-per-byte measured after each 5-minute training run
-    update: AI agent proposes code edits via program.md instructions, keeps or discards based on val_bpb
-    persistence: Accepted code modifications accumulate in train.py for subsequent experiment rounds
-  evidence_url: https://github.com/karpathy/autoresearch/blob/master/README.md
-  evidence_excerpt: give an AI agent a small but real LLM training setup and let it experiment autonomously overnight
-  why_included: Highly influential autonomous ML experiment loop (95k+ stars) where an AI agent iteratively modifies training
-    code and evaluates results. Maintenance-stalled status noted in limitation.
-  activity_exempt: Landmark project (95k+ stars) with high RSI relevance; maintenance stalled since 2026-03-26 but community
-    forks remain active. Stalled status documented in limitation.
-  pushed_at: '2026-03-26T00:07:37Z'
-  archived: false
-  private: false
-  license: none
-  metadata_checked_at: '2026-09-16'
-  metadata_source: https://api.github.com/repos/karpathy/autoresearch
 - name: GenericAgent
   repo_url: https://github.com/lsdefine/GenericAgent
   category: Artifacts / Learned Skills
@@ -3153,8 +3084,8 @@ entries:
   - skill-learning
   - experience-accumulation
   - tool-use
-  stars_snapshot: 14195
-  updated_at: '2026-09-14'
+  stars_snapshot: 14218
+  updated_at: '2026-09-19'
   reviewed_at: '2026-09-12'
   rsi_mechanism:
     target: A growing skill tree of reusable task solutions
@@ -3165,11 +3096,11 @@ entries:
   evidence_excerpt: automatically crystallizes each task into a Skill that can be reused later
   why_included: High-adoption self-evolving agent (14k+ stars) with a documented skill-accumulation loop where task completion
     feeds back into persistent reusable artifacts for subsequent tasks.
-  pushed_at: '2026-09-14T03:43:01Z'
+  pushed_at: '2026-09-19T01:57:31Z'
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/lsdefine/GenericAgent
 - name: SIA
   repo_url: https://github.com/hexo-ai/sia
@@ -3187,7 +3118,7 @@ entries:
   - self-modification
   - weight-update
   - harness-evolution
-  stars_snapshot: 2151
+  stars_snapshot: 2156
   updated_at: '2026-08-26'
   reviewed_at: '2026-09-12'
   rsi_mechanism:
@@ -3203,7 +3134,7 @@ entries:
   archived: false
   private: false
   license: MIT
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/hexo-ai/sia
 - name: OpenRSI / OpenMLE
   repo_url: https://github.com/FrontisAI/OpenRSI
@@ -3222,8 +3153,8 @@ entries:
   - model-training
   - meta-evolution
   - program-evolution
-  stars_snapshot: 693
-  updated_at: '2026-09-08'
+  stars_snapshot: 726
+  updated_at: '2026-09-17'
   reviewed_at: '2026-09-12'
   rsi_mechanism:
     target: ML task solutions and the program-evolution operators that produce them
@@ -3235,11 +3166,11 @@ entries:
   evidence_excerpt: search produces experience, experience enters training, and trained models return to search
   why_included: Executable RSI stack with released model weights (Frontis-MA1 35B/30B) implementing a documented search-train-search
     loop, not merely a survey or paper list.
-  pushed_at: '2026-09-08T17:17:34Z'
+  pushed_at: '2026-09-17T14:17:36Z'
   archived: false
   private: false
   license: NOASSERTION
-  metadata_checked_at: '2026-09-16'
+  metadata_checked_at: '2026-09-20'
   metadata_source: https://api.github.com/repos/FrontisAI/OpenRSI
 - name: 'HELIX: Model-Harness Co-evolution for Recursive Self-Improvement'
   short_name: HELIX
@@ -3282,13 +3213,13 @@ entries:
   code_evidence_excerpt: https://github.com/HKUDS/HELIX
   code_metadata:
     repo_url: https://github.com/HKUDS/HELIX
-    stars_snapshot: 39
+    stars_snapshot: 41
     updated_at: '2026-08-17'
     pushed_at: '2026-08-17T05:21:43Z'
     archived: false
     private: false
     license: MIT
-    metadata_checked_at: '2026-09-16'
+    metadata_checked_at: '2026-09-20'
     metadata_source: https://api.github.com/repos/HKUDS/HELIX
 - name: 'RHI: Recursive Harness Self-Improvement'
   short_name: RHI
@@ -3663,3 +3594,267 @@ entries:
   venue_evidence_excerpt: ICML 2026
   code_status: not-found
   code_search_note: No author-linked GitHub repository found as of 2026-09-16.
+- name: 'Dream-RSI: Recursive Self-Improvement through Evolving Worlds'
+  short_name: Dream-RSI
+  repo_url: https://arxiv.org/abs/2609.14858
+  kind: paper
+  category: Papers / Harness
+  scope: self-modification
+  improvement_target: Harness
+  summary_en: Revises executable exploration policies using replayed discovery histories, then redeploys them to collect subsequent
+    improvement data. Experiments compare fixed exploration across algorithm, mathematics and kernel tasks, including held-out
+    Lasso datasets.
+  summary_zh: 利用发现历史的回放修订可执行探索策略，再部署新策略收集后续改进数据。实验在算法、数学和内核任务上对照固定探索策略，并包含留出的 Lasso 数据集。
+  limitation_en: Modification is restricted to exploration control; discovery/development models, evaluator and interfaces
+    stay fixed. Replay covers recorded outcomes only. Non-decreasing replay scores do not guarantee online improvement; task
+    gains vary. Full implementation remains unreleased.
+  limitation_zh: 修改仅限探索控制；发现模型、策略开发模型、评测器和接口保持固定。回放只覆盖已有结果；回放分数不下降不保证在线改进，各任务收益不同。完整实现尚未发布。
+  tags:
+  - self-modification
+  - exploration-policy
+  - replay-evaluation
+  stars_snapshot: 0
+  updated_at: '2026-09-14'
+  reviewed_at: '2026-09-20'
+  published_at: '2026-09-14'
+  rsi_mechanism:
+    target: Executable exploration-control policy
+    feedback: Historical replay scores balancing quality, cost and parallelism
+    update: Fixed development agent revises policy code; replay selects a version
+    persistence: Redeployed policy produces new discovery trees for subsequent policy revision
+  evidence_url: https://arxiv.org/html/2609.14858v1#S3
+  evidence_excerpt: Only the exploration-policy code changes; the underlying models, evaluator, and execution interfaces remain
+    fixed.
+  why_included: Meets the Harness control-procedure route because revised exploration machinery generates later improvement
+    experience. Controlled fixed-policy comparisons support this restricted loop, without demonstrating model self-training
+    or unrestricted self-rewriting.
+  publication_status: preprint
+  venue: null
+  venue_evidence_url: null
+  venue_evidence_excerpt: null
+  code_status: official
+  code_url: https://github.com/zhengkid/Dream-RSI
+  code_evidence_url: https://arxiv.org/html/2609.14858v1
+  code_evidence_excerpt: github.com/zhengkid/Dream-RSI
+  code_release: artifacts-only
+  code_note_en: Author-linked repository currently contains the paper and presentation assets. Its README marks the full codebase,
+    discovered-program release and reproduction scripts as pending; this is not a runnable implementation release.
+  code_note_zh: 作者关联仓库目前包含论文与展示材料。README 将完整代码库、发现程序的发布及复现脚本列为待发布，不属于可运行的实现发布。
+  code_metadata:
+    repo_url: https://github.com/zhengkid/Dream-RSI
+    stars_snapshot: 954
+    updated_at: '2026-09-16'
+    pushed_at: '2026-09-16T10:32:18Z'
+    archived: false
+    private: false
+    license: none
+    metadata_checked_at: '2026-09-20'
+    metadata_source: https://api.github.com/repos/zhengkid/Dream-RSI
+- name: Self Improvement via Fast Tree-search
+  short_name: SIFT
+  repo_url: https://arxiv.org/abs/2609.19526
+  kind: paper
+  category: Papers / Harness
+  scope: self-modification
+  improvement_target: Harness
+  summary_en: Evolves coding-agent implementations using pairwise LLM judgments and benchmark scores to select parents and
+    prioritize evaluation; archived descendants seed later code revisions. Experiments compare DGM/HGM baselines, judge ablations
+    and transfer across coding models.
+  summary_zh: 结合 LLM 成对评判与基准分数选择父代、安排评测，进化编码代理实现；归档后代继续作为代码修订起点。实验包含 DGM/HGM 基线、评判器消融和跨编码模型迁移。
+  limitation_en: Model weights and the search/judging procedure stay fixed; stronger external judges and benchmark checks
+    remain necessary. Full-benchmark results include the search subset, so they are not a wholly disjoint held-out evaluation.
+    Cost tables report individual runs, and unsafe evaluator edits are rejected.
+  limitation_zh: 模型权重及搜索、评判流程固定，仍依赖更强外部评判器与基准检查。完整基准包含搜索子集，并非完全独立的留出评测。成本表为单次运行结果，修改评测器的越界补丁会被拒绝。
+  tags:
+  - self-modification
+  - coding-agents
+  - evaluation-efficiency
+  stars_snapshot: 0
+  updated_at: '2026-09-17'
+  reviewed_at: '2026-09-20'
+  published_at: '2026-09-17'
+  rsi_mechanism:
+    target: Coding-agent source implementation
+    feedback: Pairwise judge rankings and executable benchmark outcomes
+    update: Patch a selected parent and evaluate its descendant
+    persistence: Descendant code, traces and archive rankings guide subsequent revisions
+  evidence_url: https://arxiv.org/html/2609.19526v1#S3
+  evidence_excerpt: the resulting signal from downstream tasks feeds the next round of self-modification
+  why_included: Direct code-level improvement with benchmark comparisons and judge ablations; efficiency gains do not establish
+    weight learning or a self-rewriting search rule.
+  publication_status: preprint
+  venue: null
+  venue_evidence_url: null
+  venue_evidence_excerpt: null
+  code_status: not-found
+  code_url: null
+  code_search_note: Reviewed arXiv abstract and full HTML v1, the Sakana AI publisher index, and exact-title/SIFT author-code
+    searches on 2026-09-20; no author-linked implementation established. OpenReview forum/pdf wZMNXHPYcO returned a browser
+    challenge, so its possible venue claim was not certified.
+- name: 'ScienceBuddy: Recursive-in-Recursive Self-Improvement for Interactive Scientific Agents'
+  short_name: ScienceBuddy
+  repo_url: https://arxiv.org/abs/2609.17523
+  kind: paper
+  category: Papers / Models
+  scope: self-training
+  improvement_target: Models
+  summary_en: Alternates feedback-guided harness revision with GRPO training of the task model; updated weights and the selected
+    harness enter subsequent cycles. A three-cycle scientific-task experiment reports single-attempt test accuracy rising
+    from 42.2% to 73.3%.
+  summary_zh: 交替执行反馈驱动的 harness 修订与任务模型 GRPO 训练，更新权重和选中 harness 进入后续循环。三轮科学任务实验报告单次尝试测试准确率从 42.2% 提升至 73.3%。
+  limitation_en: The auxiliary editor, rubric composer and evaluators remain fixed; researcher-derived tasks and three finite
+    cycles bound the result. The released simplified experiment uses different stage budgets from the paper and does not include
+    the hosted product or establish open-ended scientific improvement.
+  limitation_zh: 辅助编辑模型、评分准则生成器和评测器固定；结果限于源自研究者交互的任务与三轮实验。公开简化实验的阶段预算不同于论文，未包含托管产品，也未证明开放式科学能力增长。
+  tags:
+  - self-training
+  - harness-coevolution
+  - scientific-agents
+  stars_snapshot: 0
+  updated_at: '2026-09-15'
+  reviewed_at: '2026-09-20'
+  published_at: '2026-09-15'
+  rsi_mechanism:
+    target: Task-model weights with an adapted harness
+    feedback: Rubric rewards, executable checks and separate development evaluation
+    update: Select harness edits, collect on-policy trajectories, then train with GRPO
+    persistence: Updated checkpoints and inherited harnesses start subsequent cycles
+  evidence_url: https://arxiv.org/html/2609.17523v1#S2
+  evidence_excerpt: The updated model then returns to further harness adaptation
+  why_included: Reports repeated model-harness coupling and separate harness-only/model-only experiments; retained weights
+    generate later experience rather than merely storing skills.
+  publication_status: preprint
+  venue: null
+  venue_evidence_url: null
+  venue_evidence_excerpt: null
+  code_status: official
+  code_url: https://github.com/Gen-Verse/ScienceBuddy
+  code_evidence_url: https://arxiv.org/html/2609.17523v1
+  code_evidence_excerpt: Gen-Verse/ScienceBuddy
+  code_release: implementation
+  code_note_en: The paper links ScienceBuddy-RSI, which redirects to this canonical repository. README and docs/algorithm.md
+    describe a simplified three-cycle release with frozen tasks, three harness steps and 30 GRPO updates per stage, distinct
+    from the paper's ten-step/20-update experiment. Hosted product source is excluded.
+  code_note_zh: 论文链接的 ScienceBuddy-RSI 重定向至此规范仓库。README 与 docs/algorithm.md 描述冻结任务的三轮简化发布，每阶段三步 harness 搜索和 30 次 GRPO 更新，不同于论文的十步搜索、20
+    次更新实验；不含托管产品源码。
+  code_metadata:
+    repo_url: https://github.com/Gen-Verse/ScienceBuddy
+    stars_snapshot: 75
+    updated_at: '2026-09-17'
+    pushed_at: '2026-09-17T21:17:36Z'
+    archived: false
+    private: false
+    license: MIT
+    metadata_checked_at: '2026-09-20'
+    metadata_source: https://api.github.com/repos/Gen-Verse/ScienceBuddy
+- name: Scaling Self-Play with Self-Guidance
+  short_name: Self-Guided Self-Play (SGS)
+  repo_url: https://arxiv.org/abs/2604.20209
+  kind: paper
+  category: Papers / Models
+  scope: self-training
+  improvement_target: Models
+  summary_en: Co-trains a Solver and Conjecturer on verified Lean4 proofs. A frozen Guide scores generated subproblems for
+    relevance and clarity; updated models produce later problems and solutions. Long-run experiments and ablations examine
+    conjecturer degeneration and solver entropy collapse.
+  summary_zh: 用经 Lean4 验证的证明共同训练求解者与出题者；冻结的引导模型按相关性和清晰度评价合成子题，更新后的模型生成后续题目与解答。长程实验及消融检验出题退化与求解者熵坍塌。
+  limitation_en: Uses a fixed target-problem pool and formal verifier; the Guide is not trained. Headline comparisons measure
+    cumulative solves during training against a larger model's pass@4, not equal-budget held-out accuracy. Fitted asymptotes
+    are extrapolations, and non-verifiable domains remain untested.
+  limitation_zh: 依赖固定目标题集与形式验证器，引导模型不参与训练。主要比较是训练期间累计解题率与更大模型 pass@4，并非同预算的独立测试准确率。拟合渐近值属于外推，尚未验证不可形式验证的领域。
+  tags:
+  - self-training
+  - self-play
+  - formal-verification
+  stars_snapshot: 0
+  updated_at: '2026-08-11'
+  reviewed_at: '2026-09-20'
+  published_at: '2026-04-22'
+  rsi_mechanism:
+    target: Solver and Conjecturer weights
+    feedback: Lean4 correctness, solver success rates and frozen Guide scores
+    update: Separate RL updates for solving and useful task generation
+    persistence: Retained model checkpoints and solved-problem history shape subsequent self-play
+  evidence_url: https://arxiv.org/html/2604.20209v2#S3
+  evidence_excerpt: the Solver is updated using a reinforcement learning objective over rollouts on both original and synthetic
+    problems.
+  why_included: Sustained self-play with component ablations directly tests how updated task generators and solvers support
+    later learning.
+  publication_status: preprint
+  venue: null
+  venue_evidence_url: null
+  venue_evidence_excerpt: null
+  code_status: official
+  code_url: https://github.com/LukeBailey181/sgs
+  code_evidence_url: https://arxiv.org/html/2604.20209v2
+  code_evidence_excerpt: Code available at https://github.com/LukeBailey181/sgs
+  code_release: implementation
+  code_note_en: Author-linked implementation includes full SGS, frozen-conjecturer and no-Guide scripts. standard_sgs.py retains
+    both trained models; full_pipeline.py manages successive checkpoints. Experiments were not reproduced in this review.
+  code_note_zh: 作者关联实现包含完整 SGS、冻结出题者及无引导模型消融脚本。standard_sgs.py 保留两类模型的训练结果，full_pipeline.py 管理连续轮次 checkpoint；本轮未复现实验。
+  code_metadata:
+    repo_url: https://github.com/LukeBailey181/sgs
+    stars_snapshot: 82
+    updated_at: '2026-04-26'
+    pushed_at: '2026-04-26T20:27:07Z'
+    archived: false
+    private: false
+    license: none
+    metadata_checked_at: '2026-09-20'
+    metadata_source: https://api.github.com/repos/LukeBailey181/sgs
+- name: 'When AI Reviews Its Own Code: Recursive Self-Training Collapse in Code LLMs'
+  short_name: Recursive Code Self-Training Collapse
+  repo_url: https://arxiv.org/abs/2606.28438
+  kind: paper
+  category: Papers / Theory and Evaluation
+  scope: safety-evaluation
+  improvement_target: Models
+  summary_en: Compares unfiltered recursive code training, model-independent compile/static gates and model-coupled self-review
+    across four code models and five rounds. Self-review can increasingly accept generated code while benchmark correctness
+    deteriorates, exposing failure in the feedback used for subsequent training.
+  summary_zh: 在四个代码模型、五轮训练中比较无过滤递归训练、独立编译与静态检查、模型自身审查。自审可能越来越认可自产代码，而基准正确率下降，揭示后续训练反馈失效。
+  limitation_en: The main sweep uses Python and 1.1B-7B models. Human-gate is a name for simplified automated checks, not
+    actual human PR review or full semantic verification. Finite collapse experiments do not establish that all self-training
+    or stronger external verification must fail.
+  limitation_zh: 主要实验限于 Python 与 1.1B-7B 模型。Human-gate 指简化自动检查，不是真实人工 PR 审查或完整语义验证。有限轮次的坍塌实验不代表所有自训练或更强外部验证必然失败。
+  tags:
+  - safety-evaluation
+  - self-training
+  - evaluator-collapse
+  stars_snapshot: 0
+  updated_at: '2026-06-26'
+  reviewed_at: '2026-09-20'
+  published_at: '2026-06-26'
+  rsi_mechanism:
+    target: Code-model weights and reliability of self-review signals
+    feedback: Compile/static filters or current-model perplexity/binary judgments; independent benchmark outcomes measure
+      failure
+    update: Fine-tune on accepted self-generated code each round
+    persistence: Each checkpoint generates and self-scores the next round's data
+  evidence_url: https://arxiv.org/abs/2606.28438
+  evidence_excerpt: acceptance scores rise while benchmark correctness falls
+  why_included: A controlled recursive-loop failure study separating independent filters from endogenous review, with public
+    training scripts and per-round evaluation.
+  publication_status: preprint
+  venue: null
+  venue_evidence_url: null
+  venue_evidence_excerpt: null
+  code_status: official
+  code_url: https://github.com/Hik289/code-retraining
+  code_evidence_url: https://arxiv.org/html/2606.28438v1
+  code_evidence_excerpt: Codes are available at https://github.com/Hik289/code-retraining.git
+  code_release: implementation
+  code_note_en: The author-linked src/run_experiment.sh continues from the previous checkpoint for generation, filtering and
+    training. Current evaluation commands use temperature 0.0, whereas the paper's setup states 0.8; inspect configuration
+    before claiming reproduction.
+  code_note_zh: 作者关联 src/run_experiment.sh 将上一轮 checkpoint 用于生成、过滤与训练。当前评测命令使用 temperature 0.0，而论文设置写为 0.8；声称复现前需核对配置。
+  code_metadata:
+    repo_url: https://github.com/Hik289/code-retraining
+    stars_snapshot: 5
+    updated_at: '2026-09-07'
+    pushed_at: '2026-09-07T14:53:12Z'
+    archived: false
+    private: false
+    license: MIT
+    metadata_checked_at: '2026-09-20'
+    metadata_source: https://api.github.com/repos/Hik289/code-retraining
